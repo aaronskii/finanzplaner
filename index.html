@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f8fa">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Vermögensaufbau">
+<meta name="description" content="Dein privater Budgetplan und ETF-Rechner. Berechnungen und Daten bleiben auf deinem Gerät.">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icon-180.png">
+<link rel="icon" type="image/png" href="./icon-192.png">
+<link rel="stylesheet" href="./style.css">
+<title>Vermögensaufbau</title>
+<script src="./app.js" defer></script>
+<script src="./offline.js" defer></script>
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+<div class="brand"><span class="brandmark" id="brandicon"></span>Vermögensaufbau</div>
+<div class="topactions">
+<button class="iconbtn" data-action="export" title="Sicherung exportieren" aria-label="Sicherung exportieren" id="exporticon"></button>
+<button class="iconbtn" data-action="import" title="Sicherung importieren" aria-label="Sicherung importieren" id="importicon"></button>
+</div>
+</header>
+<div class="intro"><div><p class="eyebrow" id="eyebrow"></p><h1 id="pagetitle"></h1><p class="subtitle" id="pagesub"></p></div><span class="pill"><span class="dot"></span><span id="saved"></span></span></div>
+<div class="offlinebar" role="status"><span id="offline-status">Offline-Nutzung wird vorbereitet …</span><button id="offline-retry" class="textbtn hidden" type="button">Erneut versuchen</button><button id="update-button" class="textbtn hidden" type="button">Update laden</button></div>
+<nav aria-label="Hauptnavigation" id="nav"></nav>
+<div id="sample"></div><main id="content"></main>
+<p class="footnote">Dein Plan. Dein Tempo.<br><span id="storagefoot"></span><br>Keine Bankverbindung · keine automatische Synchronisierung</p>
+</div>
+<div id="modalroot"></div><div id="toast" class="toast hidden" role="status"></div>
+<input type="file" id="importfile" accept=".json,application/json" hidden>
+<noscript>Bitte aktiviere JavaScript, um deine Budgets zu planen.</noscript>
+</body></html>
