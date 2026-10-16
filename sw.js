@@ -1,6 +1,6 @@
 'use strict';
 // Bei jeder Veröffentlichung einer geänderten App VERSION erhöhen.
-const VERSION = '2.0.0-2026-10-16';
+const VERSION = '2.1.0-2026-10-16';
 const PREFIX = 'vermoegensaufbau-offline:' + self.registration.scope + ':';
 const CACHE = PREFIX + VERSION;
 const FILES = ['index.html', 'style.css', 'app.js', 'offline.js', 'manifest.webmanifest', 'icon-180.png', 'icon-192.png', 'icon-512.png'];

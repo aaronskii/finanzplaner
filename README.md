@@ -1,4 +1,4 @@
-# Vermögensaufbau – Version 2
+# Vermögensaufbau – Version 2.1
 
 **Dein Einkommen planen. Budgets im Blick behalten. Vermögen aufbauen.**
 
@@ -7,6 +7,14 @@ Vermögensaufbau ist eine kostenlose Web-App für deine persönliche Finanzplanu
 Es werden keine Kontobuchungen erfasst und keine Bankkonten verbunden. Die App ist ein Planungswerkzeug und führt keine Überweisungen aus.
 
 **[App öffnen →](https://aaronskii.github.io/vermoegensaufbau/)**
+
+## Neu in Version 2.1
+
+Bei Ratenkäufen in Essentials und Rewards zeigt die kleine Detailzeile jetzt den **verbleibenden Betrag und die Anzahl offener Raten** an.
+
+Der **aktuelle Monat gilt dabei bereits als bezahlt**. Gezählt werden nur Raten ab dem Folgemonat. Bei einem erst künftig beginnenden Ratenkauf ist noch die gesamte Laufzeit offen; nach dem letzten Ratenmonat steht der Rest auf 0 €. Bei geteilten Kosten wird nur dein persönlicher Anteil berechnet. Diese Werte entstehen automatisch aus Monatsrate, Startmonat und Laufzeit und ändern keine Budgets oder Kontozuordnungen.
+
+**Beispiel:** Bei 50 € monatlich und noch 6 Raten nach dem laufenden Monat zeigt die App **300 € Rest**. Bei aktivierter Kostenteilung derselben 50-€-Gesamtrate sind es **150 € dein Rest**.
 
 ## Neu in Version 2
 
