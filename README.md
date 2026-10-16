@@ -1,4 +1,4 @@
-# Vermögensaufbau
+# Vermögensaufbau – Version 2
 
 **Dein Einkommen planen. Budgets im Blick behalten. Vermögen aufbauen.**
 
@@ -7,6 +7,16 @@ Vermögensaufbau ist eine kostenlose Web-App für deine persönliche Finanzplanu
 Es werden keine Kontobuchungen erfasst und keine Bankkonten verbunden. Die App ist ein Planungswerkzeug und führt keine Überweisungen aus.
 
 **[App öffnen →](https://aaronskii.github.io/vermoegensaufbau/)**
+
+## Neu in Version 2
+
+- **Hell oder dunkel:** oben über das Sonne-/Mond-Symbol wechseln. Die Auswahl wird gespeichert; beim ersten Start folgt das Design der Systemeinstellung.
+- **Eigene Konten:** hinzufügen, bearbeiten und entfernen. Auch die Standardkonten sind entfernbar; das Girokonto bleibt als Eingangskonto erhalten.
+- **Gezielter freier Rest:** „Noch unverplant“ enthält nur den Rest aus Essentials und Growth. Rewards ist als eigener Topf reserviert.
+- **Raten auch bei Essentials:** Startmonat und Laufzeit in Monaten eingeben. Den letzten Ratenmonat berechnet die App.
+- **Mehr Alltagssymbole:** unter anderem Tanken, Bahn, Fahrrad, Haustier, Fitness, Gesundheit, Wasser, Kleidung und Urlaub.
+- **Prognose fürs iPhone:** 7 % einschließlich Wertzuwachs direkt oben, darunter zwei Kacheln für 5 % und 10 %.
+- **Datenübernahme:** vorhandene Version-1-Pläne und JSON-Sicherungen werden automatisch auf Version 2 umgestellt.
 
 ## Schnellstart
 
@@ -43,7 +53,7 @@ Die Grundaufteilung ist fest vorgegeben:
 
 Für jeden Bereich werden das Budget, der verplante Betrag und der verbleibende Betrag angezeigt. Der Stability-Beitrag wird direkt als für den Notgroschen vorgesehen behandelt.
 
-**„Noch unverplant“ ist eine rechnerische Planungsgröße, kein Kontostand.** Die App kennt weder deine tatsächlichen Kontoguthaben noch bereits getätigte Ausgaben.
+**„Noch unverplant“ zeigt ausschließlich die verbleibenden Beträge aus Essentials und Growth.** Rewards und Stability sind separat reserviert und gehören nicht zu diesem freien Rest. Rewards-Überbuchungen bleiben als eigene Warnung sichtbar. Der freie Rest ist eine rechnerische Planungsgröße, kein Kontostand: Die App kennt weder deine tatsächlichen Kontoguthaben noch bereits getätigte Ausgaben.
 
 ### Überbuchungen
 
@@ -72,9 +82,11 @@ Einkommensquellen und die Gesamtsparrate deines eigenen ETF-Sparplans werden nic
 
 ## Ratenkäufe und Symbole
 
-Rewards können laufende monatliche Ausgaben oder Ratenkäufe sein. Für einen Ratenkauf hinterlegst du die Monatsrate sowie den ersten und letzten Ratenmonat. Beide Monate zählen zur Laufzeit.
+Essentials und Rewards können laufende monatliche Ausgaben oder Ratenkäufe sein. Für einen Ratenkauf hinterlegst du die Monatsrate, den Startmonat und die Laufzeit in ganzen Monaten. Die App berechnet den letzten Ratenmonat automatisch und zeigt ihn im Formular an.
 
-Die Rate wird nur innerhalb dieser Monate im Budget und Einkommensverteiler berücksichtigt. Abgeschlossene Einträge bleiben sichtbar, belasten die aktuelle Planung aber nicht mehr.
+**Beispiel:** Start Dezember 2026 und 3 Monate Laufzeit ergeben Raten im Dezember 2026, Januar 2027 und Februar 2027. Die Laufzeit umfasst also den Startmonat. Möglich sind 1 bis 1200 Monate.
+
+Die Rate wird nur innerhalb der berechneten Laufzeit im Budget und Einkommensverteiler berücksichtigt. Abgeschlossene Einträge bleiben sichtbar, belasten die aktuelle Planung aber nicht mehr.
 
 Für deine Einträge stehen passende Symbole zur Auswahl, etwa Haus, Smartphone, Auto, Einkauf oder Schutzschild.
 
@@ -82,13 +94,19 @@ Für deine Einträge stehen passende Symbole zur Auswahl, etwa Haus, Smartphone,
 
 Der Verteiler geht davon aus, dass dein **gesamtes monatliches Einkommen zunächst auf dem Girokonto eingeht**. Er zeigt, welche Beträge dort eingeplant bleiben und welche auf andere Konten verteilt werden sollen.
 
-Diese fünf Konten stehen zur Verfügung:
+Mit diesen fünf Standardkonten startest du:
 
 - Girokonto
 - Fixkostenkonto
 - Spaßkonto
 - Gemeinschaftskonto
 - Lebensmittel & Tanken
+
+### Eigene Konten verwalten
+
+Unter **„Verteilen → Konten verwalten“** kannst du eigene Konten mit Namen, Symbol und Akzentfarbe hinzufügen. Bestehende Konten lassen sich über das Stiftsymbol bearbeiten und über das Papierkorbsymbol entfernen.
+
+**Das Girokonto bleibt immer erhalten.** Beim Entfernen eines anderen Kontos wählst du ein Ersatzkonto. Alle betroffenen Budgetkonten, Einzelzuordnungen und die ETF-Kontozuordnung werden auf dieses Konto umgestellt. Ausgaben und Sparraten werden dabei nicht gelöscht. Auch alle anderen Standardkonten können so entfernt werden.
 
 ### Standardkonto und einzelne Zuordnungen
 
@@ -136,7 +154,7 @@ Die Prognose nutzt ausschließlich:
 - deine **aktuelle monatliche ETF-Gesamtsparrate**,
 - eine Laufzeit von **1 bis 50 Jahren**.
 
-Verglichen werden **5 %, 7 % und 10 % effektive jährliche Rendite**. Die Rechnung verwendet eine entsprechende monatliche Verzinsung und Einzahlungen am Monatsende. Die Sparrate bleibt über die gewählte Laufzeit konstant.
+Verglichen werden **5 %, 7 % und 10 % effektive jährliche Rendite**. Der mögliche Depotwert und Wertzuwachs für 7 % stehen oben gemeinsam. Darunter zeigen zwei Kacheln die Ergebnisse bei 5 % und 10 %; alle drei Kurven bleiben im Diagramm enthalten. Die Rechnung verwendet eine entsprechende monatliche Verzinsung und Einzahlungen am Monatsende. Die Sparrate bleibt über die gewählte Laufzeit konstant.
 
 Angezeigt werden der prognostizierte Depotwert, die künftigen Einzahlungen und der rechnerische Wertzuwachs ab heute. Bisherige Gewinne innerhalb des aktuellen Depotwerts werden nicht als neue Einzahlungen ausgegeben.
 
@@ -167,9 +185,11 @@ Die App speichert gültige Änderungen lokal im jeweiligen Browser, sofern die S
 | **Exportieren** | Oben rechts das Symbol mit dem Pfeil nach unten wählen und die JSON-Datei aufbewahren |
 | **Importieren** | Oben rechts das Symbol mit dem Pfeil nach oben wählen, Sicherungsdatei auswählen und das Ersetzen der aktuellen Planung bestätigen |
 
-Die Sicherung enthält Einnahmen, Ausgaben, Ratenlaufzeiten, Symbole, gemeinsame Kosten samt Teilungshaken, ETF-Aufteilung, Sparrate, Depotwert, Prognoselaufzeit, Notgroschen, Sicherheitsstufe, Stability-Einstellungen und Kontozuordnungen.
+Die Sicherung enthält Einnahmen, Ausgaben, Ratenlaufzeiten, Symbole, gemeinsame Kosten samt Teilungshaken, ETF-Aufteilung, Sparrate, Depotwert, Prognoselaufzeit, Notgroschen, Sicherheitsstufe, Stability-Einstellungen, eigene Konten samt Symbolen und Farben, Kontozuordnungen und die Design-Einstellung.
 
 Ältere Sicherungen ohne Teilungsfunktion werden mit ihren bisherigen Beträgen als ungeteilte Einträge übernommen. Fehlende Kontozuordnungen älterer Sicherungen erhalten die Standardkonten.
+
+Version-1-Sicherungen sind importierbar. Bisherige Start- und Endmonate werden in Startmonat und Laufzeit umgerechnet; Beträge und das Ende der Raten bleiben gleich. Version-2-Sicherungen sind für Version 2 vorgesehen und lassen sich nicht in der alten Version 1 öffnen.
 
 Die geöffnete Registerkarte und die technisch zwischengespeicherten Website-Dateien gehören nicht zur JSON-Sicherung. Monatsabhängige Berechnungen richten sich nach dem aktuellen Datum.
 
@@ -199,6 +219,8 @@ Eine eigene kostenpflichtige Domain ist nicht erforderlich. `.nojekyll` ist eine
 Für die Offline-Installation muss die App über HTTPS geladen werden. Das bloße Öffnen der `index.html` als lokale Datei installiert die Offline-Funktion nicht. Zum lokalen Entwickeln kann beispielsweise ein Webserver unter `localhost` verwendet werden.
 
 ### App aktualisieren
+
+Vor dem Wechsel von Version 1 auf Version 2 bitte einen JSON-Export anlegen. Lade das komplette Version-2-Paket über die bestehenden Website-Dateien hoch; die Website-Adresse bleibt gleich. Die App behält den bisherigen lokalen Speicherort bei und wandelt den Plan automatisch um. Zusätzlich wird beim ersten Laden eines gültigen Version-1-Plans intern eine Kopie vor der Umstellung angelegt. Diese interne Kopie ersetzt keinen eigenen Export.
 
 Bei Änderungen am App-Code wird die Kennung `VERSION` in `sw.js` erhöht. Lade die zusammengehörigen neuen Website-Dateien gemeinsam hoch. Die neue Offline-Version wird erst nach vollständigem Laden aller benötigten Dateien installiert.
 
