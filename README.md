@@ -1,241 +1,194 @@
-# Vermögensaufbau – Version 2.1
+# Vermögensaufbau – Version 3.0
 
-**Dein Einkommen planen. Budgets im Blick behalten. Vermögen aufbauen.**
+**Einkommen planen, Budgets verstehen und Vermögen aufbauen.**
 
-Vermögensaufbau ist eine kostenlose Web-App für deine persönliche Finanzplanung. Du hinterlegst monatliche Einnahmen, geplante Ausgaben und Sparraten. Die App berechnet deine verfügbaren Budgets, hilft beim Verteilen deines Einkommens auf verschiedene Konten und visualisiert die mögliche Entwicklung deines eigenen ETF-Depots.
-
-Es werden keine Kontobuchungen erfasst und keine Bankkonten verbunden. Die App ist ein Planungswerkzeug und führt keine Überweisungen aus.
+Kostenlose Web-App ohne Bankanbindung, Kontobuchungen oder automatische Überweisungen. Deine Eingaben bleiben im jeweiligen Browser.
 
 **[App öffnen →](https://aaronskii.github.io/vermoegensaufbau/)**
 
-## Neu in Version 2.1
+## Neu in Version 3
 
-Bei Ratenkäufen in Essentials und Rewards zeigt die kleine Detailzeile jetzt den **verbleibenden Betrag und die Anzahl offener Raten** an.
-
-Der **aktuelle Monat gilt dabei bereits als bezahlt**. Gezählt werden nur Raten ab dem Folgemonat. Bei einem erst künftig beginnenden Ratenkauf ist noch die gesamte Laufzeit offen; nach dem letzten Ratenmonat steht der Rest auf 0 €. Bei geteilten Kosten wird nur dein persönlicher Anteil berechnet. Diese Werte entstehen automatisch aus Monatsrate, Startmonat und Laufzeit und ändern keine Budgets oder Kontozuordnungen.
-
-**Beispiel:** Bei 50 € monatlich und noch 6 Raten nach dem laufenden Monat zeigt die App **300 € Rest**. Bei aktivierter Kostenteilung derselben 50-€-Gesamtrate sind es **150 € dein Rest**.
-
-## Neu in Version 2
-
-- **Hell oder dunkel:** oben über das Sonne-/Mond-Symbol wechseln. Die Auswahl wird gespeichert; beim ersten Start folgt das Design der Systemeinstellung.
-- **Eigene Konten:** hinzufügen, bearbeiten und entfernen. Auch die Standardkonten sind entfernbar; das Girokonto bleibt als Eingangskonto erhalten.
-- **Gezielter freier Rest:** „Noch unverplant“ enthält nur den Rest aus Essentials und Growth. Rewards ist als eigener Topf reserviert.
-- **Raten auch bei Essentials:** Startmonat und Laufzeit in Monaten eingeben. Den letzten Ratenmonat berechnet die App.
-- **Mehr Alltagssymbole:** unter anderem Tanken, Bahn, Fahrrad, Haustier, Fitness, Gesundheit, Wasser, Kleidung und Urlaub.
-- **Prognose fürs iPhone:** 7 % einschließlich Wertzuwachs direkt oben, darunter zwei Kacheln für 5 % und 10 %.
-- **Datenübernahme:** vorhandene Version-1-Pläne und JSON-Sicherungen werden automatisch auf Version 2 umgestellt.
+- Ist-Kreisdiagramm mit eigenem unverplanten Anteil.
+- Geordnete Ausgabendetails, Zahlungsrhythmen und Monatsumrechnung.
+- Alphabetische Symbole und korrigierter Pfeil im App-Icon.
+- Eigener Bereich für das Altersvorsorgedepot mit Förder- und Auszahlungsmodell.
+- Gemeinsame Prognose für ETF und Vorsorge, darunter beide einzeln.
+- Optionale monatliche Fortschreibung am 2. oder 16.
+- Aufklappbarer ETF-Balancer für die nächste Sparrate.
+- Übernahme älterer Pläne und Sicherungen aus Version 1 und 2 einschließlich 2.1.
 
 ## Schnellstart
 
-1. Öffne die App. Beim ersten Besuch siehst du ausdrücklich gekennzeichnete, fiktive Beispieldaten.
-2. Wähle **„Mit eigenen Daten starten“**, um die Beispiele zu entfernen und einen leeren Plan anzulegen.
-3. Trage unter **„Planung“** deine monatlichen Netto-Einnahmen, Ausgaben und Sparraten ein.
-4. Wähle unter **„Verteilen“** die Standardkonten deiner Budgets. Einzelne Einträge können ein anderes Konto bekommen.
-5. Hinterlege unter **„Polster“** deinen aktuellen Notgroschen und die gewünschte Sicherheitsstufe.
-6. Ergänze unter **„Prognose“** deinen aktuellen ETF-Depotwert und wähle eine Laufzeit.
-7. Exportiere deinen Plan regelmäßig als Sicherung.
+1. Beim ersten Besuch erscheinen gekennzeichnete Beispieldaten.
+2. Mit **„Mit eigenen Daten starten“** einen leeren Plan anlegen.
+3. Unter **Planung** Einnahmen, Ausgaben und Sparraten eintragen.
+4. Unter **Verteilen** Budgetkonten und gegebenenfalls einzelne abweichende Konten wählen.
+5. Unter **Polster** Notgroschenstand und Sicherheitsstufe einstellen.
+6. ETF- und Vorsorgewerte sowie gegebenenfalls die Förderbedingungen ergänzen.
+7. Automatische Fortschreibung nur bewusst aktivieren; regelmäßig exportieren.
 
-## Die fünf Bereiche
+## Einkommen, Budget und Diagramme
 
-| Bereich | Was du dort findest |
-| --- | --- |
-| **Übersicht** | Gesamteinkommen, Budgetaufteilung, verbleibende Beträge, Notgroschen und ETF-Depotwert |
-| **Planung** | Einnahmen, einzelne Ausgaben, Ratenkäufe, ETF-Sparplan und weitere Growth-Anlagen |
-| **Verteilen** | Kontozuordnung und gebündelte Überweisungsübersicht für den Monatsanfang |
-| **Polster** | Zielbetrag und Stand des Notgroschens sowie die flexible Stability-Verteilung |
-| **Prognose** | ETF-Modellrechnung mit drei Renditeszenarien und einstellbarer Laufzeit |
+Alle monatlichen Netto-Einnahmen werden addiert.
 
-## Einkommen und Budgets
-
-Du kannst mehrere frei benennbare Einkommensquellen anlegen, etwa Nettogehalt, Kindergeld oder weitere monatliche Netto-Einnahmen. Sie werden zum gesamten monatlichen Einkommen addiert.
-
-Die Grundaufteilung ist fest vorgegeben:
-
-| Budget | Anteil | Beispiele |
+| Budget | Anteil | Verwendung |
 | --- | ---: | --- |
-| **Essentials** | 50 % | Miete, Versicherungen, Lebensmittel, Energie und Abos |
-| **Stability** | 15 % | Aufbau des Notgroschens |
-| **Rewards** | 10 % | Freizeit, Spaßausgaben und Ratenkäufe |
-| **Growth** | 25 % | Eigener ETF-Sparplan, Altersvorsorge, vermögenswirksame Leistungen und Gold |
+| Essentials | 50 % | Miete, Versicherungen, Lebensmittel, laufende Kosten |
+| Stability | 15 % | Notgroschen |
+| Rewards | 10 % | Freizeit, Spaßausgaben, passende Ratenkäufe |
+| Growth | 25 % | ETF-Sparplan, Altersvorsorge, VL, Gold usw. |
 
-Für jeden Bereich werden das Budget, der verplante Betrag und der verbleibende Betrag angezeigt. Der Stability-Beitrag wird direkt als für den Notgroschen vorgesehen behandelt.
+Überbuchte Essentials werden aus Growth ausgeglichen, überbuchtes Growth aus Essentials. Reicht beides nicht, bleibt die Unterdeckung sichtbar. Rewards-Überbuchungen werden markiert und nicht aus anderen Töpfen ausgeglichen.
 
-**„Noch unverplant“ zeigt ausschließlich die verbleibenden Beträge aus Essentials und Growth.** Rewards und Stability sind separat reserviert und gehören nicht zu diesem freien Rest. Rewards-Überbuchungen bleiben als eigene Warnung sichtbar. Der freie Rest ist eine rechnerische Planungsgröße, kein Kontostand: Die App kennt weder deine tatsächlichen Kontoguthaben noch bereits getätigte Ausgaben.
+**„Noch unverplant“ ganz oben zählt nur den Rest aus Essentials und Growth.** Rewards und Stability sind dort separat reserviert.
 
-### Überbuchungen
+Der Ziel-Kreis zeigt die vorgesehene Aufteilung. Der neue **Ist-Kreis** zeigt deine eingetragenen Monatsanteile und den unverplanten Teil des gesamten Einkommens. Stability zählt als vorgesehener Sparbeitrag. Der unverplante Anteil im Kreis umfasst auch unbelegte Rewards-Beträge und kann deshalb größer als die Zahl oben sein. Die unterschiedlichen Grundlagen sind im Diagramm erklärt.
 
-- Überschreitest du Essentials, wird der Mehrbetrag aus Growth ausgeglichen.
-- Überschreitest du Growth, wird der Mehrbetrag aus Essentials ausgeglichen.
-- Reichen die beiden Budgets zusammen nicht aus, bleibt die Unterdeckung sichtbar.
-- Rewards-Überbuchungen werden deutlich markiert und nicht automatisch aus einem anderen Budget ausgeglichen.
+Bei Überplanung gibt es keine negativen Kreisstücke; die Kreisanteile beziehen sich dann auf den gesamten verplanten Betrag, die Unterdeckung wird angegeben. Die App kennt keine echten Kontostände.
 
-Ein Ausgleich verändert das verfügbare Budget. Er ändert keine von dir eingetragene Ausgabe oder ETF-Sparrate.
+## Zahlungsrhythmen und gemeinsame Kosten
 
-## Gemeinsame Kosten durch zwei teilen
+| Auswahl | Einzutragender Betrag | Monatsanteil |
+| --- | --- | --- |
+| Monatlich | Eine Monatszahlung | Betrag |
+| Vierteljährlich | Eine Quartalszahlung | Betrag ÷ 3 |
+| Halbjährlich | Eine Halbjahreszahlung | Betrag ÷ 6 |
+| Jährlich | Eine Jahreszahlung | Betrag ÷ 12 |
 
-Bei Ausgaben in Essentials, Rewards und den weiteren Growth-Anlagen kannst du **„Kosten durch zwei teilen“** aktivieren.
+Beispiel: 600 € jährliche Versicherung ergeben 50 € Monatsanteil. Der Verteiler berücksichtigt diese Monatsrücklage, nicht eine fällige Jahresrechnung. Die auf Cent gerundeten Monatsanteile können geringfügig von der exakten Jahressumme abweichen.
 
-**Beispiel:** Du trägst **700 € Miete als Gesamtbetrag** ein und setzt den Haken. Im Budget und im Einkommensverteiler werden dann **350 € als dein Anteil** berücksichtigt.
+**„Kosten durch zwei teilen“** berücksichtigt deinen hälftigen Anteil: 700 € gemeinsame Monatsmiete ergeben 350 €; 1.200 € jährliche gemeinsame Kosten ergeben 50 € pro Monat. Immer den gemeinsamen Gesamtbetrag eingeben, keinen schon halbierten Betrag.
 
-- Die Vorschau im Formular zeigt deinen Anteil bereits vor dem Speichern.
-- Der eingetragene Gesamtbetrag bleibt erhalten und ist später bearbeitbar.
-- Entfernst du den Haken, zählt wieder der volle Betrag.
-- Die Teilung funktioniert auch bei gemeinsamen Ratenkäufen.
-- Bei ungeraden Centbeträgen wird dein Anteil auf volle Cent gerundet.
+Die große Zahl am Eintrag ist dein Monatsanteil. Konto, abweichender Rhythmus, Teilung und Ratendetails stehen strukturiert darunter. Symbole sind nach der deutschen Bezeichnung alphabetisch sortiert.
 
-Trage bei aktivierter Teilung immer den **gemeinsamen Gesamtbetrag** ein, nicht einen bereits halbierten Betrag. Die andere Person und deren Anteil werden nicht separat verwaltet. Bei 700 € gemeinsamer Miete weist dein Einkommensverteiler deshalb nur deine 350 € dem ausgewählten Konto zu.
+### Ratenkäufe
 
-Einkommensquellen und die Gesamtsparrate deines eigenen ETF-Sparplans werden nicht halbiert.
+Essentials und Rewards unterstützen Monatsrate, Startmonat und Laufzeit. Der Startmonat zählt mit; die App berechnet den letzten Ratenmonat. Raten haben immer monatlichen Rhythmus.
 
-## Ratenkäufe und Symbole
+Restbetrag und offene Raten stehen in den Details. **Der aktuelle Monat gilt als bezahlt.** Künftige Verträge sind vollständig offen; nach der letzten Rate stehen 0 € aus. Geteilte Kosten zeigen deinen persönlichen Rest. Inaktive Raten bleiben sichtbar und belasten das aktuelle Budget nicht.
 
-Essentials und Rewards können laufende monatliche Ausgaben oder Ratenkäufe sein. Für einen Ratenkauf hinterlegst du die Monatsrate, den Startmonat und die Laufzeit in ganzen Monaten. Die App berechnet den letzten Ratenmonat automatisch und zeigt ihn im Formular an.
+## Einkommensverteiler und Konten
 
-**Beispiel:** Start Dezember 2026 und 3 Monate Laufzeit ergeben Raten im Dezember 2026, Januar 2027 und Februar 2027. Die Laufzeit umfasst also den Startmonat. Möglich sind 1 bis 1200 Monate.
+Das gesamte Einkommen wird zunächst auf dem **Girokonto** angenommen. Der Verteiler zeigt, was dort bleibt und was auf andere Konten gehört.
 
-Die Rate wird nur innerhalb der berechneten Laufzeit im Budget und Einkommensverteiler berücksichtigt. Abgeschlossene Einträge bleiben sichtbar, belasten die aktuelle Planung aber nicht mehr.
+Standardkonten: Girokonto, Fixkostenkonto, Spaßkonto, Gemeinschaftskonto sowie Lebensmittel & Tanken. Eigene Konten mit Namen, Symbol und Farbe lassen sich unter **Verteilen → Konten verwalten** ergänzen und bearbeiten. Nur das Girokonto bleibt zwingend erhalten.
 
-Für deine Einträge stehen passende Symbole zur Auswahl, etwa Haus, Smartphone, Auto, Einkauf oder Schutzschild.
+Beim Entfernen eines Kontos wählst du ein Ersatzkonto, das alle Budget-, Ausgaben- und Sparratenzuordnungen übernimmt. Die Beträge werden nicht gelöscht.
 
-## Der Einkommensverteiler
+Einträge mit **„Budgetkonto“** folgen dem Standardkonto ihres Budgets; auch freie Budgetreste werden dort bereitgestellt. Einzelne Einträge sowie ETF- und Vorsorge-Sparrate können abweichen. Die Zahlen sind monatliche Einkommenszuweisungen. Vorhandene Guthaben und ausgeführte Überweisungen werden nicht verrechnet.
 
-Der Verteiler geht davon aus, dass dein **gesamtes monatliches Einkommen zunächst auf dem Girokonto eingeht**. Er zeigt, welche Beträge dort eingeplant bleiben und welche auf andere Konten verteilt werden sollen.
+## Notgroschen
 
-Mit diesen fünf Standardkonten startest du:
+**Zielbetrag = gesamtes monatliches Netto × Sicherheitsstufe.**
 
-- Girokonto
-- Fixkostenkonto
-- Spaßkonto
-- Gemeinschaftskonto
-- Lebensmittel & Tanken
-
-### Eigene Konten verwalten
-
-Unter **„Verteilen → Konten verwalten“** kannst du eigene Konten mit Namen, Symbol und Akzentfarbe hinzufügen. Bestehende Konten lassen sich über das Stiftsymbol bearbeiten und über das Papierkorbsymbol entfernen.
-
-**Das Girokonto bleibt immer erhalten.** Beim Entfernen eines anderen Kontos wählst du ein Ersatzkonto. Alle betroffenen Budgetkonten, Einzelzuordnungen und die ETF-Kontozuordnung werden auf dieses Konto umgestellt. Ausgaben und Sparraten werden dabei nicht gelöscht. Auch alle anderen Standardkonten können so entfernt werden.
-
-### Standardkonto und einzelne Zuordnungen
-
-Jedes Budget erhält ein Standardkonto. Einträge mit der Auswahl **„Budgetkonto“** folgen automatisch dieser Zuordnung. Auch noch unverplante Budgetanteile werden diesem Standardkonto zugewiesen.
-
-Für einzelne Ausgaben, weitere Growth-Anlagen und die ETF-Sparrate kannst du stattdessen ein eigenes Konto auswählen. Beispielsweise können die Miete aufs Fixkostenkonto und Lebensmittel auf „Lebensmittel & Tanken“ entfallen, obwohl beide zu Essentials gehören.
-
-Die Kontodetails lassen sich aufklappen. Dort siehst du die zugehörigen Einträge und verbleibenden Budgetanteile. Der automatische Ausgleich zwischen Essentials und Growth sowie die aktive Stability-Verteilung werden berücksichtigt.
-
-Die Beträge sind **monatliche Einkommenszuweisungen**, keine Zielkontostände. Vorhandene Guthaben, Zahlungen und bereits ausgeführte Überweisungen werden nicht abgezogen. Bei Unterdeckungen solltest du die Planung ausgleichen, bevor du die Überweisungsbeträge übernimmst.
-
-## Notgroschen und Stability
-
-Der erforderliche Notgroschen wird aus deinem gesamten monatlichen Nettoeinkommen berechnet:
-
-**Zielbetrag = gesamtes monatliches Nettoeinkommen × Sicherheitsstufe**
-
-| Sicherheitsstufe | Faktor |
+| Stufe | Faktor |
 | --- | ---: |
-| **Basis** | 3 Monate |
-| **Komfort** | 5 Monate |
-| **Maximum** | 7 Monate |
+| Basis | 3 Monate |
+| Komfort | 5 Monate |
+| Maximum | 7 Monate |
 
-Du trägst den aktuellen Stand selbst ein. Die App zeigt Zielbetrag, Fortschritt, fehlenden Betrag und gegebenenfalls die rechnerisch noch erforderlichen Monatsbeiträge an. Es findet keine automatische Erhöhung des tatsächlichen Notgroschenstands statt.
+Stand manuell pflegen oder optional fortschreiben lassen. Die Stability-Verteilung zwischen Growth und Rewards ist jederzeit einstellbar. Im Zielmonat bleibt noch der volle Beitrag für den Notgroschen vorgesehen, danach greift die Umverteilung. Optional kann sie bereits vor vollem Notgroschen aktiviert werden.
 
-### Stability auf Growth und Rewards verteilen
+Zusätzliches Growth-Budget erhöht nicht automatisch die ETF- oder Vorsorge-Sparrate.
 
-Die prozentuale Aufteilung der Stability-Mittel zwischen Growth und Rewards ist jederzeit einstellbar.
+## ETF-Sparplan und Balancer
 
-- Standardmäßig wird sie nach Erreichen des Notgroschenziels aktiv.
-- Im Monat der erstmaligen Zielerreichung bleibt noch der **volle Stability-Beitrag** für den Notgroschen vorgesehen, auch wenn dadurch der Zielbetrag überschritten wird.
-- Ab dem Folgemonat wird die vorgemerkte Verteilung aktiv.
-- Über **„Schon vor vollem Notgroschen verteilen“** lässt sich die Verteilung auch früher einschalten.
-- Bei einem bereits vollen Notgroschen kannst du über **„Ziel erst diesen Monat erreicht“** festlegen, ob der volle Beitrag im laufenden Monat noch reserviert bleiben soll.
+Aktuellen ETF-Depotwert, monatliche Sparrate, Konto und ETF-Zielgewichte hinterlegen. Zielgewichte müssen zusammen 100 % ergeben.
 
-Die Umverteilung erhöht das verfügbare Growth- und Rewards-Budget. Sie erhöht nicht automatisch deine ETF-Sparrate.
+Unter **Planung → Dein ETF-Sparplan → ETF-Balancer** die aktuellen ETF-Anteile eintragen. Bei vorhandenem Depotwert müssen auch diese zusammen 100 % ergeben. Bei leerem Depot verteilt der Balancer die Sparrate nach den Zielen.
 
-## ETF-Sparplan und Vermögensprognose
+Depotwert und Sparrate werden übernommen. Berechnet werden ausschließlich **neue Käufe für die nächste Sparrate**, keine Verkäufe. Ist das Ziel damit noch nicht erreichbar, wird es ohne Verkäufe bestmöglich angenähert und entsprechend gekennzeichnet. Auf Cent gerundete Vorschläge ergeben zusammen die Sparrate.
 
-Hinterlege die monatliche Gesamtsparrate deines eigenen ETF-Sparplans und verteile sie prozentual auf deine ETFs. Die Anteile sollen zusammen **100 %** ergeben. Die App zeigt die daraus berechneten monatlichen ETF-Beträge an und markiert eine unvollständige oder überhöhte Aufteilung.
+Die Empfehlung ändert keinen Broker-Sparplan oder deine Zielgewichte. Keine Berücksichtigung von Kursschwankungen, Gebühren oder Mindestordervolumen. Aktuelle Anteile sind eine manuelle Momentaufnahme und müssen bei Veränderungen aktualisiert werden.
 
-Die Prognose nutzt ausschließlich:
+## Altersvorsorgedepot
 
-- den von dir eingetragenen **aktuellen Wert deines eigenen ETF-Depots**,
-- deine **aktuelle monatliche ETF-Gesamtsparrate**,
-- eine Laufzeit von **1 bis 50 Jahren**.
+Eigener Growth-Baustein mit Depotwert, monatlichem Eigenbeitrag und Konto. Eigenbeiträge zählen einmal zum Growth-Budget, Zulagen nicht als zusätzliches Gehalt.
 
-Verglichen werden **5 %, 7 % und 10 % effektive jährliche Rendite**. Der mögliche Depotwert und Wertzuwachs für 7 % stehen oben gemeinsam. Darunter zeigen zwei Kacheln die Ergebnisse bei 5 % und 10 %; alle drei Kurven bleiben im Diagramm enthalten. Die Rechnung verwendet eine entsprechende monatliche Verzinsung und Einzahlungen am Monatsende. Die Sparrate bleibt über die gewählte Laufzeit konstant.
+Ein eindeutig benannter bisheriger Vorsorgedepot-Eintrag wird bei der Übernahme alter Pläne in den neuen Bereich verschoben. Bei mehreren möglichen Treffern bleiben die alten Einträge erhalten. **„Growth-Eintrag übernehmen“** erlaubt die manuelle Zuordnung; der Monatsanteil wird zur Vorsorge-Sparrate addiert und aus weiteren Anlagen entfernt.
 
-Angezeigt werden der prognostizierte Depotwert, die künftigen Einzahlungen und der rechnerische Wertzuwachs ab heute. Bisherige Gewinne innerhalb des aktuellen Depotwerts werden nicht als neue Einzahlungen ausgegeben.
+### Fördermodell ab 2027
 
-**Altersvorsorge, vermögenswirksame Leistungen und sonstige Growth-Anlagen fließen nicht in diese Prognose ein.** Ihre Beiträge zählen weiterhin zum Growth-Budget.
+Recherchestand: **18.10.2026**. Beiträge beginnen im Modell frühestens im eingestellten Startmonat ab 2027. **Unmittelbare Förderberechtigung** und einen zertifizierten Vertrag selbst prüfen und die entsprechende Option nur dann aktivieren. Mittelbare Berechtigung über Ehepartner und steuerliche Günstigerprüfung werden nicht berechnet.
 
-Die Szenarien sind Modellrechnungen, keine garantierte Entwicklung. Steuern, zusätzliche Kosten und Inflation sind nicht berücksichtigt.
+- Mindestens **120 € Eigenbeitrag je Kalenderjahr** für Zulagen.
+- Grundzulage: **50 % der ersten 360 €**, danach **25 % bis 1.800 € Eigenbeitrag**, höchstens **540 € jährlich**.
+- Kinderzulage je berechtigtem, dir zugeordnetem Kind: Eigenbeitrag bis höchstens **300 € pro Jahr und Kind**. Volle Kinderzulage ab 300 € Eigenbeitrag.
+- Einmalig **200 € Einsteigerbonus**, wenn zu Beginn des maßgeblichen Beitragsjahres das 25. Lebensjahr noch nicht vollendet ist. Optionales Geburtsdatum für die Altersprüfung eintragen. Bereits erhaltenen oder im Wert enthaltenen Bonus markieren.
+- Höchstens **6.840 € Eigenbeitrag jährlich**, entsprechend 570 € bei konstanten Monatsraten.
 
-## Auf dem iPhone wie eine App verwenden
+Anzahl der Kinder und **letztes Förderjahr je Kind** festlegen. Kindergeldanspruch und Zuordnung werden nicht automatisch geprüft. Neue Kinder stehen zunächst nur für das laufende Jahr; das Ende auf deine passende Annahme ändern. Die Förderung wird nicht unbegrenzt bis zur Rente fortgeschrieben.
 
-1. Öffne die Website mit Internetverbindung in **Safari**.
-2. Wähle **Teilen → Zum Home-Bildschirm**.
-3. Aktiviere, falls angeboten, **„Als Web-App öffnen“** und füge sie hinzu.
-4. Starte sie über das neue Symbol, zunächst weiterhin mit Internet.
-5. Warte, bis **„Offline bereit“** angezeigt wird.
+### Quellen
 
-Danach kannst du die App auch ohne Internet öffnen, Eingaben ändern und Berechnungen nutzen. Zum Testen aktiviere den Flugmodus, schalte WLAN aus und öffne die App erneut über ihr Symbol.
+- [Bundesregierung: Reform der privaten Altersvorsorge](https://www.bundesregierung.de/breg-de/aktuelles/reform-private-altersvorsorge-2400072)
+- [Altersvorsorgereformgesetz, BGBl. I 2026 Nr. 156](https://www.recht.bund.de/bgbl/1/2026/156/VO.html)
+- [Beschlossener Gesetzestext, Bundesratsdrucksache 206/26](https://dserver.bundestag.de/brd/2026/0206-26.pdf), insbesondere neue §§ 84–86 EStG und § 1 AltZertG.
 
-Für einen Offline-Import muss auch deine Sicherungsdatei auf dem Gerät verfügbar sein. Lade eine nur in der Cloud liegende Datei vorher herunter.
+## Gemeinsame Prognose und Auszahlung
 
-**Safari und die Home-Bildschirm-App können getrennte Datenspeicher verwenden.** Importiere deinen bisherigen Plan bei Bedarf direkt in der über das Symbol gestarteten App.
+Oben werden ETF und Altersvorsorge zusammengerechnet, darunter einzeln gezeigt. VL und andere Anlagen sind ausgeschlossen.
 
-## Speichern, Exportieren und Importieren
+Gemeinsame Laufzeit: 1 bis 50 Jahre. Szenarien: **5 %, 7 % und 10 % effektive Jahresrendite**, monatliche Verzinsung, konstante Eigenbeiträge am Monatsende. Aktuelle Depotwerte sind das Startkapital.
 
-Die App speichert gültige Änderungen lokal im jeweiligen Browser, sofern die Speicherung erlaubt ist. Bei direkt bearbeitbaren Betragsfeldern bestätigst du die Eingabe durch Verlassen des Feldes; Einträge in einem Formular über **„Speichern“**.
+Vorsorgezulagen entstehen aus zukünftigen Modellbeiträgen eines Kalenderjahres und werden vereinfachend im Dezember gutgeschrieben. Tatsächliche Gutschriften können später erfolgen. Frühere Beiträge und mögliche nachträgliche Ansprüche daraus werden nicht rückwirkend berechnet. Zulagen stehen getrennt vom Wertzuwachs.
 
-| Funktion | Bedienung |
-| --- | --- |
-| **Exportieren** | Oben rechts das Symbol mit dem Pfeil nach unten wählen und die JSON-Datei aufbewahren |
-| **Importieren** | Oben rechts das Symbol mit dem Pfeil nach oben wählen, Sicherungsdatei auswählen und das Ersetzen der aktuellen Planung bestätigen |
+Ohne Steuern, zusätzliche Produktkosten und Inflation; keine garantierte Entwicklung.
 
-Die Sicherung enthält Einnahmen, Ausgaben, Ratenlaufzeiten, Symbole, gemeinsame Kosten samt Teilungshaken, ETF-Aufteilung, Sparrate, Depotwert, Prognoselaufzeit, Notgroschen, Sicherheitsstufe, Stability-Einstellungen, eigene Konten samt Symbolen und Farben, Kontozuordnungen und die Design-Einstellung.
+### Brutto-Auszahlungsmodell
 
-Ältere Sicherungen ohne Teilungsfunktion werden mit ihren bisherigen Beträgen als ungeteilte Einträge übernommen. Fehlende Kontozuordnungen älterer Sicherungen erhalten die Standardkonten.
+Der 7-%-Endwert des Vorsorgedepots wird gleichmäßig über die eingestellte Auszahlung verteilt, ohne weitere Rendite: Beginn zwischen 65 und 70, Ende zwischen 85 und 100. Von 65 bis 85 sind das 20 Jahre, von 67 bis 85 sind es 18.
 
-Version-1-Sicherungen sind importierbar. Bisherige Start- und Endmonate werden in Startmonat und Laufzeit umgerechnet; Beträge und das Ende der Raten bleiben gleich. Version-2-Sicherungen sind für Version 2 vorgesehen und lassen sich nicht in der alten Version 1 öffnen.
+Gesetzliche Auszahlungspläne enden frühestens mit 85 und können ihre Planraten neu festlegen. Für die Berechnung der Planrate sind mindestens 80 % des verbleibenden Kapitals geteilt durch die verbleibenden Monate vorgesehen. Die vereinfachte App-Rechnung verwendet den gesamten Betrag und keine spätere Auszahlungsrendite.
 
-Die geöffnete Registerkarte und die technisch zwischengespeicherten Website-Dateien gehören nicht zur JSON-Sicherung. Monatsabhängige Berechnungen richten sich nach dem aktuellen Datum.
+Der angenommene Beginn gilt für den gezeigten Endwert und wird **nicht** aus Geburtsdatum und Prognoselaufzeit abgeleitet. Keine Zusage einer lebenslangen Rente. Leistungen aus geförderten Beiträgen werden grundsätzlich nachgelagert besteuert; eine persönliche Netto-Auszahlung wird nicht berechnet.
 
-**Exportiere regelmäßig eine Sicherung.** Browserdaten können durch Löschen, Gerätewechsel oder Speicherbereinigung verloren gehen. Offline-Nutzung ersetzt kein Backup. Die JSON-Datei ist unverschlüsselt und sollte privat aufbewahrt werden; lade sie nicht in ein öffentliches Repository hoch.
+## Automatische Fortschreibung
 
-## Datenschutz und Nutzung durch mehrere Personen
+Bei ETF, Vorsorge und Notgroschen jeweils **„Automatisch fortschreiben → Einstellen“** öffnen. Die Funktion ist zunächst aus. Buchungstag (2. oder 16.) und ersten Monat bewusst wählen, damit bereits enthaltene Beiträge nicht erneut hinzukommen.
 
-- Persönliche Finanzdaten werden von der App nicht an einen Server übertragen.
-- Es gibt keine Registrierung, keine Bankanbindung, keine eingebauten Tracker und keine automatische Synchronisierung.
-- Die Website-Dateien werden über GitHub Pages geladen. Der Hostinganbieter verarbeitet dabei die üblichen Website-Anfragen; deine lokalen Finanzeingaben werden nicht mitgesendet.
-- Andere Personen auf anderen Geräten starten mit den eingebauten Beispieldaten und können unabhängig ihren eigenen Plan anlegen.
-- Wer dieselbe Browserumgebung auf deinem Gerät verwendet, kann deinen lokalen Plan sehen. Eine zusätzliche Zugangssperre innerhalb der App ist nicht vorhanden.
+- ETF: gespeicherte Monatsrate zum Depotwert addieren.
+- Vorsorge: Eigenbeitrag frühestens ab Startmonat addieren.
+- Notgroschen: vorgesehenen Stability-Beitrag addieren; im Zielmonat vollständig, danach gegebenenfalls 0 €.
+- Bereits verarbeitete Monate werden nicht doppelt gebucht, auch beim Wechsel zwischen dem 2. und 16.
+- Bei geschlossener App keine garantierte Hintergrundaktion. Fällige Monate werden beim nächsten Öffnen mit den bis dahin gespeicherten Beträgen nachgeholt.
+- **Keine automatischen Gewinne, Zinsen oder Fördergutschriften** auf den aktuellen Wert.
 
-Ein gemeinsamer Link erzeugt keinen gemeinsamen Datenbestand. Ein Geräte- oder Browserwechsel erfolgt per Export und Import.
+Aktuelle Bestände bleiben manuell korrigierbar. Die Korrektur ist der neue Stand; bereits verarbeitete Monate werden nicht wiederholt. Nicht vor das Datum zurückplanen, bis zu dem dein Bestand Beiträge bereits enthält.
 
-## Eine eigene Kopie bereitstellen
+Beim Wiederaktivieren wird eine künftige erste Buchung vorgeschlagen. Nach dem Import einer Sicherung mit aktiven Einstellungen können noch fällige Monate nachgeholt werden. Buchungsmarkierungen sind Teil der Sicherung. Die Fortschreibung führt keine echten Zahlungen aus.
 
-Die App besteht aus statischen Dateien und benötigt weder eine Datenbank noch einen eigenen Anwendungsserver. Für GitHub Pages genügt ein kostenloses Konto mit einem öffentlichen Repository.
+## Speicherung, Datenschutz und Sicherungen
 
-1. Kopiere die Website-Dateien in das Hauptverzeichnis deines Repositorys: `index.html`, `style.css`, `app.js`, `offline.js`, `sw.js`, `manifest.webmanifest` und die drei `icon-*.png`-Dateien.
-2. Öffne **Settings → Pages**.
-3. Wähle **Deploy from a branch**, den Branch **main** und **/(root)**. Speichere die Einstellung.
-4. Öffne nach der Bereitstellung die dort angezeigte Website-Adresse.
+Änderungen bleiben lokal, sofern der Browser Speicherung erlaubt. Betragsfelder durch Verlassen bestätigen; Formulare über Speichern sichern.
 
-Eine eigene kostenpflichtige Domain ist nicht erforderlich. `.nojekyll` ist eine optionale, absichtlich leere Datei für die direkte Auslieferung der Website-Dateien.
+**Export:** Pfeil nach unten oben rechts. **Import:** Pfeil nach oben; ersetzt nach Bestätigung den lokalen Plan. Die JSON-Datei enthält alle Einträge und Einstellungen einschließlich Rhythmus, Konten, Anteile, Vorsorge, Kinder, optionalem Geburtsdatum und Buchungsmarkierungen.
 
-Für die Offline-Installation muss die App über HTTPS geladen werden. Das bloße Öffnen der `index.html` als lokale Datei installiert die Offline-Funktion nicht. Zum lokalen Entwickeln kann beispielsweise ein Webserver unter `localhost` verwendet werden.
+Ältere Sicherungen sind importierbar; Version-3-Sicherungen sind nicht für ältere App-Versionen bestimmt. Exportdateien sind unverschlüsselt und privat aufzubewahren. **Niemals persönliche JSON-Dateien ins öffentliche Repository laden.**
 
-### App aktualisieren
+Regelmäßig exportieren: Löschen von Website-Daten, Speicherbereinigung oder Gerätewechsel können lokale Daten entfernen. Offline ersetzt kein Backup.
 
-Vor dem Wechsel von Version 1 auf Version 2 bitte einen JSON-Export anlegen. Lade das komplette Version-2-Paket über die bestehenden Website-Dateien hoch; die Website-Adresse bleibt gleich. Die App behält den bisherigen lokalen Speicherort bei und wandelt den Plan automatisch um. Zusätzlich wird beim ersten Laden eines gültigen Version-1-Plans intern eine Kopie vor der Umstellung angelegt. Diese interne Kopie ersetzt keinen eigenen Export.
+Andere Personen auf anderen Geräten starten mit Beispieldaten. Wer dieselbe Browserumgebung auf deinem Gerät nutzt, kann deinen Plan sehen; keine zusätzliche App-Sperre. Keine Anmeldung, Bankanbindung, automatische Geräte-Synchronisierung oder eingebauten Tracker. Der Hostinganbieter verarbeitet die üblichen Website-Anfragen; die App sendet deine Finanzfelder nicht mit.
 
-Bei Änderungen am App-Code wird die Kennung `VERSION` in `sw.js` erhöht. Lade die zusammengehörigen neuen Website-Dateien gemeinsam hoch. Die neue Offline-Version wird erst nach vollständigem Laden aller benötigten Dateien installiert.
+## iPhone und Offline-Nutzung
 
-Nutzer öffnen die App einmal online und wählen **„Update laden“**, sobald die Schaltfläche erscheint. Offene Einträge vorher speichern oder schließen. Lokale Pläne bleiben bei einem gewöhnlichen App-Update bestehen; eine vorherige Sicherung ist dennoch sinnvoll.
+1. Website online in Safari öffnen.
+2. **Teilen → Zum Home-Bildschirm → Als Web-App öffnen**, falls angeboten.
+3. Über das Symbol einmal online starten und auf **„Offline bereit“** warten.
+4. Flugmodus aktivieren, WLAN ausschalten und zum Test erneut starten.
 
-## Grenzen der App
+Safari und installierte App können getrennte Datenspeicher haben. Sicherung gegebenenfalls direkt in der installierten App importieren. Für Offline-Import muss die Datei lokal verfügbar sein.
 
-Die App plant einen laufenden monatlichen Zustand. Sie bietet keine Buchungshistorie, keinen Kontenabgleich und keine automatische Erfassung tatsächlicher Zahlungen. Eingetragene Einnahmen und Ausgaben werden nicht zum Monatswechsel gelöscht; Ratenlaufzeiten und die Stability-Regel werden anhand des aktuellen Monats neu ausgewertet.
+Das iPhone kann das alte Icon zwischenspeichern. Vor einem eventuellen erneuten Hinzufügen der App den Plan exportieren; Daten werden beim Neuinstallieren nicht als automatisch übertragen vorausgesetzt.
 
-Das Ziel ist eine verständliche Übersicht für deine eigenen Entscheidungen: **Was ist verplant, was bleibt übrig und wohin soll das Einkommen verteilt werden?**
+## Bereitstellung und Update
+
+Vorher den bisherigen Plan exportieren. ZIP entpacken und den **Inhalt des Website-Ordners** vollständig im bisherigen Repository hochladen. Gleichnamige Dateien ersetzen, neue ergänzen; index.html bleibt im Hauptverzeichnis.
+
+**Version 3 benötigt auch die neuen Dateien model-v3.js und ui-v3.js.** Das Paket enthält außerdem app.js, style.css, offline.js, sw.js, manifest.webmanifest und die Icons.
+
+GitHub Pages: **Settings → Pages → Deploy from a branch → main → /(root) → Save**. Keine eigene Domain erforderlich. Nach Bereitstellung App online öffnen, offene Eingaben speichern und **„Update laden“** wählen. Unten steht **Version 3.0**. Auf „Offline bereit“ warten.
+
+Die Adresse bleibt gleich; alte Pläne werden umgestellt. Beim ersten Laden eines gültigen älteren Plans wird zusätzlich intern eine Kopie vor Version 3 angelegt, die einen eigenen Export nicht ersetzt. Für eine Rückkehr zur alten App-Version ihre vorherige alte Sicherung verwenden.
+
+Bei Codeänderungen VERSION in sw.js erhöhen und alle zusammengehörigen Dateien veröffentlichen. Die neue Offline-Version wird erst nach vollständigem Download aller nötigen Dateien installiert. HTTPS oder ein lokaler Entwicklungsserver unter localhost ist nötig; das Öffnen als lokale HTML-Datei installiert keine Offline-App.

@@ -1,9 +1,9 @@
 'use strict';
 // Bei jeder Veröffentlichung einer geänderten App VERSION erhöhen.
-const VERSION = '2.1.0-2026-10-16';
+const VERSION = '3.0.0-2026-10-18';
 const PREFIX = 'vermoegensaufbau-offline:' + self.registration.scope + ':';
 const CACHE = PREFIX + VERSION;
-const FILES = ['index.html', 'style.css', 'app.js', 'offline.js', 'manifest.webmanifest', 'icon-180.png', 'icon-192.png', 'icon-512.png'];
+const FILES = ['index.html', 'style.css', 'app.js', 'model-v3.js', 'ui-v3.js', 'offline.js', 'manifest.webmanifest', 'icon-180.png', 'icon-192.png', 'icon-512.png'];
 const urls = FILES.map(file => new URL(file, self.registration.scope).href);
 
 self.addEventListener('install', event => {
