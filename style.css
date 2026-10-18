@@ -38,3 +38,36 @@ html[data-theme="dark"] .brandmark{background:#dce8df;color:#16241b}
 .forecast-separate{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:20px}.forecast-panel .big{font-size:clamp(23px,3vw,36px)}.forecast-panel .pair{align-items:flex-start}.forecast-panel .pair b{white-space:normal;text-align:right;overflow-wrap:anywhere;max-width:50%}.forecast-panel .status{overflow-wrap:anywhere}.retirementcard .field label{line-height:1.5}.retirementcard .status{overflow-wrap:anywhere}a{color:var(--green)}
 @media(max-width:759px){.entrydetails>div{grid-template-columns:59px minmax(0,1fr);gap:5px}.entrydetails{font-size:10px}.expense-row{gap:8px}.expense-row .entryicon{width:32px;height:32px;border-radius:10px}.expense-row .money{font-size:12px;max-width:29%;white-space:normal;overflow-wrap:anywhere;text-align:right}.expense-row .editbtn{padding:6px 0 6px 3px}.actualbody{gap:18px;align-items:flex-start}.actualcard .ring{width:102px;height:102px}.actuallegend .pair{font-size:10px;gap:6px}.actuallegend{gap:7px}.actuallegend b{white-space:normal;text-align:right}.forecast-separate{grid-template-columns:1fr;gap:16px}.twofields{gap:10px}.balancercontent{padding:14px}.autocard{align-items:flex-start}.forecast-panel .big{font-size:clamp(23px,7.5vw,34px)}.retirementcard .twofields{grid-template-columns:1fr 1fr}}
 @media(max-width:350px){.actualbody{gap:12px}.actualcard .ring{width:83px;height:83px}.entrydetails>div{grid-template-columns:1fr;gap:0}.entrydetails>div dt{font-size:9px}.actuallegend .pair{font-size:9px}.twofields{grid-template-columns:1fr}}
+/* Version 3.1: intrinsische Formularbreiten auch in iPhone-Safari begrenzen. */
+.field{min-inline-size:0;max-inline-size:100%;grid-template-columns:minmax(0,1fr)}
+form,fieldset,details,.inputwrap,.twofields>*,.grid>*,.stack>*{min-inline-size:0;max-inline-size:100%}
+fieldset{margin-inline:0}.inputwrap{inline-size:100%}
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),select{display:block;inline-size:100%;min-inline-size:0;max-inline-size:100%;box-sizing:border-box}
+input[type="month"],input[type="date"]{-webkit-appearance:none;appearance:none;inline-size:100%;min-inline-size:0;max-inline-size:100%;min-block-size:48px;text-align:start;overflow:hidden}
+input[type="month"]::-webkit-date-and-time-value,input[type="date"]::-webkit-date-and-time-value{text-align:left;min-inline-size:0;white-space:nowrap;min-block-size:1.4em}
+input::-webkit-datetime-edit{min-inline-size:0;max-inline-size:100%;padding:0}
+input::-webkit-calendar-picker-indicator{flex-shrink:0;margin-inline-start:4px}
+.field label,.switchrow>span{min-inline-size:0;overflow-wrap:anywhere}.twofields{grid-template-columns:repeat(2,minmax(0,1fr))}
+.modal{inline-size:100%;max-inline-size:470px}.modalback{max-inline-size:100vw}.modal input,.modal select{max-inline-size:100%}
+.standalone-auto>.autocard{margin-top:0;padding-top:0;border-top:0}
+.overview-income{margin-bottom:20px}.overview-income .huge{font-size:clamp(28px,7vw,48px)}
+.overview-charts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.overview-charts>.card{min-width:0;margin-top:0}.overview-charts .sectionhead{margin-bottom:22px}
+.overview-charts .ringwrap,.overview-charts .actualbody{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:24px;margin-top:0}
+.overview-charts .ring{inline-size:142px;block-size:142px;flex-shrink:0}
+.overview-charts .legend,.overview-charts .actuallegend{inline-size:100%;max-inline-size:290px;flex:auto}
+.overview-charts .legend>div{display:grid;grid-template-columns:7px 48px minmax(0,1fr);gap:9px;font-size:12px}
+.overview-charts .actuallegend .pair{font-size:12px}.diagramnote{margin:14px 0 24px}.overview-assets{align-items:start}
+@media(max-width:759px){
+ .overview-charts{gap:12px}.overview-charts>.card{padding:17px 13px;border-radius:20px}
+ .overview-charts h2{font-size:15px;letter-spacing:-.3px}.overview-charts .sectionhead .sub{font-size:10px;line-height:1.5}
+ .overview-charts .sectionhead{margin-bottom:18px;min-height:49px;align-items:flex-start}
+ .overview-charts .ring{inline-size:110px;block-size:110px}
+ .overview-charts .ringwrap,.overview-charts .actualbody{gap:19px}
+ .overview-charts .legend{gap:10px}.overview-charts .legend>div{font-size:10px;grid-template-columns:6px 36px minmax(0,1fr);gap:5px}
+ .overview-charts .actuallegend{gap:7px}.overview-charts .actuallegend .pair{font-size:10px;gap:4px}
+ .overview-charts .actuallegend .pair>span{min-width:0}.overview-charts .actuallegend .pair b{white-space:normal;overflow-wrap:anywhere;text-align:right}
+ .overview-charts .actuallegend .dot{width:5px;height:5px;margin-right:4px!important}
+ .overview-income{padding:23px}.diagramnote{font-size:10px}.overview-assets .stack{gap:16px}
+}
+@media(max-width:350px){.twofields{grid-template-columns:minmax(0,1fr)}.overview-charts{gap:8px}.overview-charts>.card{padding:15px 10px}.overview-charts h2{font-size:14px}.overview-charts .ring{inline-size:97px;block-size:97px}.overview-charts .legend>div,.overview-charts .actuallegend .pair{font-size:9px}.overview-charts .legend>div{grid-template-columns:5px 31px minmax(0,1fr)}}

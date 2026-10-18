@@ -43,12 +43,30 @@ function retirementSeries(years,annualRate,referenceMonth=month()){
  return {values,paid,grants,value,totalPaid,totalGrant};
 }
 function retirementPayout(capital){const months=(state.retirement.payoutEnd-state.retirement.payoutStart)*12;return {months,monthly:capital/months,minimumInitial:capital*.8/months}}
+
+// V3.0-Prozentwerte einmalig in Euro übernehmen; spätere Depotänderungen skalieren sie nicht.
+function migrateBalancerValues(s){
+ if(!Array.isArray(s.funds))return;
+ const allLegacy=s.funds.length>0&&s.funds.every(f=>f&&f.currentValue===undefined);
+ const completePercent=allLegacy&&s.funds.every(f=>typeof f.currentPercent==='number'&&Number.isFinite(f.currentPercent)&&f.currentPercent>=0&&f.currentPercent<=100);
+ const percentTotal=completePercent?s.funds.reduce((sum,f)=>sum+f.currentPercent,0):0;
+ if(completePercent&&Math.abs(percentTotal-100)<=.011&&typeof s.portfolio==='number'&&Number.isFinite(s.portfolio)){
+  const capital=Math.round(s.portfolio*100),raw=s.funds.map(f=>capital*f.currentPercent/percentTotal),cents=raw.map(v=>Math.floor(v));
+  let rest=capital-cents.reduce((sum,v)=>sum+v,0);
+  const order=raw.map((v,i)=>({i,remainder:v-Math.floor(v)})).sort((a,b)=>b.remainder-a.remainder||a.i-b.i);
+  for(let i=0;rest>0;rest--,i++)cents[order[i%order.length].i]++;
+  s.funds.forEach((f,i)=>f.currentValue=cents[i]/100);
+ }else for(const f of s.funds)if(f&&f.currentValue===undefined){f.currentValue=typeof f.currentPercent==='number'&&Number.isFinite(f.currentPercent)&&f.currentPercent>=0&&f.currentPercent<=100?Math.round(s.portfolio*f.currentPercent)/100:null;}
+ for(const f of s.funds)if(f)delete f.currentPercent;
+}
+
 function balanceEtfs(portfolio,monthly,funds){
- const targetTotal=funds.reduce((s,f)=>s+f.percent,0),currentTotal=funds.reduce((s,f)=>s+(f.currentPercent??0),0);
- if(!funds.length||Math.abs(targetTotal-100)>.01)return {error:'Die Zielgewichte müssen zusammen 100 % ergeben.'};
- if(portfolio>0&&(funds.some(f=>f.currentPercent===null)||Math.abs(currentTotal-100)>.01))return {error:'Trage die aktuellen ETF-Anteile ein; zusammen müssen sie 100 % ergeben.'};
+ const targetTotal=funds.reduce((s,f)=>s+f.percent,0),currentTotal=funds.reduce((s,f)=>s+Math.round((f.currentValue??0)*100),0);
+ if(!funds.length||Math.abs(targetTotal-100)>1e-6)return {error:'Die Zielgewichte müssen zusammen 100 % ergeben.'};
+ if(portfolio>0&&funds.some(f=>f.currentValue===null||f.currentValue===undefined))return {error:'Trage den aktuellen Wert jedes ETFs in Euro ein.'};
+ if(currentTotal!==Math.round(portfolio*100))return {error:'Die Summe deiner ETF-Werte ('+euro(currentTotal/100)+') muss dem Depotwert ('+euro(portfolio)+') entsprechen.'};
  const centBudget=Math.round(monthly*100),budget=centBudget/100;
- const current=funds.map(f=>portfolio*(portfolio>0?f.currentPercent:0)/100),deficits=funds.map((f,i)=>(portfolio+budget)*f.percent/100-current[i]);
+ const current=funds.map(f=>f.currentValue??0),deficits=funds.map((f,i)=>(portfolio+budget)*f.percent/100-current[i]);
  let low=0,high=Math.max(0,...deficits);
  for(let i=0;i<90;i++){const mid=(low+high)/2,sum=deficits.reduce((s,d)=>s+Math.max(0,d-mid),0);if(sum>budget)low=mid;else high=mid;}
  const raw=deficits.map(d=>Math.max(0,d-(low+high)/2)*100),cents=raw.map(v=>Math.floor(v+1e-8));
@@ -57,7 +75,7 @@ function balanceEtfs(portfolio,monthly,funds){
  for(let j=0;missing>0;j++,missing--)cents[order[j%order.length].i]++;
  // Gegen numerische Grenzfälle bei sehr großen Depotwerten absichern.
  for(let j=0;missing<0;j++){const i=order[order.length-1-j%order.length].i;if(cents[i]>0){cents[i]--;missing++;}}
- const rows=funds.map((f,i)=>({name:f.name,target:f.percent,current:portfolio>0?f.currentPercent:0,payment:cents[i]/100,after:portfolio+budget>0?(current[i]+cents[i]/100)/(portfolio+budget)*100:f.percent}));
+ const rows=funds.map((f,i)=>({name:f.name,target:f.percent,current:portfolio>0?current[i]/portfolio*100:0,currentValue:current[i],payment:cents[i]/100,after:portfolio+budget>0?(current[i]+cents[i]/100)/(portfolio+budget)*100:f.percent}));
  return {rows,exact:rows.every(x=>Math.abs(x.after-x.target)<.02),total:centBudget/100};
 }
 function applyContributions(now=new Date()){

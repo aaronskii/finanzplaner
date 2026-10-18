@@ -1,10 +1,19 @@
-# Vermögensaufbau – Version 3.0
+# Vermögensaufbau – Version 3.1
 
 **Einkommen planen, Budgets verstehen und Vermögen aufbauen.**
 
 Kostenlose Web-App ohne Bankanbindung, Kontobuchungen oder automatische Überweisungen. Deine Eingaben bleiben im jeweiligen Browser.
 
 **[App öffnen →](https://aaronskii.github.io/vermoegensaufbau/)**
+
+## Neu in Version 3.1
+
+- ETF-Balancer: aktuelle ETF-Bestände in **Euro**, Zielgewichte weiterhin in Prozent. Die Summe der Bestände muss zum angezeigten Depotwert passen.
+- Vorhandene Prozentangaben aus Version 3.0 werden einmalig anhand des gespeicherten Depotwerts centgenau in Euro umgerechnet. Spätere Änderungen des Depotwerts skalieren diese manuellen Einzelwerte nicht automatisch.
+- Ziel- und Ist-Kreis stehen gemeinsam oben auf der Übersicht. Das Altersvorsorgedepot steht unmittelbar unter dem ETF-Plan.
+- Einheitliche Namen: **Safety** (bisher Stability), **Lifestyle** (bisher Rewards), **Wealth** (bisher Growth). Die Aufteilung und Berechnungen bleiben unverändert.
+- Monats- und Datumsfelder sowie ihre Formularcontainer haben begrenzte Breiten für schmale Bildschirme und Safari.
+- Die zusätzliche Kontobeschriftung und der leere Bereich über dem automatischen Fortschreiben unter Polster sind entfernt.
 
 ## Neu in Version 3
 
@@ -34,15 +43,15 @@ Alle monatlichen Netto-Einnahmen werden addiert.
 | Budget | Anteil | Verwendung |
 | --- | ---: | --- |
 | Essentials | 50 % | Miete, Versicherungen, Lebensmittel, laufende Kosten |
-| Stability | 15 % | Notgroschen |
-| Rewards | 10 % | Freizeit, Spaßausgaben, passende Ratenkäufe |
-| Growth | 25 % | ETF-Sparplan, Altersvorsorge, VL, Gold usw. |
+| Safety | 15 % | Notgroschen |
+| Lifestyle | 10 % | Freizeit, Spaßausgaben, passende Ratenkäufe |
+| Wealth | 25 % | ETF-Sparplan, Altersvorsorge, VL, Gold usw. |
 
-Überbuchte Essentials werden aus Growth ausgeglichen, überbuchtes Growth aus Essentials. Reicht beides nicht, bleibt die Unterdeckung sichtbar. Rewards-Überbuchungen werden markiert und nicht aus anderen Töpfen ausgeglichen.
+Überbuchte Essentials werden aus Wealth ausgeglichen, überbuchtes Wealth aus Essentials. Reicht beides nicht, bleibt die Unterdeckung sichtbar. Lifestyle-Überbuchungen werden markiert und nicht aus anderen Töpfen ausgeglichen.
 
-**„Noch unverplant“ ganz oben zählt nur den Rest aus Essentials und Growth.** Rewards und Stability sind dort separat reserviert.
+**„Noch unverplant“ ganz oben zählt nur den Rest aus Essentials und Wealth.** Lifestyle und Safety sind dort separat reserviert.
 
-Der Ziel-Kreis zeigt die vorgesehene Aufteilung. Der neue **Ist-Kreis** zeigt deine eingetragenen Monatsanteile und den unverplanten Teil des gesamten Einkommens. Stability zählt als vorgesehener Sparbeitrag. Der unverplante Anteil im Kreis umfasst auch unbelegte Rewards-Beträge und kann deshalb größer als die Zahl oben sein. Die unterschiedlichen Grundlagen sind im Diagramm erklärt.
+Der Ziel-Kreis zeigt die vorgesehene Aufteilung. Der neue **Ist-Kreis** zeigt deine eingetragenen Monatsanteile und den unverplanten Teil des gesamten Einkommens. Safety zählt als vorgesehener Sparbeitrag. Der unverplante Anteil im Kreis umfasst auch unbelegte Lifestyle-Beträge und kann deshalb größer als die Zahl oben sein. Die unterschiedlichen Grundlagen sind im Diagramm erklärt.
 
 Bei Überplanung gibt es keine negativen Kreisstücke; die Kreisanteile beziehen sich dann auf den gesamten verplanten Betrag, die Unterdeckung wird angegeben. Die App kennt keine echten Kontostände.
 
@@ -63,7 +72,7 @@ Die große Zahl am Eintrag ist dein Monatsanteil. Konto, abweichender Rhythmus, 
 
 ### Ratenkäufe
 
-Essentials und Rewards unterstützen Monatsrate, Startmonat und Laufzeit. Der Startmonat zählt mit; die App berechnet den letzten Ratenmonat. Raten haben immer monatlichen Rhythmus.
+Essentials und Lifestyle unterstützen Monatsrate, Startmonat und Laufzeit. Der Startmonat zählt mit; die App berechnet den letzten Ratenmonat. Raten haben immer monatlichen Rhythmus.
 
 Restbetrag und offene Raten stehen in den Details. **Der aktuelle Monat gilt als bezahlt.** Künftige Verträge sind vollständig offen; nach der letzten Rate stehen 0 € aus. Geteilte Kosten zeigen deinen persönlichen Rest. Inaktive Raten bleiben sichtbar und belasten das aktuelle Budget nicht.
 
@@ -87,25 +96,25 @@ Einträge mit **„Budgetkonto“** folgen dem Standardkonto ihres Budgets; auch
 | Komfort | 5 Monate |
 | Maximum | 7 Monate |
 
-Stand manuell pflegen oder optional fortschreiben lassen. Die Stability-Verteilung zwischen Growth und Rewards ist jederzeit einstellbar. Im Zielmonat bleibt noch der volle Beitrag für den Notgroschen vorgesehen, danach greift die Umverteilung. Optional kann sie bereits vor vollem Notgroschen aktiviert werden.
+Stand manuell pflegen oder optional fortschreiben lassen. Die Safety-Verteilung zwischen Wealth und Lifestyle ist jederzeit einstellbar. Im Zielmonat bleibt noch der volle Beitrag für den Notgroschen vorgesehen, danach greift die Umverteilung. Optional kann sie bereits vor vollem Notgroschen aktiviert werden.
 
-Zusätzliches Growth-Budget erhöht nicht automatisch die ETF- oder Vorsorge-Sparrate.
+Zusätzliches Wealth-Budget erhöht nicht automatisch die ETF- oder Vorsorge-Sparrate.
 
 ## ETF-Sparplan und Balancer
 
 Aktuellen ETF-Depotwert, monatliche Sparrate, Konto und ETF-Zielgewichte hinterlegen. Zielgewichte müssen zusammen 100 % ergeben.
 
-Unter **Planung → Dein ETF-Sparplan → ETF-Balancer** die aktuellen ETF-Anteile eintragen. Bei vorhandenem Depotwert müssen auch diese zusammen 100 % ergeben. Bei leerem Depot verteilt der Balancer die Sparrate nach den Zielen.
+Unter **Planung → Dein ETF-Sparplan → ETF-Balancer** die aktuellen Euro-Werte der ETFs eintragen. Ihre Summe muss dem Depotwert entsprechen. Bei leerem Depot bleiben die Werte leer oder stehen auf 0 €; die Sparrate wird nach den Zielgewichten verteilt.
 
 Depotwert und Sparrate werden übernommen. Berechnet werden ausschließlich **neue Käufe für die nächste Sparrate**, keine Verkäufe. Ist das Ziel damit noch nicht erreichbar, wird es ohne Verkäufe bestmöglich angenähert und entsprechend gekennzeichnet. Auf Cent gerundete Vorschläge ergeben zusammen die Sparrate.
 
-Die Empfehlung ändert keinen Broker-Sparplan oder deine Zielgewichte. Keine Berücksichtigung von Kursschwankungen, Gebühren oder Mindestordervolumen. Aktuelle Anteile sind eine manuelle Momentaufnahme und müssen bei Veränderungen aktualisiert werden.
+Die Empfehlung ändert keinen Broker-Sparplan oder deine Zielgewichte. Keine Berücksichtigung von Kursschwankungen, Gebühren oder Mindestordervolumen. Aktuelle ETF-Werte sind eine manuelle Momentaufnahme und müssen bei Veränderungen aktualisiert werden.
 
 ## Altersvorsorgedepot
 
-Eigener Growth-Baustein mit Depotwert, monatlichem Eigenbeitrag und Konto. Eigenbeiträge zählen einmal zum Growth-Budget, Zulagen nicht als zusätzliches Gehalt.
+Eigener Wealth-Baustein mit Depotwert, monatlichem Eigenbeitrag und Konto. Eigenbeiträge zählen einmal zum Wealth-Budget, Zulagen nicht als zusätzliches Gehalt.
 
-Ein eindeutig benannter bisheriger Vorsorgedepot-Eintrag wird bei der Übernahme alter Pläne in den neuen Bereich verschoben. Bei mehreren möglichen Treffern bleiben die alten Einträge erhalten. **„Growth-Eintrag übernehmen“** erlaubt die manuelle Zuordnung; der Monatsanteil wird zur Vorsorge-Sparrate addiert und aus weiteren Anlagen entfernt.
+Ein eindeutig benannter bisheriger Vorsorgedepot-Eintrag wird bei der Übernahme alter Pläne in den neuen Bereich verschoben. Bei mehreren möglichen Treffern bleiben die alten Einträge erhalten. **„Wealth-Eintrag übernehmen“** erlaubt die manuelle Zuordnung; der Monatsanteil wird zur Vorsorge-Sparrate addiert und aus weiteren Anlagen entfernt.
 
 ### Fördermodell ab 2027
 
@@ -149,7 +158,7 @@ Bei ETF, Vorsorge und Notgroschen jeweils **„Automatisch fortschreiben → Ein
 
 - ETF: gespeicherte Monatsrate zum Depotwert addieren.
 - Vorsorge: Eigenbeitrag frühestens ab Startmonat addieren.
-- Notgroschen: vorgesehenen Stability-Beitrag addieren; im Zielmonat vollständig, danach gegebenenfalls 0 €.
+- Notgroschen: vorgesehenen Safety-Beitrag addieren; im Zielmonat vollständig, danach gegebenenfalls 0 €.
 - Bereits verarbeitete Monate werden nicht doppelt gebucht, auch beim Wechsel zwischen dem 2. und 16.
 - Bei geschlossener App keine garantierte Hintergrundaktion. Fällige Monate werden beim nächsten Öffnen mit den bis dahin gespeicherten Beträgen nachgeholt.
 - **Keine automatischen Gewinne, Zinsen oder Fördergutschriften** auf den aktuellen Wert.
@@ -187,7 +196,7 @@ Vorher den bisherigen Plan exportieren. ZIP entpacken und den **Inhalt des Websi
 
 **Version 3 benötigt auch die neuen Dateien model-v3.js und ui-v3.js.** Das Paket enthält außerdem app.js, style.css, offline.js, sw.js, manifest.webmanifest und die Icons.
 
-GitHub Pages: **Settings → Pages → Deploy from a branch → main → /(root) → Save**. Keine eigene Domain erforderlich. Nach Bereitstellung App online öffnen, offene Eingaben speichern und **„Update laden“** wählen. Unten steht **Version 3.0**. Auf „Offline bereit“ warten.
+GitHub Pages: **Settings → Pages → Deploy from a branch → main → /(root) → Save**. Keine eigene Domain erforderlich. Nach Bereitstellung App online öffnen, offene Eingaben speichern und **„Update laden“** wählen. Unten steht **Version 3.1**. Auf „Offline bereit“ warten.
 
 Die Adresse bleibt gleich; alte Pläne werden umgestellt. Beim ersten Laden eines gültigen älteren Plans wird zusätzlich intern eine Kopie vor Version 3 angelegt, die einen eigenen Export nicht ersetzt. Für eine Rückkehr zur alten App-Version ihre vorherige alte Sicherung verwenden.
 
