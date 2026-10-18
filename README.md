@@ -1,10 +1,19 @@
-# Vermögensaufbau – Version 3.2
+# Vermögensaufbau – Version 3.3
 
 **Einkommen planen, Budgets verstehen und Vermögen aufbauen.**
 
 Kostenlose Web-App ohne Bankanbindung, Kontobuchungen oder automatische Überweisungen. Deine Eingaben bleiben im jeweiligen Browser.
 
 **[App öffnen →](https://aaronskii.github.io/vermoegensaufbau/)**
+
+## Neu in Version 3.3
+
+- Freiwilliger App-Schutz mit **genau sechsstelliger PIN** (auch führende Nullen).
+- Verschlüsselte lokale Speicherung und automatische Sperre beim Verlassen der App.
+- Optionales Entsperren mit Face ID / Passkey bei unterstützter Passkey-Verschlüsselung.
+- Wiederherstellungscode zum Entsperren und Setzen einer neuen PIN.
+- Wahlweise passwortverschlüsselte Sicherungen; alte JSON-Dateien bleiben importierbar.
+- Bestehende Pläne werden beim Aktivieren verschlüsselt übernommen.
 
 ## Neu in Version 3.2
 
@@ -178,13 +187,31 @@ Beim Wiederaktivieren wird eine künftige erste Buchung vorgeschlagen. Nach dem 
 
 Änderungen bleiben lokal, sofern der Browser Speicherung erlaubt. Betragsfelder durch Verlassen bestätigen; Formulare über Speichern sichern.
 
-**Export:** Pfeil nach unten oben rechts. **Import:** Pfeil nach oben; ersetzt nach Bestätigung den lokalen Plan. Die JSON-Datei enthält alle Einträge und Einstellungen einschließlich Rhythmus, Konten, Anteile, Vorsorge, Kinder, optionalem Geburtsdatum und Buchungsmarkierungen.
+**Export:** Pfeil nach unten oben rechts. **Import:** Pfeil nach oben; ersetzt nach Bestätigung den lokalen Plan. Die JSON-Datei enthält alle Einträge und Einstellungen einschließlich Rhythmus, Konten, Anteile, Vorsorge, Kinder, optionalem Geburtsdatum und Buchungsmarkierungen. Ab Version 3.3 bietet der Export zuerst eine verschlüsselte Sicherung mit eigenem Passwort (mindestens zwölf Zeichen) an. Unverschlüsselter Export ist ausdrücklich separat auswählbar.
 
-Ältere Sicherungen sind importierbar; Version-3-Sicherungen sind nicht für ältere App-Versionen bestimmt. Exportdateien sind unverschlüsselt und privat aufzubewahren. **Niemals persönliche JSON-Dateien ins öffentliche Repository laden.**
+Ältere Sicherungen sind importierbar; Version-3-Sicherungen sind nicht für ältere App-Versionen bestimmt. Unverschlüsselte Exportdateien sind im Klartext lesbar und privat aufzubewahren. Das Sicherungspasswort verschlüsselter Exporte ist unabhängig von der sechsstelligen App-PIN; es wird beim Import abgefragt. **Niemals persönliche JSON-Dateien ins öffentliche Repository laden.**
 
 Regelmäßig exportieren: Löschen von Website-Daten, Speicherbereinigung oder Gerätewechsel können lokale Daten entfernen. Offline ersetzt kein Backup.
 
-Andere Personen auf anderen Geräten starten mit Beispieldaten. Wer dieselbe Browserumgebung auf deinem Gerät nutzt, kann deinen Plan sehen; keine zusätzliche App-Sperre. Keine Anmeldung, Bankanbindung, automatische Geräte-Synchronisierung oder eingebauten Tracker. Der Hostinganbieter verarbeitet die üblichen Website-Anfragen; die App sendet deine Finanzfelder nicht mit.
+Andere Personen auf anderen Geräten starten mit Beispieldaten. Ohne aktivierten App-Schutz kann jeder in derselben Browserumgebung deinen Plan sehen. Der optionale Schutz sperrt diese lokale Planung. Keine Bankanbindung, automatische Synchronisierung der Finanzdaten oder eingebauten Tracker. Der App-Schutz benötigt kein Benutzerkonto. Der Hostinganbieter verarbeitet die üblichen Website-Anfragen; die App sendet deine Finanzfelder nicht mit.
+
+## Optionaler App-Schutz ab Version 3.3
+
+Oben auf das **Schloss** tippen und „Schutz einrichten“ wählen. Eine PIN mit **genau sechs Ziffern** zweimal eingeben. Den angezeigten Wiederherstellungscode sicher außerhalb der App aufbewahren und dies bestätigen. Erst „Schutz aktivieren“ übernimmt deinen gesamten vorhandenen Plan in den verschlüsselten Speicher. Die PIN wird nicht im Klartext gespeichert. Alte lokale Klartextkopien einschließlich interner Migrationssicherungen werden anschließend entfernt; vorhandene heruntergeladene Dateien bleiben unverändert.
+
+Ab dann erscheint beim Öffnen der Sperrbildschirm. Beim Verlassen oder Wechseln der App wird die Planung gesperrt. „Jetzt sperren“ ist im Schloss-Menü verfügbar. Nicht gespeicherte Formulare werden beim Sperren geschlossen; Einträge daher vorher speichern. Auf „Verschlüsselt gespeichert“ achten. Während die App gesperrt ist, werden Beiträge nicht im Hintergrund verändert; fällige Monate werden nach dem Entsperren nachgeholt.
+
+Unter „Face ID / Passkey einrichten“ wird ein Passkey angelegt und mit einem zweiten bewussten Schritt verknüpft. Er muss die PRF-Erweiterung zur Entschlüsselung unterstützen; andernfalls bleibt der PIN-Schutz unverändert. iOS bestimmt, ob Face ID, Touch ID oder der Gerätecode verwendet wird. Die App bekommt keine Gesichtsdaten. Der Passkey kann je nach Passwortmanager synchronisiert werden, deine Finanzdaten werden dadurch nicht synchronisiert.
+
+**Offline:** Die sechsstellige PIN funktioniert nach vollständigem Download offline. Passkeys zum ersten Mal online einrichten. Ihre Verfügbarkeit, insbesondere offline, hängt von Browser und Passwortmanager ab; PIN immer als Alternative behalten. Bei einer anderen Website-Adresse oder Domain den Plan per Sicherung übernehmen und die Passkey-Verknüpfung dort neu einrichten.
+
+**PIN vergessen:** Am Sperrbildschirm „Wiederherstellungscode verwenden“ wählen und eine neue sechsstellige PIN zweimal eingeben. Die Finanzdaten bleiben erhalten. Der Wiederherstellungscode bleibt auch nach einem PIN-Wechsel gültig und ist wie ein Schlüssel zu behandeln. Ohne PIN, zugänglichen Passkey oder Wiederherstellungscode kann der geschützte lokale Plan nicht wiederhergestellt werden. Eine vorhandene externe Sicherung lässt sich nach einer Neueinrichtung importieren.
+
+PIN ändern und Schutz ausschalten sind im Schloss-Menü möglich und erfordern die bisherige PIN. Ausschalten speichert den Plan wieder unverschlüsselt. Das Entfernen der Passkey-Verknüpfung in der App löscht den Passkey nicht automatisch aus Apples Passwörter-App oder einem anderen Passwortmanager.
+
+**Sicherungen übertragen keine App-Sperre:** Sie enthalten den vollständigen Finanzplan und seine Planungseinstellungen, aber keine App-PIN, Wiederherstellungscodes oder Passkey-Verknüpfung. Beim Import bleibt der vorhandene Schutz des Zielbrowsers bestehen. Auf einem neuen Gerät den Schutz separat einrichten. Sicherungspasswort und Wiederherstellungscode sind unterschiedliche Dinge.
+
+Technik, Grenzen und geprüfte Abläufe: [SICHERHEIT.md](SICHERHEIT.md).
 
 ## iPhone und Offline-Nutzung
 
@@ -201,9 +228,9 @@ Das iPhone kann das alte Icon zwischenspeichern. Vor einem eventuellen erneuten 
 
 Vorher den bisherigen Plan exportieren. ZIP entpacken und den **Inhalt des Website-Ordners** vollständig im bisherigen Repository hochladen. Gleichnamige Dateien ersetzen, neue ergänzen; index.html bleibt im Hauptverzeichnis.
 
-**Version 3 benötigt auch die neuen Dateien model-v3.js und ui-v3.js.** Das Paket enthält außerdem app.js, style.css, offline.js, sw.js, manifest.webmanifest und die Icons.
+**Version 3 benötigt auch die neuen Dateien model-v3.js und ui-v3.js.** Version 3.3 benötigt zusätzlich **vault-crypto.js und security.js**. Das Paket enthält außerdem app.js, style.css, offline.js, sw.js, manifest.webmanifest und die Icons.
 
-GitHub Pages: **Settings → Pages → Deploy from a branch → main → /(root) → Save**. Keine eigene Domain erforderlich. Nach Bereitstellung App online öffnen, offene Eingaben speichern und **„Update laden“** wählen. Unten steht **Version 3.2**. Auf „Offline bereit“ warten.
+GitHub Pages: **Settings → Pages → Deploy from a branch → main → /(root) → Save**. Keine eigene Domain erforderlich. Nach Bereitstellung App online öffnen, offene Eingaben speichern und **„Update laden“** wählen. Unten steht **Version 3.3**. Auf „Offline bereit“ warten.
 
 Die Adresse bleibt gleich; alte Pläne werden umgestellt. Beim ersten Laden eines gültigen älteren Plans wird zusätzlich intern eine Kopie vor Version 3 angelegt, die einen eigenen Export nicht ersetzt. Für eine Rückkehr zur alten App-Version ihre vorherige alte Sicherung verwenden.
 

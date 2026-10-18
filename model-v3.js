@@ -79,7 +79,7 @@ function balanceEtfs(portfolio,monthly,funds){
  return {rows,exact:rows.every(x=>Math.abs(x.after-x.target)<.02),total:centBudget/100};
 }
 function applyContributions(now=new Date()){
- if(!state.auto||loadError)return false;
+ if(!state||window.Vault?.locked||!state.auto||loadError)return false;
  const todayMonth=dateMonth(now),day=now.getDate(),events=[];
  for(const track of ['etf','retirement','reserve']){
   const a=state.auto[track];if(!a.enabled)continue;
@@ -100,7 +100,7 @@ function applyContributions(now=new Date()){
   state.auto[event.track].lastMonth=event.month;
   if(amount>0)state.autoLog.push({track:event.track,date:event.month+'-'+String(event.day).padStart(2,'0'),amount});
  }
- if(events.length){state.autoLog=state.autoLog.slice(-600);try{localStorage.setItem('vermoegensaufbau-v1',JSON.stringify(state));storageOK=true}catch{storageOK=false}}
+ if(events.length){state.autoLog=state.autoLog.slice(-600);persistState()}
  return events.length>0;
 }
 function trackName(track){return {etf:'ETF-Sparplan',retirement:'Altersvorsorgedepot',reserve:'Notgroschen'}[track]}

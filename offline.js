@@ -59,9 +59,10 @@
     if (requestedUpdate) location.reload();
     else check();
   });
-  update.addEventListener('click', () => {
+  update.addEventListener('click', async () => {
     if (document.querySelector('.modal')) { toast('Bitte zuerst deinen geöffneten Eintrag speichern oder schließen.'); return; }
     flushEdits();
+    try { await window.Vault?.drain(); } catch { toast('Bitte deine Eingaben vor dem Update exportieren.'); return; }
     if (!storageOK) { toast('Bitte vor dem Update deine Eingaben exportieren.'); return; }
     if (!registration?.waiting) { location.reload(); return; }
     requestedUpdate = true;

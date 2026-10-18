@@ -13,16 +13,15 @@
 <link rel="icon" type="image/png" href="./icon-192.png?v=3">
 <link rel="stylesheet" href="./style.css">
 <title>Vermögensaufbau</title>
-<script src="./model-v3.js" defer></script>
-<script src="./app.js" defer></script>
-<script src="./ui-v3.js" defer></script>
+<script src="./vault-crypto.js" defer></script>
+<script src="./security.js" defer></script>
 <script src="./offline.js" defer></script>
 </head>
 <body>
-<div class="app">
+<div class="app" id="app-shell" hidden>
 <header class="topbar">
 <div class="brand"><span class="brandmark" id="brandicon"></span>Vermögensaufbau</div>
-<div class="topactions"><button class="iconbtn" id="theme-button" data-action="theme" aria-label="Design wechseln" title="Design wechseln"></button>
+<div class="topactions"><button class="iconbtn" id="security-button" type="button" aria-label="App-Schutz verwalten" title="App-Schutz verwalten"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></button><button class="iconbtn" id="theme-button" data-action="theme" aria-label="Design wechseln" title="Design wechseln"></button>
 <button class="iconbtn" data-action="export" title="Sicherung exportieren" aria-label="Sicherung exportieren" id="exporticon"></button>
 <button class="iconbtn" data-action="import" title="Sicherung importieren" aria-label="Sicherung importieren" id="importicon"></button>
 </div>
@@ -31,8 +30,9 @@
 <div class="offlinebar" role="status"><span id="offline-status">Offline-Nutzung wird vorbereitet …</span><button id="offline-retry" class="textbtn hidden" type="button">Erneut versuchen</button><button id="update-button" class="textbtn hidden" type="button">Update laden</button></div>
 <nav aria-label="Hauptnavigation" id="nav"></nav>
 <div id="sample"></div><main id="content"></main>
-<p class="footnote">Dein Plan. Dein Tempo. · Version 3.2<br><span id="storagefoot"></span><br>Keine Bankverbindung · keine automatische Synchronisierung</p>
+<p class="footnote">Dein Plan. Dein Tempo. · Version 3.3<br><span id="storagefoot"></span><br>Keine Bankverbindung · keine automatische Synchronisierung</p>
 </div>
+<div id="security-root" hidden></div>
 <div id="modalroot"></div><div id="toast" class="toast hidden" role="status"></div>
 <input type="file" id="importfile" accept=".json,application/json" hidden>
 <noscript>Bitte aktiviere JavaScript, um deine Budgets zu planen.</noscript>
