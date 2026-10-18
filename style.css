@@ -71,3 +71,13 @@ input::-webkit-calendar-picker-indicator{flex-shrink:0;margin-inline-start:4px}
  .overview-income{padding:23px}.diagramnote{font-size:10px}.overview-assets .stack{gap:16px}
 }
 @media(max-width:350px){.twofields{grid-template-columns:minmax(0,1fr)}.overview-charts{gap:8px}.overview-charts>.card{padding:15px 10px}.overview-charts h2{font-size:14px}.overview-charts .ring{inline-size:97px;block-size:97px}.overview-charts .legend>div,.overview-charts .actuallegend .pair{font-size:9px}.overview-charts .legend>div{grid-template-columns:5px 31px minmax(0,1fr)}}
+/* Version 3.2: einheitliche Prozentlegenden und getrennte Prognosebeschriftung. */
+.overview-charts .legend>div{grid-template-columns:7px max-content minmax(0,1fr)}
+.overview-charts .legend b{white-space:nowrap;min-width:0;text-align:left}
+.overview-charts .actuallegend{gap:12px}
+.overview-charts .actuallegend span{min-width:0;overflow-wrap:anywhere}
+.forecast-caption{margin-bottom:12px}
+.forecast-caption .eyebrow{margin-bottom:6px;line-height:1.6}
+.forecast-rate{font-size:12px;line-height:1.6;font-weight:600;color:var(--green);white-space:nowrap}
+@media(max-width:759px){.overview-charts .legend>div{grid-template-columns:6px max-content minmax(0,1fr)}.overview-charts .actuallegend{gap:10px}}
+@media(max-width:350px){.overview-charts .legend>div{grid-template-columns:5px max-content minmax(0,1fr)}}

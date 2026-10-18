@@ -1,10 +1,17 @@
-# Vermögensaufbau – Version 3.1
+# Vermögensaufbau – Version 3.2
 
 **Einkommen planen, Budgets verstehen und Vermögen aufbauen.**
 
 Kostenlose Web-App ohne Bankanbindung, Kontobuchungen oder automatische Überweisungen. Deine Eingaben bleiben im jeweiligen Browser.
 
 **[App öffnen →](https://aaronskii.github.io/vermoegensaufbau/)**
+
+## Neu in Version 3.2
+
+- Die Ist-Verteilung zeigt wie die Ziel-Verteilung **Prozentangaben**.
+- Das gesamte reservierte Lifestyle-Budget zählt zu Lifestyle, einschließlich des noch freien Betrags. Überbuchungen bleiben sichtbar.
+- In den Prognosen stehen „Möglicher Depotwert“ und „7 % Rendite p. a.“ in getrennten Zeilen. Zahl und Prozentzeichen bleiben zusammen.
+- Bestehende Einträge und Einstellungen bleiben erhalten; keine erneute Einrichtung nötig.
 
 ## Neu in Version 3.1
 
@@ -51,7 +58,7 @@ Alle monatlichen Netto-Einnahmen werden addiert.
 
 **„Noch unverplant“ ganz oben zählt nur den Rest aus Essentials und Wealth.** Lifestyle und Safety sind dort separat reserviert.
 
-Der Ziel-Kreis zeigt die vorgesehene Aufteilung. Der neue **Ist-Kreis** zeigt deine eingetragenen Monatsanteile und den unverplanten Teil des gesamten Einkommens. Safety zählt als vorgesehener Sparbeitrag. Der unverplante Anteil im Kreis umfasst auch unbelegte Lifestyle-Beträge und kann deshalb größer als die Zahl oben sein. Die unterschiedlichen Grundlagen sind im Diagramm erklärt.
+Der Ziel-Kreis zeigt die vorgesehene Aufteilung. Der **Ist-Kreis** zeigt die tatsächliche Budgetaufteilung mit Prozentangaben: Essentials und Wealth nach ihren eingetragenen Monatsanteilen, Safety als vorgesehenen Sparbeitrag und Lifestyle mit dem gesamten reservierten Budget einschließlich des noch freien Betrags. Übersteigen die Lifestyle-Ausgaben das Budget, zählt der höhere tatsächliche Betrag. Der verbleibende Rest des Einkommens erhält den eigenen Anteil „Unverplant“. Ohne Überbuchung entspricht er dem freien Rest aus Essentials und Wealth; Lifestyle-Überbuchungen verringern den Rest im Kreis zusätzlich.
 
 Bei Überplanung gibt es keine negativen Kreisstücke; die Kreisanteile beziehen sich dann auf den gesamten verplanten Betrag, die Unterdeckung wird angegeben. Die App kennt keine echten Kontostände.
 
@@ -196,7 +203,7 @@ Vorher den bisherigen Plan exportieren. ZIP entpacken und den **Inhalt des Websi
 
 **Version 3 benötigt auch die neuen Dateien model-v3.js und ui-v3.js.** Das Paket enthält außerdem app.js, style.css, offline.js, sw.js, manifest.webmanifest und die Icons.
 
-GitHub Pages: **Settings → Pages → Deploy from a branch → main → /(root) → Save**. Keine eigene Domain erforderlich. Nach Bereitstellung App online öffnen, offene Eingaben speichern und **„Update laden“** wählen. Unten steht **Version 3.1**. Auf „Offline bereit“ warten.
+GitHub Pages: **Settings → Pages → Deploy from a branch → main → /(root) → Save**. Keine eigene Domain erforderlich. Nach Bereitstellung App online öffnen, offene Eingaben speichern und **„Update laden“** wählen. Unten steht **Version 3.2**. Auf „Offline bereit“ warten.
 
 Die Adresse bleibt gleich; alte Pläne werden umgestellt. Beim ersten Laden eines gültigen älteren Plans wird zusätzlich intern eine Kopie vor Version 3 angelegt, die einen eigenen Export nicht ersetzt. Für eine Rückkehr zur alten App-Version ihre vorherige alte Sicherung verwenden.
 
