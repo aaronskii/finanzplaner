@@ -116,6 +116,7 @@ const iconNames={home:'Haus',shield:'Schutzschild',gift:'Geschenk',trend:'Wachst
 Object.assign(iconNames,{"wifi": "WLAN", "water": "Wasser", "gas": "Tanken", "train": "Bahn & ÖPNV", "bike": "Fahrrad", "pet": "Haustier", "coffee": "Kaffee", "food": "Restaurant", "fitness": "Fitness & Sport", "shirt": "Kleidung", "medical": "Gesundheit & Apotheke", "book": "Bildung & Bücher", "baby": "Kind & Familie", "tools": "Werkzeug & Reparaturen", "internet": "Internet", "music": "Musik", "game": "Gaming", "monitor": "Computer & Technik", "insurance": "Versicherung", "tax": "Steuern & Gebühren", "parking": "Parken", "clean": "Haushalt & Reinigung", "calendar": "Termine & Beiträge", "vacation": "Urlaub", "building": "Wohnen & Immobilie"});
 function resolvedTheme(){return state.theme==='system'?(window.matchMedia?.('(prefers-color-scheme: dark)').matches?'dark':'light'):state.theme}
 function applyTheme(){
+ window.AppTheme?.set(state.theme);
  const dark=resolvedTheme()==='dark';
  document.documentElement.dataset.theme=dark?'dark':'light';
  document.querySelector('meta[name="theme-color"]')?.setAttribute('content',dark?'#111513':'#f7f8fa');

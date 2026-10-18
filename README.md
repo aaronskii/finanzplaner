@@ -1,10 +1,18 @@
-# Vermögensaufbau – Version 3.3
+# Vermögensaufbau – Version 3.4
 
 **Einkommen planen, Budgets verstehen und Vermögen aufbauen.**
 
 Kostenlose Web-App ohne Bankanbindung, Kontobuchungen oder automatische Überweisungen. Deine Eingaben bleiben im jeweiligen Browser.
 
 **[App öffnen →](https://aaronskii.github.io/vermoegensaufbau/)**
+
+## Neu in Version 3.4
+
+- Der Sperrbildschirm für PIN und Face ID übernimmt das gewählte App-Design.
+- Die Darstellung wird vor dem Aufbau des Sperrbildschirms angewendet, einschließlich der Browser-Hintergrundfarbe.
+- Nur die Auswahl „hell“, „dunkel“ oder „System“ wird zusätzlich außerhalb des verschlüsselten Plans gespeichert. Finanzdaten, PIN und Passkey-Verknüpfung bleiben geschützt.
+- Der Systemmodus folgt auch auf dem gesperrten Bildschirm Änderungen der Geräteeinstellung.
+- **Nach einem Update von 3.3 einmal entsperren**, damit die bisher verschlüsselt gespeicherte Designwahl übernommen wird. Danach passt sie bereits beim nächsten Start. Bis dahin folgt der Sperrbildschirm der Geräteeinstellung.
 
 ## Neu in Version 3.3
 
@@ -228,9 +236,9 @@ Das iPhone kann das alte Icon zwischenspeichern. Vor einem eventuellen erneuten 
 
 Vorher den bisherigen Plan exportieren. ZIP entpacken und den **Inhalt des Website-Ordners** vollständig im bisherigen Repository hochladen. Gleichnamige Dateien ersetzen, neue ergänzen; index.html bleibt im Hauptverzeichnis.
 
-**Version 3 benötigt auch die neuen Dateien model-v3.js und ui-v3.js.** Version 3.3 benötigt zusätzlich **vault-crypto.js und security.js**. Das Paket enthält außerdem app.js, style.css, offline.js, sw.js, manifest.webmanifest und die Icons.
+**Version 3 benötigt auch die neuen Dateien model-v3.js und ui-v3.js.** Version 3.3 benötigt zusätzlich **vault-crypto.js und security.js**, Version 3.4 außerdem **theme.js**. Das Paket enthält außerdem app.js, style.css, offline.js, sw.js, manifest.webmanifest und die Icons.
 
-GitHub Pages: **Settings → Pages → Deploy from a branch → main → /(root) → Save**. Keine eigene Domain erforderlich. Nach Bereitstellung App online öffnen, offene Eingaben speichern und **„Update laden“** wählen. Unten steht **Version 3.3**. Auf „Offline bereit“ warten.
+GitHub Pages: **Settings → Pages → Deploy from a branch → main → /(root) → Save**. Keine eigene Domain erforderlich. Nach Bereitstellung App online öffnen, offene Eingaben speichern und **„Update laden“** wählen. Unten steht **Version 3.4**. Auf „Offline bereit“ warten.
 
 Die Adresse bleibt gleich; alte Pläne werden umgestellt. Beim ersten Laden eines gültigen älteren Plans wird zusätzlich intern eine Kopie vor Version 3 angelegt, die einen eigenen Export nicht ersetzt. Für eine Rückkehr zur alten App-Version ihre vorherige alte Sicherung verwenden.
 
