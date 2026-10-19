@@ -1,5 +1,12 @@
 # Änderungen
 
+## 4.1.0
+
+- Bestehendes Pocket-Menüband am unteren Bildschirmrand fixiert; die fünf Bereiche bleiben beim Scrollen erreichbar.
+- Abstand für Seiteninhalt und unteren geschützten Bildschirmbereich ergänzt, damit die Navigation keine letzten Inhalte verdeckt.
+- Bearbeiten-Knopf beim Monatsbudget ausschließlich im Dunkelmodus dunkler abgestimmt.
+- Versionsanzeige und Offline-Cache aktualisiert. Finanzberechnungen, Daten- und Schutzformate bleiben unverändert.
+
 ## 4.0.0
 
 - Neuer sichtbarer Name Finanzplaner mit unverändertem App-Logo.

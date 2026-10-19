@@ -1,4 +1,4 @@
-/* Pocket Lavendel · Finanzplaner 4.0
+/* Pocket Lavendel · Finanzplaner 4.1
  * Production theme; load after style.css.
  * Theme and page attributes live on html.
  */
@@ -1110,4 +1110,41 @@ html:root .toast{max-width:calc(100vw - 36px);width:max-content;line-height:1.5;
 
 @media(pointer:coarse){button,summary{min-height:44px}
 }
+
+/* 4.1: keep the approved dock visible, including the iPhone home-indicator area. */
+html:root{
+  --pocket-dock-side:30px;
+  --pocket-dock-bottom:calc(12px + env(safe-area-inset-bottom, 0px));
+  scroll-padding-bottom:calc(120px + env(safe-area-inset-bottom, 0px));
+}
+html:root .pocket-app.app{
+  padding-bottom:calc(120px + env(safe-area-inset-bottom, 0px));
+}
+html:root .pocket-dock#nav{
+  position:fixed;
+  top:auto;
+  right:auto;
+  bottom:var(--pocket-dock-bottom);
+  left:50%;
+  transform:translateX(-50%);
+  width:calc(100% - var(--pocket-dock-side) - var(--pocket-dock-side));
+  max-width:768px;
+  margin:0;
+  z-index:20;
+}
+html:root .toast{
+  bottom:calc(110px + env(safe-area-inset-bottom, 0px));
+}
+html:root[data-theme="dark"] .pocket-wallet .pocket-small-button{
+  background:#3b3244;
+  color:#efe6f7;
+}
+@media(hover:hover){
+  html:root[data-theme="dark"] .pocket-wallet .pocket-small-button:hover{
+    background:#453850;
+  }
+}
+@media(max-width:670px){html:root{--pocket-dock-side:20px}}
+@media(max-width:430px){html:root{--pocket-dock-side:16px}}
+@media(max-width:350px){html:root{--pocket-dock-side:13px}}
 
