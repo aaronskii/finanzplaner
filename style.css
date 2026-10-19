@@ -91,3 +91,6 @@ input::-webkit-calendar-picker-indicator{flex-shrink:0;margin-inline-start:4px}
 .security-wide{display:block;width:100%;margin-top:14px;text-align:center;white-space:normal;line-height:1.5}.security-actions{display:grid;gap:13px;margin-top:24px}.recovery-code{font-family:ui-monospace,SFMono-Regular,monospace;overflow-wrap:anywhere;line-height:1.9;letter-spacing:.5px;background:var(--soft);border:1px solid var(--line);padding:15px;border-radius:13px;margin:20px 0;font-size:15px;user-select:all}.security-dialog form>.secondary{width:100%;margin-top:12px}
 @media(max-width:759px){.topbar .brand{font-size:13px;gap:6px}.topbar .brandmark{width:28px;height:28px}.topactions{gap:4px}.topactions .iconbtn{width:31px;height:31px}.security-dialog{padding:24px}.security-back{padding-inline:17px}}
 @media(max-width:350px){.topbar{flex-wrap:wrap;gap:12px}.topactions{margin-left:auto}.security-dialog{padding:21px}}
+/* Version 3.5: positiver Hinweis darf auf kleinen Bildschirmen umbrechen. */
+.overview-income .available,.hero .available{flex-wrap:wrap;column-gap:8px;row-gap:5px;line-height:1.6}
+.happy-surplus{font-size:10px;font-weight:650;white-space:nowrap;color:inherit}

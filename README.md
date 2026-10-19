@@ -1,10 +1,17 @@
-# Vermögensaufbau – Version 3.4
+# Vermögensaufbau – Version 3.5
 
 **Einkommen planen, Budgets verstehen und Vermögen aufbauen.**
 
 Kostenlose Web-App ohne Bankanbindung, Kontobuchungen oder automatische Überweisungen. Deine Eingaben bleiben im jeweiligen Browser.
 
 **[App öffnen →](https://aaronskii.github.io/vermoegensaufbau/)**
+
+## Neu in Version 3.5
+
+- Neue Einträge beginnen mit einem leeren Betragsfeld und einem grauen Platzhalter. Eine vorhandene Null wird beim Bearbeiten ausgewählt und durch Tippen ersetzt; andere Beträge bleiben erhalten.
+- Mit verknüpftem Passkey startet beim Öffnen bzw. bei der Rückkehr in die App automatisch ein Face-ID-/Passkey-Versuch. Nach Abbruch oder Fehler erscheint die PIN-Eingabe. „Stattdessen PIN verwenden“ ist sofort verfügbar, ein erneuter Face-ID-Versuch bleibt manuell möglich.
+- Keine Abfrageschleifen: ein automatischer Versuch pro Öffnen. „Jetzt sperren“ lässt die App bewusst gesperrt.
+- Ein kleines **„JUHUU 🐭“** folgt auf der Übersicht dem grünen unverplanten Betrag, wenn dieser mindestens einen positiven Cent anzeigt.
 
 ## Neu in Version 3.4
 
@@ -207,7 +214,7 @@ Andere Personen auf anderen Geräten starten mit Beispieldaten. Ohne aktivierten
 
 Oben auf das **Schloss** tippen und „Schutz einrichten“ wählen. Eine PIN mit **genau sechs Ziffern** zweimal eingeben. Den angezeigten Wiederherstellungscode sicher außerhalb der App aufbewahren und dies bestätigen. Erst „Schutz aktivieren“ übernimmt deinen gesamten vorhandenen Plan in den verschlüsselten Speicher. Die PIN wird nicht im Klartext gespeichert. Alte lokale Klartextkopien einschließlich interner Migrationssicherungen werden anschließend entfernt; vorhandene heruntergeladene Dateien bleiben unverändert.
 
-Ab dann erscheint beim Öffnen der Sperrbildschirm. Beim Verlassen oder Wechseln der App wird die Planung gesperrt. „Jetzt sperren“ ist im Schloss-Menü verfügbar. Nicht gespeicherte Formulare werden beim Sperren geschlossen; Einträge daher vorher speichern. Auf „Verschlüsselt gespeichert“ achten. Während die App gesperrt ist, werden Beiträge nicht im Hintergrund verändert; fällige Monate werden nach dem Entsperren nachgeholt.
+Ab dann erscheint beim Öffnen der Sperrbildschirm. Mit verknüpftem Passkey startet ab Version 3.5 automatisch ein Entsperrversuch. Falls er fehlschlägt oder abgebrochen wird, erscheint die sechsstellige PIN-Eingabe; sie ist auch über „Stattdessen PIN verwenden“ sofort erreichbar. Ohne verknüpften Passkey erscheint direkt die PIN. Beim Verlassen oder Wechseln der App wird die Planung gesperrt. „Jetzt sperren“ ist im Schloss-Menü verfügbar. Nicht gespeicherte Formulare werden beim Sperren geschlossen; Einträge daher vorher speichern. Auf „Verschlüsselt gespeichert“ achten. Während die App gesperrt ist, werden Beiträge nicht im Hintergrund verändert; fällige Monate werden nach dem Entsperren nachgeholt.
 
 Unter „Face ID / Passkey einrichten“ wird ein Passkey angelegt und mit einem zweiten bewussten Schritt verknüpft. Er muss die PRF-Erweiterung zur Entschlüsselung unterstützen; andernfalls bleibt der PIN-Schutz unverändert. iOS bestimmt, ob Face ID, Touch ID oder der Gerätecode verwendet wird. Die App bekommt keine Gesichtsdaten. Der Passkey kann je nach Passwortmanager synchronisiert werden, deine Finanzdaten werden dadurch nicht synchronisiert.
 
@@ -238,7 +245,7 @@ Vorher den bisherigen Plan exportieren. ZIP entpacken und den **Inhalt des Websi
 
 **Version 3 benötigt auch die neuen Dateien model-v3.js und ui-v3.js.** Version 3.3 benötigt zusätzlich **vault-crypto.js und security.js**, Version 3.4 außerdem **theme.js**. Das Paket enthält außerdem app.js, style.css, offline.js, sw.js, manifest.webmanifest und die Icons.
 
-GitHub Pages: **Settings → Pages → Deploy from a branch → main → /(root) → Save**. Keine eigene Domain erforderlich. Nach Bereitstellung App online öffnen, offene Eingaben speichern und **„Update laden“** wählen. Unten steht **Version 3.4**. Auf „Offline bereit“ warten.
+GitHub Pages: **Settings → Pages → Deploy from a branch → main → /(root) → Save**. Keine eigene Domain erforderlich. Nach Bereitstellung App online öffnen, offene Eingaben speichern und **„Update laden“** wählen. Unten steht **Version 3.5**. Auf „Offline bereit“ warten.
 
 Die Adresse bleibt gleich; alte Pläne werden umgestellt. Beim ersten Laden eines gültigen älteren Plans wird zusätzlich intern eine Kopie vor Version 3 angelegt, die einen eigenen Export nicht ersetzt. Für eine Rückkehr zur alten App-Version ihre vorherige alte Sicherung verwenden.
 

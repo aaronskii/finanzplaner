@@ -4,16 +4,18 @@
  const shell=document.getElementById('app-shell'),root=document.getElementById('security-root');
  let record=null,bytes=null,initial=null,loaded=false,queue=Promise.resolve(),busy=false,prompting=false,prepared=null,pendingCredential=null,importResolve=null,returnFocus=null;
  let lockPromise=Promise.resolve(),epoch=0,failed=0,retryAt=0,fatal=false,loadPromise=null;
+ let screen='other',autoTried=false,autoQueued=false,autoPending=false,autoController=null,autoGeneration=0,resumeAuto=false;
  const safe=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const supported=()=>!!(window.isSecureContext&&crypto?.subtle);
  const pin=(name,label)=>'<div class="field"><label for="'+name+'">'+label+'</label><input id="'+name+'" name="'+name+'" type="password" inputmode="numeric" pattern="[0-9]{6}" minlength="6" maxlength="6" autocomplete="off" required placeholder="6 Ziffern"></div>';
  const passwords=()=>pin('newpin','Neue sechsstellige PIN')+pin('repeatpin','PIN wiederholen');
  function gate(on){shell.hidden=on;shell.inert=on;document.getElementById('modalroot').inert=on;document.documentElement.classList.toggle('security-gated',on)}
  function error(message){const el=document.getElementById('security-error');if(el)el.textContent=message}
- function panel(title,body,closable=false){
+ function panel(title,body,closable=false,focus=true){
+  screen='other';
   returnFocus=document.activeElement;root.hidden=false;shell.inert=true;document.getElementById('modalroot').inert=true;
-  root.innerHTML='<div class="security-back"><section class="security-dialog" role="dialog" aria-modal="true" aria-labelledby="security-title"><div class="security-heading"><span class="security-mark" aria-hidden="true">'+(record?'●':'◇')+'</span>'+(closable?'<button type="button" class="editbtn" data-security="close" aria-label="Schließen">✕</button>':'')+'</div><p class="eyebrow">Vermögensaufbau · Version 3.4</p><h2 id="security-title">'+title+'</h2>'+body+'<p id="security-error" class="formerror" role="alert"></p></section></div>';
-  root.querySelector('input,button')?.focus();
+  root.innerHTML='<div class="security-back"><section class="security-dialog" role="dialog" aria-modal="true" aria-labelledby="security-title"><div class="security-heading"><span class="security-mark" aria-hidden="true">'+(record?'●':'◇')+'</span>'+(closable?'<button type="button" class="editbtn" data-security="close" aria-label="Schließen">✕</button>':'')+'</div><p class="eyebrow">Vermögensaufbau · Version 3.5</p><h2 id="security-title">'+title+'</h2>'+body+'<p id="security-error" class="formerror" role="alert"></p></section></div>';
+  if(focus)root.querySelector('input,button')?.focus();
  }
  function close(){if(Vault.locked)return;prepared?.bytes.fill(0);prepared=null;pendingCredential=null;root.innerHTML='';root.hidden=true;shell.inert=false;document.getElementById('modalroot').inert=false;returnFocus?.focus()}
  function cleanupPlain(){
@@ -46,7 +48,31 @@
   }
  };
  function lockScreen(message=''){
-  panel('Dein Plan ist gesperrt','<p class="subtitle">Entsperre deine Planung mit deiner sechsstelligen PIN'+(record?.passkey?' oder deinem Passkey.':'.')+'</p><form id="security-unlock">'+pin('unlockpin','Deine PIN')+'<button class="primary" type="submit">Entsperren</button></form>'+(record?.passkey?'<button class="secondary security-wide" data-security="face-unlock" type="button">Mit Face ID / Passkey entsperren</button>':'')+'<button class="textbtn security-wide" data-security="recover" type="button">PIN vergessen? Wiederherstellungscode verwenden</button>');error(message);
+  panel('Dein Plan ist gesperrt','<p class="subtitle">Entsperre deine Planung mit deiner sechsstelligen PIN'+(record?.passkey?' oder deinem Passkey.':'.')+'</p><form id="security-unlock">'+pin('unlockpin','Deine PIN')+'<button class="primary" type="submit">Entsperren</button></form>'+(record?.passkey?'<button class="secondary security-wide" data-security="face-unlock" type="button">Mit Face ID / Passkey entsperren</button>':'')+'<button class="textbtn security-wide" data-security="recover" type="button">PIN vergessen? Wiederherstellungscode verwenden</button>',false,!(record?.passkey&&!autoTried));error(message);
+  screen='lock';
+ }
+ function cancelAutomatic(){autoGeneration++;if(autoController){autoController.abort();prompting=false}autoController=null;autoPending=false;autoTried=true}
+ function scheduleAutomatic(){
+  if(autoQueued||autoTried||autoPending||busy||prompting||fatal||!record?.passkey||!Vault.locked||screen!=='lock'||document.visibilityState==='hidden')return;
+  autoQueued=true;
+  setTimeout(()=>{autoQueued=false;startAutomatic()},0);
+ }
+ async function startAutomatic(){
+  if(autoTried||autoPending||busy||prompting||!record?.passkey||!Vault.locked||screen!=='lock'||document.visibilityState==='hidden')return;
+  autoTried=true;autoPending=true;const generation=++autoGeneration,controller=new AbortController();autoController=controller;
+  const deadline=setTimeout(()=>controller.abort(),20000);
+  panel('Mit Face ID entsperren','<p class="subtitle" role="status">Face ID / Passkey wird automatisch gestartet …</p><button class="secondary security-wide" type="button" data-security="use-pin">Stattdessen PIN verwenden</button>');screen='auto';
+  try{await unlockWithFace(controller.signal,()=>generation===autoGeneration)}
+  catch(e){if(generation===autoGeneration&&Vault.locked)lockScreen('Face ID ist gerade nicht verfügbar oder wurde abgebrochen. Bitte deine PIN eingeben oder Face ID erneut versuchen.')}
+  finally{clearTimeout(deadline);if(generation===autoGeneration){autoPending=false;autoController=null;if(record&&!Vault.locked&&document.visibilityState==='hidden')await lock(false,true)}}
+ }
+ async function unlockWithFace(signal,stillCurrent=()=>true){
+  await lockPromise;record=current();if(!record?.passkey)throw Error('Kein Passkey verknüpft. Bitte die PIN verwenden.');
+  const token=epoch,prf=await getPrf(record.passkey,signal);
+  if(signal?.aborted||!stillCurrent()||token!==epoch)return;
+  const result=await C.unwrapPasskey(prf,record);
+  if(signal?.aborted||!stillCurrent()||token!==epoch){result.bytes.fill(0);return}
+  await accept(result);
  }
  async function loadApp(){
   if(loaded)return;if(loadPromise)return loadPromise;
@@ -81,9 +107,9 @@
   if(client.type!==type||client.origin!==location.origin||client.challenge!==C.b64(challenge))throw Error('Ungültige Passkey-Antwort.');
   if(type==='webauthn.get'&&!(new Uint8Array(credential.response.authenticatorData)[32]&4))throw Error('Die Benutzerbestätigung fehlt.');
  }
- async function getPrf(info){
+ async function getPrf(info,signal){
   const challenge=C.random(32);prompting=true;
-  try{const credential=await navigator.credentials.get({publicKey:{challenge,rpId:location.hostname,allowCredentials:[{type:'public-key',id:C.unb64(info.id)}],userVerification:'required',extensions:{prf:{eval:{first:C.unb64(info.salt)}}},timeout:60000}});assertion(credential,challenge,'webauthn.get');if(C.b64(credential.rawId)!==info.id)throw Error('Falscher Passkey.');const prf=credential.getClientExtensionResults()?.prf?.results?.first;if(!prf)throw Error('Dieser Browser oder Passwortmanager unterstützt keine Passkey-Verschlüsselung. Bitte die PIN verwenden.');return prf}finally{prompting=false}
+  try{const credential=await navigator.credentials.get({...(signal?{signal}:{}),publicKey:{challenge,rpId:location.hostname,allowCredentials:[{type:'public-key',id:C.unb64(info.id)}],userVerification:'required',extensions:{prf:{eval:{first:C.unb64(info.salt)}}},timeout:signal?20000:60000}});assertion(credential,challenge,'webauthn.get');if(C.b64(credential.rawId)!==info.id)throw Error('Falscher Passkey.');const prf=credential.getClientExtensionResults()?.prf?.results?.first;if(!prf)throw Error('Dieser Browser oder Passwortmanager unterstützt keine Passkey-Verschlüsselung. Bitte die PIN verwenden.');return prf}finally{prompting=false}
  }
  async function createPasskey(){
   if(!window.PublicKeyCredential||!navigator.credentials||!await PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable())throw Error('Auf diesem Gerät ist kein geeigneter Passkey-Authentifikator verfügbar. Die PIN funktioniert weiterhin.');
@@ -142,6 +168,7 @@
   }
  }
  async function action(name){
+  if(name==='use-pin'){cancelAutomatic();lockScreen();return}
   if(name==='reload'){location.reload();return}
   if(name==='close'){close();return}
   if(name==='settings'){pendingCredential=null;openSettings();return}
@@ -150,7 +177,7 @@
    if(!prepared)throw Error('Bitte die Einrichtung erneut starten.');await queue;
    prepared.record.data=await C.encryptPlan(prepared.bytes,window.appVaultSnapshot());commit(prepared.record,undefined);bytes=prepared.bytes;prepared=null;cleanupPlain();openSettings();window.appVaultRefresh();return;
   }
-  if(name==='lock'){await lock();return}
+  if(name==='lock'){autoTried=true;await lock();return}
   if(name==='recover'){panel('PIN wiederherstellen','<p class="subtitle">Mit deinem Wiederherstellungscode kannst du eine neue sechsstellige PIN setzen. Deine Planung bleibt erhalten.</p><form id="security-recover"><div class="field"><label for="recovery">Wiederherstellungscode</label><textarea id="recovery" name="recovery" rows="3" autocomplete="off" spellcheck="false" required></textarea></div>'+passwords()+'<button class="primary" type="submit">Neue PIN setzen und entsperren</button></form><button class="textbtn security-wide" type="button" data-security="back-lock">Zurück</button>');return}
   if(name==='back-lock'){lockScreen();return}
   if(name==='change-pin'){panel('PIN ändern','<form id="security-pin-change">'+pin('oldpin','Bisherige PIN')+passwords()+'<button class="primary" type="submit">Neue PIN speichern</button></form>',true);return}
@@ -159,15 +186,18 @@
   if(name==='face-confirm'){
    if(!pendingCredential)throw Error('Bitte den Passkey erneut einrichten.');const token=epoch,info=pendingCredential,prf=await getPrf(info);await queue;if(token!==epoch)return;const box=await C.wrapPasskey(prf,bytes);if(token!==epoch)return;await metadata({...record,passkey:{...info,box}});pendingCredential=null;openSettings();return;
   }
-  if(name==='face-unlock'){await lockPromise;record=current();const token=epoch,prf=await getPrf(record.passkey),result=await C.unwrapPasskey(prf,record);if(token!==epoch){result.bytes.fill(0);return}await accept(result);return}
+  if(name==='face-unlock'){await unlockWithFace();return}
   if(name==='face-remove'){await queue;const next={...record};delete next.passkey;await metadata(next);openSettings();return}
   if(name==='export-plain'){download(window.appVaultSnapshot(),'Vermoegensaufbau-'+new Date().toISOString().slice(0,10)+'.json');close();return}
   if(name==='cancel-import'){const pending=importResolve;importResolve=null;close();pending?.reject(Error('Import abgebrochen.'));return}
  }
- document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'&&record&&!prompting)lock(false,true)});
- window.addEventListener('pagehide',()=>{if(record)lock(false,true)});
- window.addEventListener('pageshow',()=>{if(record&&Vault.locked&&!fatal)lockScreen()});
+ document.addEventListener('visibilitychange',()=>{
+  if(document.visibilityState==='hidden'&&record&&!prompting){resumeAuto=true;if(autoPending){cancelAutomatic();lockScreen()}lock(false,true)}
+  if(document.visibilityState==='visible'&&resumeAuto){resumeAuto=false;autoTried=false;scheduleAutomatic()}
+ });
+ window.addEventListener('pagehide',()=>{resumeAuto=true;cancelAutomatic();if(record)lock(false,true)});
+ window.addEventListener('pageshow',event=>{if(record&&Vault.locked&&!fatal&&!autoPending){lockScreen();if(event.persisted){autoTried=false;scheduleAutomatic()}}});
  window.addEventListener('storage',e=>{if(e.key===KEY){if(!Vault.locked)lock(true);else{try{record=current();if(record)lockScreen()}catch{}}}});
  // Fail closed: Ein vorhandener Tresor führt niemals zum Laden von Klartextdaten.
- (async()=>{gate(true);try{record=current();if(record){cleanupPlain();if(!supported())throw Error('Zum Entsperren wird ein aktueller Browser mit HTTPS und Web Crypto benötigt.');lockScreen()}else{panel('Dein Plan wird geladen','<p class="subtitle">Einen Moment …</p>');await accept(null)}}catch(e){fatal=true;Vault.locked=true;gate(true);panel('Plan konnte nicht geöffnet werden','<p class="subtitle">'+safe(e.message)+'</p><p class="info">Vorhandene Daten werden nicht überschrieben. Bitte vollständige Website-Dateien und Browser prüfen.</p><button class="secondary security-wide" type="button" data-security="reload">Erneut laden</button>')}})();
+ (async()=>{gate(true);try{record=current();if(record){cleanupPlain();if(!supported())throw Error('Zum Entsperren wird ein aktueller Browser mit HTTPS und Web Crypto benötigt.');lockScreen();scheduleAutomatic()}else{panel('Dein Plan wird geladen','<p class="subtitle">Einen Moment …</p>');await accept(null)}}catch(e){fatal=true;Vault.locked=true;gate(true);panel('Plan konnte nicht geöffnet werden','<p class="subtitle">'+safe(e.message)+'</p><p class="info">Vorhandene Daten werden nicht überschrieben. Bitte vollständige Website-Dateien und Browser prüfen.</p><button class="secondary security-wide" type="button" data-security="reload">Erneut laden</button>')}})();
 })();
