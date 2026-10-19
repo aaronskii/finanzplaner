@@ -1,0 +1,1113 @@
+/* Pocket Lavendel · Finanzplaner 4.0
+ * Production theme; load after style.css.
+ * Theme and page attributes live on html.
+ */
+
+html:root{--pocket-bg:#faf9f6;--pocket-ink:#353344;--pocket-muted:#777380;--pocket-purple:#e8ddff;--pocket-purple-strong:#8d67c4;--pocket-white:#fff;--pocket-line:#eae6ed;--bg:var(--pocket-bg);--card:var(--pocket-white);--soft:#f2eef6;--field:#faf9fc;--nav:#eee7f6;--navfixed:#fff;--ink:var(--pocket-ink);--muted:var(--pocket-muted);--line:var(--pocket-line);--green:#486b57;--mint:#edf5ed;--red:#b14e47;--redbg:#fff0ed;color:var(--ink);font-family:ui-rounded,"SF Pro Rounded",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--pocket-bg);display:block;color-scheme:light}
+
+*,*::before,*::after{box-sizing:border-box}
+button,input,select,textarea{font-family:inherit}
+button,summary{touch-action:manipulation}
+button:focus-visible,summary:focus-visible{outline:3px solid #a185cf;outline-offset:4px}
+button{cursor:pointer}
+.pocket-app.app{width:100%;max-width:828px;margin:0 auto;padding:31px 30px 17px}
+.pocket-topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:34px}
+.pocket-brand{display:flex;align-items:center;gap:11px;font-size:21px;line-height:1.25;letter-spacing:-.6px;font-weight:750}
+.pocket-brand img{width:43px;height:43px;object-fit:contain;border-radius:13px}
+.pocket-brand-note{display:block;font-size:11px;font-weight:500;color:var(--muted);letter-spacing:.15px;margin-top:4px}
+.pocket-tools{display:flex;align-items:center;gap:5px}
+.pocket-tools .iconbtn{width:44px;height:44px;background:transparent;color:var(--ink);border:0;display:grid;place-items:center;border-radius:16px}
+.pocket-tools .iconbtn:hover{background:var(--soft)}
+.pocket-more{position:relative}
+.pocket-more>summary{display:grid;place-items:center;width:44px;height:44px;font-size:15px;letter-spacing:1px;cursor:pointer;list-style:none}
+.pocket-more>summary::-webkit-details-marker{display:none}
+.pocket-more-content{position:absolute;right:0;top:48px;z-index:12;background:var(--card);padding:12px;border:1px solid var(--line);border-radius:20px;box-shadow:0 16px 40px #39334713;min-width:232px;display:grid;gap:5px}
+.pocket-more-content button{padding:11px 10px;min-height:44px;display:flex;gap:10px;align-items:center;white-space:nowrap}
+.pocket-more-content button>span{display:flex}
+.pocket-intro.intro{position:relative;display:flex;align-items:center;justify-content:space-between;gap:15px;margin:0 0 26px}
+.pocket-intro .eyebrow{font-size:11px;line-height:1.5;letter-spacing:1.9px;font-weight:750;color:#857191;margin:0 0 10px}
+.pocket-intro h1{font-size:37px;line-height:1.12;letter-spacing:-1.7px;font-weight:780;margin:0 0 10px}
+.pocket-intro .subtitle{font-size:12px;line-height:1.6;color:var(--muted);margin:0;max-width:490px}
+.pocket-sticker{display:grid;place-items:center;flex-shrink:0;background:#f9e98f;color:#6d5923;width:82px;height:82px;border-radius:26px;transform:rotate(8deg);font-size:12px;line-height:1.35;font-weight:750;text-align:center;box-shadow:0 3px 0 #ead877}
+.pocket-intro:has(+ #sample + main:not(:has(.pocket-wallet))) .pocket-sticker{display:none}
+.pocket-wallet{padding:24px 27px 19px;background:var(--pocket-purple);border-radius:28px;box-shadow:0 5px 0 #ded0f4;margin-bottom:28px}
+.pocket-wallet-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.pocket-wallet-top>span{display:flex;gap:8px;align-items:center;font-size:13px;font-weight:700}
+.pocket-small-button{display:flex;align-items:center;gap:7px;border:0;border-radius:12px;background:#ffffff69;padding:10px 12px;font-size:11px;font-weight:650;color:#55496b;min-height:36px}
+.pocket-income{font-size:clamp(38px,6.6vw,53px);font-weight:780;letter-spacing:-2px;line-height:1.1;margin-top:15px}
+.pocket-wallet-description{font-size:11px;color:#716185;margin:9px 0 20px}
+.pocket-plan-stripe{display:flex;gap:5px;height:13px;margin-bottom:20px}
+.pocket-plan-stripe span{display:block;border-radius:20px;min-width:2px}
+.pocket-free{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fbfff7;border-radius:14px;padding:12px 14px;color:#49694c;font-size:12px}
+.pocket-free>span{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.pocket-free b{font-weight:750}
+.pocket-free>small{font-weight:750;font-size:11px;white-space:nowrap}
+.pocket-free.pocket-negative{background:var(--redbg);color:var(--red)}
+.pocket-wallet-note{font-size:11px;line-height:1.5;color:#776889;margin:10px 1px 0}
+.pocket-section-title{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:15px}
+.pocket-section-title h2{font-size:19px;font-weight:750;line-height:1.3;letter-spacing:-.65px;margin:0 0 5px}
+.pocket-section-title p{font-size:11px;line-height:1.5;color:var(--muted);margin:0}
+.pocket-link{background:none;border:0;color:#867297;font-weight:650;font-size:11px;padding:8px 0 8px 8px;min-height:44px;white-space:nowrap}
+.pocket-budget-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.pocket-budget{min-width:0;border:0;border-radius:22px;text-align:left;padding:16px 16px 14px;display:flex;flex-direction:column;align-items:stretch;transition:transform .18s;background:var(--pocket-tint);color:var(--ink);box-shadow:0 3px 0 color-mix(in srgb,var(--pocket-tone) 25%,transparent)}
+.pocket-budget:hover{transform:translateY(-3px)}
+.pocket-e{--pocket-tint:#eee5ff;--pocket-tone:#9d7cc6}
+.pocket-s{--pocket-tint:#e3eee3;--pocket-tone:#79a78c}
+.pocket-r{--pocket-tint:#fff1c2;--pocket-tone:#c6a143}
+.pocket-g{--pocket-tint:#ffe5dd;--pocket-tone:#d38a76}
+.pocket-budget-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.pocket-token{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;background:#ffffff8c;color:var(--pocket-tone)}
+.pocket-arrow{font-size:19px;color:#77716f;padding:0 1px 7px}
+.pocket-budget-name{font-size:12px;font-weight:750;line-height:1.4}
+.pocket-budget-sub{font-size:11px;color:#7a7480;line-height:1.5;margin-top:1px}
+.pocket-budget>strong{font-size:21px;font-weight:780;letter-spacing:-.6px;white-space:nowrap;margin-top:10px}
+.pocket-meter{display:block;border-radius:12px;overflow:hidden;height:5px;background:#ffffffb2;margin:11px 0 9px}
+.pocket-meter>i{display:block;height:100%;border-radius:12px;background:var(--pocket-tone);min-width:0}
+.pocket-budget-note{font-size:11px;line-height:1.4;color:#6d6872;min-height:25px}
+.pocket-over{outline:1px solid var(--red)}
+.pocket-over .pocket-budget-note{color:var(--red)}
+.pocket-allocation{margin-top:14px;border-bottom:1px solid var(--line)}
+.pocket-allocation>summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:46px;padding:6px 3px;font-size:11px;color:var(--muted)}
+.pocket-allocation>summary::-webkit-details-marker{display:none}
+.pocket-allocation>summary>span:first-child{display:flex;gap:9px;align-items:center}
+.pocket-details-plus{font-size:20px;font-weight:400}
+.pocket-allocation[open] .pocket-details-plus{transform:rotate(45deg)}
+.pocket-allocation-body{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;padding:10px 3px 19px}
+.pocket-allocation h3{font-size:12px;margin-bottom:12px}
+.pocket-split{height:10px;border-radius:8px;overflow:hidden;display:flex;gap:2px;margin-bottom:13px}
+.pocket-split span{height:100%;min-width:0;border-radius:8px}
+.pocket-allocation-list{display:grid;gap:7px}
+.pocket-allocation-list>div{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:11px}
+.pocket-allocation-list>div>span{display:flex;gap:8px;align-items:center}
+.pocket-allocation-list i{width:6px;height:6px;border-radius:50%;display:block}
+.pocket-allocation-list b{font-weight:600}
+.pocket-allocation-note{grid-column:1/-1;font-size:11px;line-height:1.6;color:var(--muted);margin:0}
+.pocket-goals{margin-top:24px}
+.pocket-goal-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.pocket-goal{min-width:0;border:1px solid var(--line);border-radius:22px;padding:18px 17px 15px;background:var(--card);text-align:left;display:flex;flex-direction:column;align-items:stretch;color:var(--ink);transition:background .18s}
+.pocket-goal:hover{background:var(--soft)}
+.pocket-goal-label{font-size:11px;font-weight:650;display:flex;gap:7px;align-items:center;margin-bottom:16px;white-space:nowrap}
+.pocket-goal-label>span{font-size:16px;margin-left:auto;font-weight:400;color:#9a939e}
+.pocket-goal>strong{font-size:23px;font-weight:750;letter-spacing:-.6px;white-space:nowrap}
+.pocket-goal>small{font-size:11px;color:var(--muted);margin-top:5px;line-height:1.6}
+.pocket-goal .pocket-meter{margin-top:16px;--pocket-tone:#93b59a;background:#e9eee9}
+.pocket-goal-caption{font-size:11px;color:var(--muted);line-height:1.5}
+.pocket-savingrate{display:block;margin-top:17px;font-weight:700;font-size:13px;line-height:1.5}
+.pocket-savingrate small{font-size:11px;color:var(--muted);font-weight:500}
+.pocket-goal-etf{background:#fffdf3}
+.pocket-goal-retirement{background:#fff6f2}
+.pocket-distribute{display:flex;align-items:center;gap:13px;width:100%;border:1px solid var(--line);background:#f3f0f7;color:var(--ink);border-radius:20px;padding:15px 19px;text-align:left;margin-top:20px}
+.pocket-distribute-icon{display:grid;place-items:center;width:43px;height:43px;flex-shrink:0;background:#fff;border-radius:14px;color:#9e80bd}
+.pocket-distribute>span:nth-child(2){min-width:0}
+.pocket-distribute strong{display:block;font-weight:750;font-size:13px;margin-bottom:5px;letter-spacing:-.15px}
+.pocket-distribute small{display:block;font-size:11px;color:var(--muted);line-height:1.5}
+.pocket-distribute>span:last-child{margin-left:auto;font-size:22px;color:#83718f}
+.pocket-dock#nav{position:static;inset:auto;width:100%;margin:24px 0 0;padding:7px;display:flex;align-items:stretch;gap:3px;border-radius:23px;border:1px solid var(--line);background:var(--card);backdrop-filter:none;box-shadow:0 4px 0 #eee9f1}
+.pocket-dock#nav button{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;min-width:0;padding:13px 4px 11px;background:transparent;border:0;border-radius:17px;color:#89818f;font-size:11px;font-weight:650;line-height:1.4;min-height:63px}
+.pocket-dock#nav button svg{width:20px;height:20px}
+.pocket-dock#nav button.active{background:#eee5fb;color:#71518e;box-shadow:none}
+.pocket-footer{font-size:11px;color:#a19aa7;text-align:center;margin:18px 0 0}
+.card{border:1px solid var(--line);box-shadow:none;border-radius:24px;padding:23px}
+.card h2{font-size:18px;font-weight:750;letter-spacing:-.4px}
+.card h3{font-size:13px}
+.grid,.forecast-separate{grid-template-columns:minmax(0,1fr);gap:16px}
+.stack{gap:16px}
+.sectionhead{margin-bottom:20px}
+.sub{font-size:11px;line-height:1.6}
+.field{margin:18px 0}
+.field label{font-size:12px;color:var(--muted);font-weight:650}
+.field input,.field select{border-radius:14px;border:1px solid var(--line);padding:13px 14px;min-height:48px;font-size:16px;background:var(--field);color:var(--ink)}
+.primary{background:#9f83c4;color:white;border-radius:15px;font-size:12px;font-weight:700;min-height:46px}
+.secondary{background:#eee7f6;color:#766089;border-radius:15px;min-height:46px}
+.round{min-width:44px;min-height:44px;background:#eee7f6;color:#84649f;border-radius:15px;font-size:24px}
+.editbtn{min-width:36px;min-height:44px;display:grid;place-items:center;border-radius:11px}
+.textbtn{color:#826398;min-height:44px;font-size:12px}
+.entryicon{border-radius:13px;background:#f3eef6;color:#9a80ae;width:39px;height:39px}
+.entryname{font-size:13px;line-height:1.5}
+.entrysub{font-size:11px;line-height:1.6}
+.money{font-size:14px}
+.pair{font-size:12px;padding:11px 0;line-height:1.5}
+.total{font-size:13px;padding:16px 0 0}
+.status{background:#eef3e9;color:#667458;border-radius:15px;font-size:11px}
+.status.hold{background:#fff3d1;color:#887137}
+.info{font-size:11px;line-height:1.8}
+.tiny{font-size:11px;line-height:1.7}
+.darkcard{background:#e8ddff;color:#514260}
+.darkcard .eyebrow,.darkcard .tiny{color:#83718f}
+.darkcard .pair span:first-child{color:#83718f}
+.darkcard .rule{background:#d9cbe9}
+.segmented{background:#f2edf7;padding:6px;border-radius:18px;gap:5px}
+.segmented button{color:#8b789b;min-height:55px;border-radius:14px;font-size:12px}
+.segmented button.active{background:#fff;color:#705386;box-shadow:0 3px 6px #614e6f0a}
+.segmented button small{font-size:11px}
+.switchrow{min-height:54px;font-size:12px}
+.switchrow small{font-size:11px;line-height:1.6}
+.bar{background:#f0ebf4;height:7px}
+.chartlegend{font-size:11px}
+.forecast-panel .big{font-size:35px;letter-spacing:-1.2px}
+.chart{margin-top:25px}
+.autocard{gap:14px}
+.autocard .textbtn{flex-shrink:0}
+.forecasttile{background:#f8f5fb;border-color:var(--line)}
+.forecastgrid{gap:12px}
+.forecasttile .value{font-size:25px}
+.balancer{border-radius:19px}
+.balancer summary{background:#f5f0f8}
+.balancercontent{padding:18px}
+.accountsummary{padding:19px 0}
+.accountdetail{padding-left:0}
+.accountdetail .pair{font-size:11px}
+.accountheading .pill{background:#eee7f6;color:#8c749a}
+.stepnum{background:#eee7f6;color:#8a6b9e}
+.budgetsetting{gap:0 15px}
+.budgetsetting select{font-size:14px}
+.modal{border-radius:25px;background:var(--card)}
+.modal h2{font-size:21px}
+.modalback{backdrop-filter:blur(8px);background:#40324c50}
+.frequency input:checked+span{background:#eee5fb;border-color:#a68ac4;color:#7b5b96}
+.toast{background:#7e629a;border-radius:16px}
+.negative{color:var(--red)}
+.positive{color:#6c9576}
+a{color:#9474ad}
+
+@media(max-width:670px){.pocket-app.app{padding:25px 20px 17px}
+.pocket-topbar{margin-bottom:28px}
+.pocket-intro h1{font-size:32px;max-width:330px}
+.pocket-sticker{width:72px;height:72px;border-radius:23px;font-size:11px}
+.pocket-budget-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.pocket-budget{padding:17px 19px 14px;border-radius:22px}
+.pocket-budget-heading{margin-bottom:10px}
+.pocket-budget-name{font-size:13px}
+.pocket-budget-sub{font-size:11px}
+.pocket-budget>strong{font-size:27px;margin-top:12px}
+.pocket-budget-note{font-size:11px;min-height:16px}
+.pocket-goal-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+.pocket-goal-reserve{grid-column:1/-1;display:grid;grid-template-columns:1fr auto;column-gap:15px}
+.pocket-goal-reserve .pocket-goal-label{grid-column:1/-1;margin-bottom:14px}
+.pocket-goal-reserve>strong{font-size:28px}
+.pocket-goal-reserve>small{text-align:right;align-self:center}
+.pocket-goal-reserve .pocket-meter,.pocket-goal-reserve .pocket-goal-caption{grid-column:1/-1}
+.pocket-goal-reserve .pocket-meter{margin-top:15px;margin-bottom:7px}
+.pocket-goal-etf,.pocket-goal-retirement{padding:18px 16px}
+.pocket-goal-label{font-size:11px;gap:6px}
+.pocket-goal>strong{font-size:24px}
+.pocket-section-title h2{font-size:20px}
+.pocket-section-title p{font-size:11px}
+.pocket-wallet{padding:21px 22px 18px}
+.pocket-income{font-size:47px}
+.pocket-wallet-note{font-size:11px}
+.pocket-intro .eyebrow{font-size:11px;letter-spacing:1.5px}
+.pocket-dock#nav button{font-size:11px;min-height:63px}
+.pocket-dock#nav{margin-top:22px}
+.card{padding:22px}
+.money{font-size:13px}
+.forecasttile .value{font-size:23px}
+}
+
+@media(max-width:430px){.pocket-app.app{padding:22px 16px 16px}
+.pocket-topbar{margin-bottom:27px}
+.pocket-brand{font-size:20px;gap:9px}
+.pocket-brand img{width:39px;height:39px;border-radius:12px}
+.pocket-brand-note{font-size:11px}
+.pocket-tools{gap:0}
+.pocket-tools .iconbtn,.pocket-more>summary{width:38px;min-height:44px}
+.pocket-intro{gap:10px!important;margin-bottom:23px!important}
+.pocket-intro h1{font-size:31px;max-width:255px;line-height:1.12;letter-spacing:-1.4px}
+.pocket-intro .subtitle{max-width:260px;font-size:11px}
+.pocket-sticker{width:59px;height:63px;border-radius:20px;font-size:11px;margin-right:3px}
+.pocket-wallet{padding:21px 19px 16px;margin-bottom:27px;border-radius:25px}
+.pocket-wallet-top>span{font-size:11px;gap:7px}
+.pocket-small-button{font-size:11px;padding:9px;min-height:36px}
+.pocket-income{font-size:43px;letter-spacing:-1.8px}
+.pocket-wallet-description{font-size:11px;margin-top:8px;margin-bottom:19px}
+.pocket-plan-stripe{height:11px;gap:4px;margin-bottom:17px}
+.pocket-free{padding:12px 11px;font-size:11px;gap:5px;flex-wrap:wrap}
+.pocket-free>span{gap:5px}
+.pocket-free>small{font-size:11px}
+.pocket-wallet-note{font-size:11px;line-height:1.65;margin-top:9px}
+.pocket-section-title{gap:10px}
+.pocket-section-title h2{font-size:19px}
+.pocket-section-title p{font-size:11px}
+.pocket-link{font-size:11px;padding-left:2px}
+.pocket-budget-grid{gap:11px}
+.pocket-budget{padding:15px 16px 13px;border-radius:20px}
+.pocket-budget-heading{margin-bottom:10px}
+.pocket-token{width:33px;height:33px;border-radius:11px}
+.pocket-budget-name{font-size:12px}
+.pocket-budget-sub{font-size:11px}
+.pocket-budget>strong{font-size:24px;letter-spacing:-.7px}
+.pocket-budget-note{font-size:11px}
+.pocket-goals{margin-top:23px}
+.pocket-goal-grid{gap:11px}
+.pocket-goal{padding:16px}
+.pocket-goal-etf,.pocket-goal-retirement{padding:17px 14px 15px}
+.pocket-goal-label{font-size:11px;gap:5px;margin-bottom:15px}
+.pocket-goal-label svg{width:16px;height:16px}
+.pocket-goal-label>span{font-size:14px}
+.pocket-goal>strong{font-size:22px}
+.pocket-goal-reserve>strong{font-size:28px}
+.pocket-goal>small{font-size:11px}
+.pocket-savingrate{font-size:12px;margin-top:14px}
+.pocket-savingrate small{font-size:11px}
+.pocket-distribute{padding:14px 15px;gap:10px}
+.pocket-distribute-icon{width:37px;height:39px;border-radius:13px}
+.pocket-distribute strong{font-size:11px;margin-bottom:4px}
+.pocket-distribute small{font-size:11px}
+.pocket-distribute>span:last-child{font-size:20px}
+.pocket-allocation>summary{font-size:11px}
+.pocket-allocation-body{gap:15px}
+.pocket-allocation h3{font-size:11px}
+.pocket-allocation-list>div{font-size:11px}
+.pocket-allocation-note{font-size:11px}
+.pocket-dock#nav{padding:5px;border-radius:20px}
+.pocket-dock#nav button{font-size:11px;gap:6px;padding:12px 2px 10px;border-radius:15px}
+.card{padding:20px;border-radius:23px}
+.card h2{font-size:17px}
+.field label{font-size:11px}
+.pair{font-size:11px}
+.tiny{font-size:11px}
+.twofields{gap:10px}
+.entrydetails{font-size:11px}
+.forecast-panel .big{font-size:30px}
+.forecasttile .value{font-size:20px}
+.budgetsetting{grid-template-columns:1fr}
+.pocket-free svg{width:15px;height:15px}
+}
+
+@media(max-width:350px){.pocket-app.app{padding-left:13px;padding-right:13px}
+.pocket-sticker{display:none}
+.pocket-intro h1{max-width:100%;font-size:29px}
+.pocket-brand{font-size:19px}
+.pocket-brand img{width:36px;height:36px}
+.pocket-tools .iconbtn,.pocket-more>summary{width:36px}
+.pocket-income{font-size:39px}
+.pocket-budget{padding-inline:13px}
+.pocket-budget>strong{font-size:22px}
+.pocket-goal-label{font-size:11px}
+.pocket-goal>strong{font-size:20px}
+.pocket-goal-reserve>strong{font-size:25px}
+.pocket-link{font-size:11px}
+.pocket-section-title h2{font-size:18px}
+.forecasttile .value{font-size:18px}
+.twofields{grid-template-columns:minmax(0,1fr)}
+}
+
+html:root[data-theme="dark"]{--pocket-bg:#25222c;--pocket-ink:#f1ebf8;--pocket-muted:#b4aabd;--pocket-purple:#524264;--pocket-white:#302b38;--pocket-line:#453c4d;--soft:#3b3244;--field:#39313f;--nav:#3b3244;--navfixed:#302b38;--green:#b0cbaa;--mint:#344337;--red:#f5a199;--redbg:#4c3031;color-scheme:dark}
+
+html:root[data-theme="dark"] .pocket-intro .eyebrow,html:root[data-theme="dark"] .pocket-link{color:#c2a7d7}
+html:root[data-theme="dark"] .pocket-wallet{box-shadow:0 5px 0 #41344f}
+html:root[data-theme="dark"] .pocket-wallet-description,html:root[data-theme="dark"] .pocket-wallet-note{color:#cab6dc}
+html:root[data-theme="dark"] .pocket-small-button{background:#ffffff16;color:#efe6f7}
+html:root[data-theme="dark"] .pocket-free{background:#2f4434;color:#d3e5c7}
+html:root[data-theme="dark"] .pocket-free.pocket-negative{background:var(--redbg);color:var(--red)}
+html:root[data-theme="dark"] .pocket-budget{color:#393142}
+html:root[data-theme="dark"] .pocket-e{--pocket-tint:#cbb7e5}
+html:root[data-theme="dark"] .pocket-s{--pocket-tint:#b1c8b4}
+html:root[data-theme="dark"] .pocket-r{--pocket-tint:#e8d391}
+html:root[data-theme="dark"] .pocket-g{--pocket-tint:#e2b6a5}
+html:root[data-theme="dark"] .pocket-budget-note,html:root[data-theme="dark"] .pocket-budget-sub{color:#665b6f}
+html:root[data-theme="dark"] .pocket-goal-etf,html:root[data-theme="dark"] .pocket-goal-retirement{background:#342d3b}
+html:root[data-theme="dark"] .pocket-distribute{background:#3c3247}
+html:root[data-theme="dark"] .pocket-distribute-icon{background:#524361;color:#dac0ef}
+html:root[data-theme="dark"] .pocket-dock#nav{box-shadow:0 4px 0 #201c27}
+html:root[data-theme="dark"] .pocket-dock#nav button{color:#b5a5c0}
+html:root[data-theme="dark"] .pocket-dock#nav button.active{background:#5e4775;color:#f2e7fa}
+html:root[data-theme="dark"] .darkcard{background:#524264;color:#f3eaf9}
+html:root[data-theme="dark"] .darkcard .eyebrow,html:root[data-theme="dark"] .darkcard .tiny,html:root[data-theme="dark"] .darkcard .pair span:first-child{color:#c8b5da}
+html:root[data-theme="dark"] .secondary,html:root[data-theme="dark"] .round{background:#4d3d5d;color:#e3d2f0}
+html:root[data-theme="dark"] .textbtn{color:#c3a5db}
+html:root[data-theme="dark"] .entryicon{background:#413549;color:#d2badf}
+html:root[data-theme="dark"] .segmented{background:#3c3047}
+html:root[data-theme="dark"] .segmented button{color:#c0aace}
+html:root[data-theme="dark"] .segmented button.active{background:#6c5381;color:#fff}
+html:root[data-theme="dark"] .status{background:#354136;color:#bacab2}
+html:root[data-theme="dark"] .status.hold{background:#4d4230;color:#e1cd9b}
+html:root[data-theme="dark"] .forecasttile,html:root[data-theme="dark"] .balancer summary{background:#3b3045}
+html:root[data-theme="dark"] .frequency input:checked+span{background:#4d3d5d;color:#dfc8f0}
+
+@media(prefers-reduced-motion:reduce){.pocket-budget,.pocket-goal{transition:none}
+.pocket-budget:hover{transform:none}
+}
+
+
+.fp-plan-tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px}
+.fp-plan-tabs button{border:1px solid var(--line);background:var(--card);color:var(--muted);border-radius:15px;padding:11px 15px;min-height:44px;font-size:12px;font-weight:650}
+.fp-plan-tabs button[aria-pressed="true"]{background:var(--pocket-purple);border-color:transparent;color:var(--ink)}
+.fp-plan-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+.pocket-goal-label{white-space:normal;line-height:1.4}
+.pocket-goal-label>span{flex-shrink:0}
+.pocket-budget-note{line-height:1.5;min-height:33px}
+.pocket-wallet-note{line-height:1.6}
+.pocket-dock#nav button{font-size:11px}
+.pocket-distribute small{line-height:1.5}
+.pocket-intro .subtitle{font-size:12px}
+.pocket-budget-name{font-size:13px}
+.pocket-budget-sub{font-size:11px}
+.pocket-wallet-description{font-size:12px}
+.pocket-free{font-size:12px}
+
+@media(max-width:350px){.pocket-goal-grid{grid-template-columns:minmax(0,1fr)}
+.pocket-goal-etf,.pocket-goal-retirement{padding:17px}
+.pocket-goal>strong{font-size:25px}
+.pocket-goal-label{font-size:12px}
+.pocket-dock#nav button{font-size:11px}
+.pocket-budget-note{min-height:33px}
+.pocket-free{font-size:11px}
+}
+
+
+.pocket-app{font-family:ui-rounded,"SF Pro Rounded",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.pocket-app .fp-plan-tabs{gap:7px}
+.pocket-app .fp-plan-tabs button{border-radius:15px;padding:11px 15px;min-height:44px;background:var(--card);color:var(--muted);font-weight:650}
+.pocket-app .fp-plan-tabs button[aria-pressed="true"]{background:var(--pocket-purple);border-color:transparent;color:var(--ink)}
+.pocket-app .fp-plan-grid,.pocket-app .forecast-separate{grid-template-columns:minmax(0,1fr);gap:16px}
+.pocket-app .fp-plan-grid>.card:first-child:last-child{max-width:none}
+
+@media(min-width:671px){.pocket-topbar{margin-bottom:26px}
+.pocket-intro.intro{margin-bottom:22px}
+.pocket-wallet{padding:22px 25px 18px;margin-bottom:25px}
+.pocket-wallet-description{display:none}
+.pocket-income{font-size:49px;margin-top:13px;margin-bottom:20px}
+.pocket-plan-stripe{margin-bottom:16px}
+.pocket-budget-heading{margin-bottom:8px}
+.pocket-budget{padding-top:14px;padding-bottom:13px}
+.pocket-budget>strong{margin-top:8px}
+.pocket-budget-note{min-height:30px}
+.pocket-goals{margin-top:21px}
+.pocket-goal{padding-top:17px;padding-bottom:14px}
+.pocket-goal-label{margin-bottom:13px}
+.pocket-distribute{margin-top:17px}
+.pocket-dock#nav{margin-top:21px}
+}
+
+
+
+/* Pocket palettes: colour overrides only. Load after the inherited Pocket styles. */
+html:root{--pocket-bg:#faf9f6;--pocket-ink:#353344;--pocket-muted:#716c79;--pocket-accent:#e8ddff;--pocket-strong:#765394;--pocket-white:#ffffff;--pocket-line:#e8e2ec;--pocket-soft:#f2edf7;--pocket-field:#fbf9fd;--pocket-accentink:#69517e;--pocket-shadow:#dbcef0;--pocket-etftint:#fffdf3;--pocket-retirementtint:#fff5f0;--pocket-freebg:#f6fcf0;--pocket-freeink:#456349;--pocket-green:#4d7659;--pocket-mint:#edf5eb;--pocket-red:#ae4c45;--pocket-redbg:#fff0ed;--pocket-token:#ffffff99;--pocket-meter:#ffffffb3;--pocket-budgetink:#353344;--pocket-budgetmuted:#6c6374;--pocket-e-tint:#eee5ff;--pocket-s-tint:#e3eee3;--pocket-r-tint:#fff1c2;--pocket-g-tint:#ffe5dd;--pocket-e-tone:#9674bd;--pocket-s-tone:#70a186;--pocket-r-tone:#a8832e;--pocket-g-tone:#bd7462;--pocket-holdbg:#fff3d1;--pocket-holdink:#79602b;--pocket-dockshadow:#eee8f1;--pocket-scrim:#30233966;--pocket-purple:var(--pocket-accent);--pocket-purple-strong:var(--pocket-strong);--bg:var(--pocket-bg);--card:var(--pocket-white);--soft:var(--pocket-soft);--field:var(--pocket-field);--nav:var(--pocket-soft);--navfixed:var(--pocket-white);--ink:var(--pocket-ink);--muted:var(--pocket-muted);--line:var(--pocket-line);--green:var(--pocket-green);--mint:var(--pocket-mint);--red:var(--pocket-red);--redbg:var(--pocket-redbg);color-scheme:light}
+
+html:root[data-theme="dark"]{--pocket-bg:#25222c;--pocket-ink:#f1ebf8;--pocket-muted:#b9afc4;--pocket-accent:#524264;--pocket-strong:#bba0dc;--pocket-white:#302b38;--pocket-line:#49404f;--pocket-soft:#3b3244;--pocket-field:#39313f;--pocket-accentink:#dbc3f0;--pocket-shadow:#41344f;--pocket-etftint:#38323b;--pocket-retirementtint:#3c3039;--pocket-freebg:#2f4434;--pocket-freeink:#d3e5c7;--pocket-green:#b0cbaa;--pocket-mint:#344337;--pocket-red:#f5a199;--pocket-redbg:#4c3031;--pocket-token:#ffffff8c;--pocket-meter:#ffffff80;--pocket-budgetink:#352e3e;--pocket-budgetmuted:#60546b;--pocket-e-tint:#cbb7e5;--pocket-s-tint:#b1c8b4;--pocket-r-tint:#e8d391;--pocket-g-tint:#e2b6a5;--pocket-e-tone:#70508e;--pocket-s-tone:#4d795d;--pocket-r-tone:#94732b;--pocket-g-tone:#a25f4d;--pocket-holdbg:#4d4230;--pocket-holdink:#e1cd9b;--pocket-dockshadow:#201c27;--pocket-scrim:#100d18a6;--pocket-purple:var(--pocket-accent);--pocket-purple-strong:var(--pocket-strong);--bg:var(--pocket-bg);--card:var(--pocket-white);--soft:var(--pocket-soft);--field:var(--pocket-field);--nav:var(--pocket-soft);--navfixed:var(--pocket-white);--ink:var(--pocket-ink);--muted:var(--pocket-muted);--line:var(--pocket-line);--green:var(--pocket-green);--mint:var(--pocket-mint);--red:var(--pocket-red);--redbg:var(--pocket-redbg);color-scheme:dark}
+
+html:root{--palette-e:#9674bd}
+
+html:root{--palette-s:#70a186}
+
+html:root{--palette-r:#c3a047}
+
+html:root{--palette-g:#cf8776}
+
+
+html:root[data-theme]{background:var(--pocket-bg);color:var(--pocket-ink)}
+
+html:root[data-theme] .pocket-intro .eyebrow,html:root[data-theme] .pocket-link,html:root[data-theme] a,html:root[data-theme] .textbtn{color:var(--pocket-accentink)}
+
+html:root[data-theme] .pocket-sticker{display:none!important}
+
+html:root[data-theme] .pocket-wallet{background:var(--pocket-accent);box-shadow:0 5px 0 var(--pocket-shadow)}
+
+html:root[data-theme] .pocket-wallet-description,html:root[data-theme] .pocket-wallet-note{color:var(--pocket-accentink)}
+
+html:root[data-theme] .pocket-small-button{background:var(--pocket-token);color:var(--pocket-accentink)}
+
+html:root[data-theme] .pocket-free{background:var(--pocket-freebg);color:var(--pocket-freeink)}
+
+html:root[data-theme] .pocket-free.pocket-negative{background:var(--pocket-redbg);color:var(--pocket-red)}
+
+html:root[data-theme] .pocket-e{--pocket-tint:var(--pocket-e-tint);--pocket-tone:var(--pocket-e-tone)}
+
+html:root[data-theme] .pocket-s{--pocket-tint:var(--pocket-s-tint);--pocket-tone:var(--pocket-s-tone)}
+
+html:root[data-theme] .pocket-r{--pocket-tint:var(--pocket-r-tint);--pocket-tone:var(--pocket-r-tone)}
+
+html:root[data-theme] .pocket-g{--pocket-tint:var(--pocket-g-tint);--pocket-tone:var(--pocket-g-tone)}
+
+html:root[data-theme] .pocket-budget{background:var(--pocket-tint);color:var(--pocket-budgetink)}
+
+html:root[data-theme] .pocket-token{background:var(--pocket-token);color:var(--pocket-tone)}
+
+html:root[data-theme] .pocket-budget-sub,html:root[data-theme] .pocket-budget-note,html:root[data-theme] .pocket-arrow{color:var(--pocket-budgetmuted)}
+
+html:root[data-theme] .pocket-over .pocket-budget-note{color:var(--pocket-red)}
+
+html:root[data-theme] .pocket-meter{background:var(--pocket-meter)}
+
+html:root[data-theme] .pocket-meter>i{background:var(--pocket-tone)}
+
+html:root[data-theme] .pocket-goal{background:var(--pocket-white);color:var(--pocket-ink)}
+
+html:root[data-theme] .pocket-goal:hover{background:var(--pocket-soft)}
+
+html:root[data-theme] .pocket-goal-etf{background:var(--pocket-etftint)}
+
+html:root[data-theme] .pocket-goal-retirement{background:var(--pocket-retirementtint)}
+
+html:root[data-theme] .pocket-goal-label>span{color:var(--pocket-muted)}
+
+html:root[data-theme] .pocket-goal .pocket-meter{--pocket-tone:var(--palette-s);background:var(--pocket-soft)}
+
+html:root[data-theme] .pocket-distribute{background:var(--pocket-soft)}
+
+html:root[data-theme] .pocket-distribute-icon{background:var(--pocket-white);color:var(--pocket-strong)}
+
+html:root[data-theme] .pocket-distribute>span:last-child{color:var(--pocket-accentink)}
+
+html:root[data-theme] .pocket-dock#nav{background:var(--pocket-white);box-shadow:0 4px 0 var(--pocket-dockshadow)}
+
+html:root[data-theme] .pocket-dock#nav button{color:var(--pocket-muted)}
+
+html:root[data-theme] .pocket-dock#nav button.active{background:var(--pocket-accent);color:var(--pocket-accentink)}
+
+html:root[data-theme] .pocket-footer{color:var(--pocket-muted)}
+
+html:root[data-theme] .primary{background:var(--pocket-strong);color:var(--pocket-white)}
+
+html:root[data-theme] .secondary,html:root[data-theme] .round{background:var(--pocket-soft);color:var(--pocket-accentink)}
+
+html:root[data-theme] .entryicon{background:var(--pocket-soft);color:var(--pocket-accentink)}
+
+html:root[data-theme] .darkcard{background:var(--pocket-accent);color:var(--pocket-ink)}
+
+html:root[data-theme] .darkcard .eyebrow,html:root[data-theme] .darkcard .tiny,html:root[data-theme] .darkcard .pair span:first-child{color:var(--pocket-accentink)}
+
+html:root[data-theme] .darkcard .rule{background:var(--pocket-shadow)}
+
+html:root[data-theme] .segmented{background:var(--pocket-soft)}
+
+html:root[data-theme] .segmented button{color:var(--pocket-accentink)}
+
+html:root[data-theme] .segmented button.active{background:var(--pocket-white);color:var(--pocket-accentink)}
+
+html:root[data-theme] .status{background:var(--pocket-mint);color:var(--pocket-green)}
+
+html:root[data-theme] .status.hold{background:var(--pocket-holdbg);color:var(--pocket-holdink)}
+
+html:root[data-theme] .bar,html:root[data-theme] .forecasttile,html:root[data-theme] .balancer summary{background:var(--pocket-soft)}
+
+html:root[data-theme] .accountheading .pill,html:root[data-theme] .stepnum{background:var(--pocket-soft);color:var(--pocket-accentink)}
+
+html:root[data-theme] .frequency input:checked+span{background:var(--pocket-accent);border-color:var(--pocket-strong);color:var(--pocket-accentink)}
+
+html:root[data-theme] .positive{color:var(--pocket-green)}
+
+html:root[data-theme] .modalback{background:var(--pocket-scrim)}
+
+html:root[data-theme] .toast{background:var(--pocket-ink);color:var(--pocket-white)}
+
+html:root[data-theme] .fp-plan-tabs button[aria-pressed="true"]{background:var(--pocket-accent);border-color:var(--pocket-shadow);color:var(--pocket-accentink)}
+
+html:root[data-theme] .pocket-plan-stripe>span:nth-child(1),html:root[data-theme] .pocket-split>span:nth-child(1),html:root[data-theme] .pocket-allocation-list>div:nth-child(1) i{background:var(--palette-e)!important}
+
+html:root[data-theme] .pocket-plan-stripe>span:nth-child(2),html:root[data-theme] .pocket-split>span:nth-child(2),html:root[data-theme] .pocket-allocation-list>div:nth-child(2) i{background:var(--palette-s)!important}
+
+html:root[data-theme] .pocket-plan-stripe>span:nth-child(3),html:root[data-theme] .pocket-split>span:nth-child(3),html:root[data-theme] .pocket-allocation-list>div:nth-child(3) i{background:var(--palette-r)!important}
+
+html:root[data-theme] .pocket-plan-stripe>span:nth-child(4),html:root[data-theme] .pocket-split>span:nth-child(4),html:root[data-theme] .pocket-allocation-list>div:nth-child(4) i{background:var(--palette-g)!important}
+
+html:root[data-theme] input{accent-color:var(--pocket-strong)}
+
+html:root[data-theme] input:focus-visible,html:root[data-theme] select:focus-visible,html:root[data-theme] textarea:focus-visible,html:root[data-theme] button:focus-visible,html:root[data-theme] summary:focus-visible{outline:3px solid var(--pocket-strong)!important;outline-offset:3px}
+
+html:root[data-theme] .pocket-horizon-control{margin:20px 0 8px;padding:16px 17px;background:var(--pocket-soft);border:1px solid var(--pocket-line);border-radius:17px}
+
+html:root[data-theme] .pocket-horizon-header{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:12px;font-weight:650;color:var(--pocket-ink)}
+
+html:root[data-theme] .pocket-horizon-header output{display:inline-flex;align-items:center;justify-content:center;min-width:66px;padding:6px 9px;border-radius:10px;background:var(--pocket-white);color:var(--pocket-accentink);font-size:13px;font-weight:750}
+
+html:root[data-theme] .pocket-horizon-control input[type="range"]{display:block;width:100%;height:30px;margin:10px 0 3px;padding:0;border:0;background:transparent;cursor:inherit;accent-color:var(--pocket-strong)}
+
+html:root[data-theme] .pocket-horizon-control input[type="range"]::-webkit-slider-runnable-track{height:6px;border-radius:10px;background:linear-gradient(to right,var(--pocket-strong) 0 var(--range-progress,50%),var(--pocket-shadow) var(--range-progress,50%) 100%)}
+
+html:root[data-theme] .pocket-horizon-control input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;margin-top:-8px;background:var(--pocket-strong);border:3px solid var(--pocket-white);box-shadow:0 1px 5px #0002}
+
+html:root[data-theme] .pocket-horizon-control input[type="range"]{-webkit-appearance:none;appearance:none}
+
+html:root[data-theme] .pocket-horizon-control input[type="range"]::-moz-range-track{height:6px;border-radius:10px;background:var(--pocket-shadow)}
+
+html:root[data-theme] .pocket-horizon-control input[type="range"]::-moz-range-progress{height:6px;border-radius:10px;background:var(--pocket-strong)}
+
+html:root[data-theme] .pocket-horizon-control input[type="range"]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;background:var(--pocket-strong);border:3px solid var(--pocket-white);box-shadow:0 1px 5px #0002}
+
+html:root[data-theme] .pocket-horizon-scale{display:flex;justify-content:space-between;gap:10px;color:var(--pocket-muted);font-size:11px;line-height:1.5}
+
+
+html:root .pocket-sticker{display:none!important}
+
+html:root .pocket-intro{justify-content:flex-start}
+
+html:root .pocket-intro h1,html:root .pocket-intro .subtitle{max-width:100%}
+
+html:root .pocket-projection-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
+
+html:root .pocket-horizon-panel{min-width:0}
+
+html:root .pocket-horizon-control{padding:16px 18px;margin:20px 0;border-radius:18px;background:var(--soft)}
+
+html:root .pocket-horizon-header{display:flex;align-items:center;justify-content:space-between;gap:14px;font-size:12px}
+
+html:root .pocket-horizon-header label{font-weight:600;line-height:1.45}
+
+html:root .pocket-horizon-header output{font-size:16px;font-weight:650;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+html:root .pocket-horizon-control input{display:block;margin:12px 0 5px;width:100%;min-height:32px}
+
+html:root .pocket-horizon-scale{display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+
+html:root .pocket-startvalue{margin:16px 0 24px;font-size:12px}
+
+html:root .pocket-startvalue summary,html:root .pocket-projection-notes summary{min-height:40px;display:flex;align-items:center;gap:8px}
+
+html:root .pocket-startvalue summary::before,html:root .pocket-projection-notes summary::before{content:'+';font-size:18px}
+
+html:root .pocket-startvalue[open] summary::before,html:root .pocket-projection-notes[open] summary::before{content:'−'}
+
+html:root .pocket-combined{margin-top:22px}
+
+html:root .pocket-combined .secondary{margin-top:16px}
+
+html:root .pocket-projection-notes{margin-top:22px;font-size:12px;color:var(--muted)}
+
+html:root .pocket-projection-notes summary{color:var(--ink)}
+
+html:root .pocket-projection-notes .textbtn{display:block;margin-top:12px}
+
+html:root .forecastgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+html:root .forecast-caption .eyebrow{letter-spacing:.8px}
+
+@media(max-width:430px){html:root .pocket-horizon-control{padding:14px 12px}
+html:root .pocket-horizon-header{font-size:11px;gap:9px}
+html:root .pocket-horizon-header output{font-size:15px}
+}
+
+
+
+/* Contrast adjustments apply exclusively to the light lavender appearance. */
+html:root[data-theme="light"]{
+  --pocket-ink:#292333;
+  --pocket-muted:#51475e;
+  --pocket-accentink:#503465;
+  --pocket-strong:#65427f;
+  --pocket-budgetink:#292333;
+  --pocket-budgetmuted:#51475e;
+  --pocket-freeink:#31583b;
+  --pocket-green:#315d3d;
+  --pocket-red:#96352f;
+  --pocket-line:#c9bfd3;
+  --pocket-field:#ffffff;
+  --pocket-e-tone:#66517b;
+  --pocket-s-tone:#35634b;
+  --pocket-r-tone:#765913;
+  --pocket-g-tone:#8c4c3c;
+  --lavendel-series-low:#7d619f;
+  --lavendel-series-main:#5d367c;
+  --lavendel-series-high:#2d6a64;
+  color:var(--pocket-ink);
+}
+
+html:root[data-theme="light"] .pocket-brand-note,
+html:root[data-theme="light"] .subtitle,
+html:root[data-theme="light"] .tiny,
+html:root[data-theme="light"] .info,
+html:root[data-theme="light"] .entrysub,
+html:root[data-theme="light"] .entrydetails,
+html:root[data-theme="light"] .pocket-budget-sub,
+html:root[data-theme="light"] .pocket-budget-note,
+html:root[data-theme="light"] .pocket-wallet-description,
+html:root[data-theme="light"] .pocket-wallet-note,
+html:root[data-theme="light"] .pocket-goal>small,
+html:root[data-theme="light"] .pocket-goal-caption,
+html:root[data-theme="light"] .pocket-savingrate small,
+html:root[data-theme="light"] .pocket-distribute small,
+html:root[data-theme="light"] .pocket-allocation-note,
+html:root[data-theme="light"] .pocket-horizon-scale{
+  font-size:12px;
+  line-height:1.65;
+  color:var(--pocket-muted);
+  opacity:1;
+}
+
+html:root[data-theme="light"] .pocket-wallet-top>span,
+html:root[data-theme="light"] .pocket-budget-name,
+html:root[data-theme="light"] .pocket-goal-label,
+html:root[data-theme="light"] .pocket-distribute strong,
+html:root[data-theme="light"] .field label,
+html:root[data-theme="light"] .pair,
+html:root[data-theme="light"] .entryname,
+html:root[data-theme="light"] .switchrow{
+  font-size:13px;
+  color:var(--pocket-ink);
+}
+
+html:root[data-theme="light"] .pocket-income,
+html:root[data-theme="light"] .pocket-budget>strong,
+html:root[data-theme="light"] .pocket-goal>strong,
+html:root[data-theme="light"] .big,
+html:root[data-theme="light"] .forecasttile .value,
+html:root[data-theme="light"] .money{
+  color:var(--pocket-ink);
+}
+
+html:root[data-theme="light"] .pocket-small-button,
+html:root[data-theme="light"] .pocket-link,
+html:root[data-theme="light"] .textbtn,
+html:root[data-theme="light"] .editbtn,
+html:root[data-theme="light"] .iconbtn,
+html:root[data-theme="light"] .pocket-startvalue summary,
+html:root[data-theme="light"] .pocket-allocation summary{
+  color:var(--pocket-accentink);
+  font-weight:650;
+}
+
+html:root[data-theme="light"] .pocket-small-button{
+  background:#ffffff;
+  font-size:12px;
+}
+
+html:root[data-theme="light"] .primary{
+  background:#65427f;
+  color:#ffffff;
+  font-size:13px;
+}
+
+html:root[data-theme="light"] .secondary,
+html:root[data-theme="light"] .fp-plan-tabs button{
+  background:#f0e9f7;
+  color:#503465;
+  font-size:13px;
+}
+
+html:root[data-theme="light"] .fp-plan-tabs button[aria-pressed="true"]{
+  background:#dfd0f1;
+  color:#422957;
+}
+
+html:root[data-theme="light"] .pocket-dock#nav button{
+  color:#51475e;
+  font-size:12px;
+}
+
+html:root[data-theme="light"] .pocket-dock#nav button.active{
+  color:#422957;
+  background:#dfd0f1;
+}
+
+html:root[data-theme="light"] input:not([type="range"]):not([type="checkbox"]):not([type="radio"]),
+html:root[data-theme="light"] select,
+html:root[data-theme="light"] textarea{
+  background:#ffffff;
+  color:#292333;
+  border:1px solid #9c8ba9;
+}
+
+html:root[data-theme="light"] input::placeholder,
+html:root[data-theme="light"] textarea::placeholder{
+  color:#62546e;
+  opacity:1;
+}
+
+html:root[data-theme="light"] .field label,
+html:root[data-theme="light"] .suffix,
+html:root[data-theme="light"] .pair span:first-child{
+  color:var(--pocket-muted);
+}
+
+html:root[data-theme="light"] .pocket-free,
+html:root[data-theme="light"] .pocket-free>small,
+html:root[data-theme="light"] .positive{
+  color:#315d3d;
+}
+
+html:root[data-theme="light"] .pocket-free.pocket-negative,
+html:root[data-theme="light"] .pocket-free.pocket-negative>small,
+html:root[data-theme="light"] .pocket-over .pocket-budget-note,
+html:root[data-theme="light"] .negative{
+  color:#96352f;
+}
+
+html:root[data-theme="light"] .pocket-horizon-header label{
+  color:#292333;
+  font-size:13px;
+}
+
+html:root[data-theme="light"] .pocket-horizon-header output{
+  color:#422957;
+  font-size:15px;
+}
+
+html:root[data-theme="light"] .forecast-caption .eyebrow,
+html:root[data-theme="light"] .forecast-rate,
+html:root[data-theme="light"] .chartlegend,
+html:root[data-theme="light"] .forecasttile small{
+  color:#51475e;
+  font-size:12px;
+}
+
+html:root[data-theme="light"] .fp-projection-chart text{
+  fill:#51475e!important;
+  font-size:12px!important;
+}
+
+html:root[data-theme="light"] .fp-projection-chart polyline:nth-of-type(1){stroke:var(--lavendel-series-low)}
+
+html:root[data-theme="light"] .fp-projection-chart polyline:nth-of-type(2){stroke:var(--lavendel-series-main)}
+
+html:root[data-theme="light"] .fp-projection-chart polyline:nth-of-type(3){stroke:var(--lavendel-series-high)}
+
+html:root[data-theme="light"] .chartlegend>span:nth-child(1) .dot{background:var(--lavendel-series-low)!important}
+
+html:root[data-theme="light"] .chartlegend>span:nth-child(2) .dot{background:var(--lavendel-series-main)!important}
+
+html:root[data-theme="light"] .chartlegend>span:nth-child(3) .dot{background:var(--lavendel-series-high)!important}
+
+html:root[data-theme="light"] .pocket-footer{
+  color:#51475e;
+  font-size:12px;
+}
+
+html:root[data-theme="light"] .darkcard small,
+html:root[data-theme="light"] .darkcard .subtitle,
+html:root[data-theme="light"] .darkcard .tiny,
+html:root[data-theme="light"] .darkcard .eyebrow{
+  color:#503465;
+  opacity:1;
+}
+
+html:root[data-theme="light"] .segmented small{
+  opacity:1;
+  font-size:12px;
+  font-weight:500;
+}
+
+@media(max-width:380px){
+  html:root[data-theme="light"] .pocket-topbar{flex-wrap:wrap;row-gap:10px}
+
+  html:root[data-theme="light"] .pocket-tools{margin-left:auto}
+
+  html:root[data-theme="light"] .pocket-horizon-header{flex-wrap:wrap}
+
+  html:root[data-theme="light"] .pocket-horizon-header label{flex:1;min-width:130px}
+
+}
+
+
+
+/* Explicit heading colours keep outer preview styles from washing them out. */
+html:root h1,
+html:root h2,
+html:root h3{
+  color:var(--pocket-ink);
+  -webkit-text-fill-color:currentColor;
+  opacity:1;
+  text-shadow:none;
+}
+
+html:root[data-theme="light"] .pocket-intro #pagetitle{
+  color:#292333;
+  -webkit-text-fill-color:#292333;
+}
+
+html:root .fp-original-icon,
+html:root svg.lucide{
+  display:inline-block;
+  vertical-align:middle;
+  flex-shrink:0;
+  stroke-width:1.8;
+}
+
+html:root{
+  --pocket-section-lavender:#f0e8f8;
+  --pocket-section-mint:#edf5ee;
+  --pocket-section-peach:#fff0e8;
+  --pocket-section-butter:#fbf4df;
+  --pocket-section-border:#dacbea;
+}
+
+html:root[data-theme="dark"]{
+  --pocket-section-lavender:color-mix(in srgb,#9674bd 15%,var(--pocket-white));
+  --pocket-section-mint:color-mix(in srgb,#70a186 13%,var(--pocket-white));
+  --pocket-section-peach:color-mix(in srgb,#cf8776 13%,var(--pocket-white));
+  --pocket-section-butter:color-mix(in srgb,#c3a047 12%,var(--pocket-white));
+  --pocket-section-border:#5c486e;
+}
+
+html:root:not([data-page="overview"]) .pocket-intro{
+  padding:22px 24px;
+  background:var(--pocket-section-lavender);
+  border-radius:23px;
+}
+
+html:root:not([data-page="overview"]) #content .sectionhead{
+  padding:14px 16px;
+  margin:-4px -4px 18px;
+  border-radius:16px;
+  background:var(--pocket-section-lavender);
+}
+
+html:root[data-page="plan"] .card:has([data-add="incomes"])>.sectionhead{
+  background:var(--pocket-section-mint);
+}
+
+html:root[data-page="plan"] .card:has([data-add="rewards"])>.sectionhead{
+  background:var(--pocket-section-butter);
+}
+
+html:root[data-page="plan"] .card:has(#etfrate)>.sectionhead{
+  background:var(--pocket-section-peach);
+}
+
+html:root[data-page="plan"] .retirementcard>.sectionhead{
+  background:var(--pocket-section-lavender);
+}
+
+html:root[data-page="reserve"] .card:has([data-number="reserve"])>.sectionhead{
+  background:var(--pocket-section-mint);
+}
+
+html:root[data-page="reserve"] .progresswide{
+  background:var(--pocket-section-mint);
+}
+
+html:root[data-page="reserve"] .progresswide>span{
+  background:var(--palette-s)!important;
+}
+
+html:root[data-page="reserve"] .card:has(#splitrange)>.sectionhead{
+  background:var(--pocket-section-lavender);
+}
+
+html:root[data-page="distribute"] .accountheading{
+  padding:12px 14px;
+  border-radius:15px;
+  background:var(--pocket-section-lavender);
+}
+
+html:root[data-page="distribute"] .stepnum{
+  background:var(--pocket-section-mint);
+  color:var(--pocket-green);
+}
+
+html:root[data-page="forecast"] .pocket-horizon-panel:has([data-pocket-horizon="etf"])>.sectionhead,
+html:root[data-page="forecast"] .pocket-horizon-panel:has([data-pocket-horizon="etf"])>.pocket-horizon-control{
+  background:var(--pocket-section-peach);
+}
+
+html:root[data-page="forecast"] .pocket-horizon-panel:has([data-pocket-horizon="retirement"])>.sectionhead,
+html:root[data-page="forecast"] .pocket-horizon-panel:has([data-pocket-horizon="retirement"])>.pocket-horizon-control{
+  background:var(--pocket-section-lavender);
+}
+
+html:root[data-page="forecast"] .pocket-horizon-control{
+  border-color:transparent;
+}
+
+@media(max-width:430px){
+  html:root:not([data-page="overview"]) .pocket-intro{padding:18px 17px}
+
+  html:root:not([data-page="overview"]) #content .sectionhead{padding:13px 12px;margin:0 0 18px}
+
+}
+
+
+
+html:root .fp-original-icon{
+  position:relative;
+  display:inline-block!important;
+  flex:0 0 auto;
+  vertical-align:middle;
+  overflow:hidden;
+  line-height:0;
+  pointer-events:none;
+}
+
+html:root .fp-original-icon>.fp-icon-image,
+html:root .fp-original-icon>.fp-icon-mask{
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  margin:0;
+  padding:0;
+  border:0;
+  object-fit:contain;
+}
+
+html:root .fp-original-icon>.fp-icon-dark{display:none}
+
+html:root[data-theme="dark"] .fp-original-icon>.fp-icon-light{display:none}
+
+html:root[data-theme="dark"] .fp-original-icon>.fp-icon-dark{display:block}
+
+html:root .fp-original-icon>.fp-icon-mask{
+  background-color:currentColor;
+  -webkit-mask-image:var(--fp-icon-asset);
+  mask-image:var(--fp-icon-asset);
+  -webkit-mask-repeat:no-repeat;
+  mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  mask-position:center;
+  -webkit-mask-size:contain;
+  mask-size:contain;
+  mask-mode:alpha;
+}
+
+html:root .pocket-goal-label>.fp-original-icon{
+  margin-left:0;
+  color:inherit;
+}
+
+
+
+/* The approved design stays unchanged outside this one light-mode control. */
+html:root[data-theme="light"] #splitrange{
+  -webkit-appearance:none;
+  appearance:none;
+  display:block;
+  width:100%;
+  height:40px;
+  margin:12px 0;
+  padding:0;
+  background:transparent;
+  border:0;
+  border-radius:0;
+  opacity:1;
+  accent-color:#65427f;
+  color:#65427f;
+}
+
+html:root[data-theme="light"] #splitrange::-webkit-slider-runnable-track{
+  -webkit-appearance:none;
+  height:8px;
+  background:#9b82ad;
+  border:0;
+  border-radius:8px;
+  opacity:1;
+}
+
+html:root[data-theme="light"] #splitrange::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  appearance:none;
+  width:24px;
+  height:24px;
+  margin-top:-8px;
+  background:#503465;
+  border:3px solid #ffffff;
+  border-radius:50%;
+  box-shadow:0 1px 5px #50346533;
+  opacity:1;
+}
+
+html:root[data-theme="light"] #splitrange::-moz-range-track{
+  height:8px;
+  background:#9b82ad;
+  border:0;
+  border-radius:8px;
+  opacity:1;
+}
+
+html:root[data-theme="light"] #splitrange::-moz-range-progress{
+  height:8px;
+  background:#9b82ad;
+  border:0;
+  border-radius:8px;
+}
+
+html:root[data-theme="light"] #splitrange::-moz-range-thumb{
+  width:18px;
+  height:18px;
+  background:#503465;
+  border:3px solid #ffffff;
+  border-radius:50%;
+  box-shadow:0 1px 5px #50346533;
+  opacity:1;
+}
+
+
+
+html:root[data-page="forecast"] .pocket-horizon-panel:has([data-pocket-horizon="etf"])>.pocket-horizon-control,
+html:root[data-page="forecast"] .pocket-horizon-panel:has([data-pocket-horizon="retirement"])>.pocket-horizon-control{
+  background:var(--pocket-section-lavender);
+}
+
+
+
+/* Live-app notices, protection and forms retain their original behavior. */
+body{background:var(--pocket-bg);color:var(--pocket-ink);font-family:ui-rounded,"SF Pro Rounded",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+
+html:root #sample:empty{display:none}
+
+html:root #sample:not(:empty){display:block}
+
+html:root .demo{background:var(--pocket-section-mint);border-color:var(--pocket-line);color:var(--pocket-ink)}
+
+html:root .demo .textbtn{white-space:normal;text-align:right}
+
+html:root .pocket-footer{line-height:1.8;overflow-wrap:anywhere}
+
+html:root .pocket-footer #storagefoot{display:block}
+
+html:root .offlinebar{justify-content:center;margin:10px 0 0;font-size:12px;line-height:1.6}
+
+html:root .offlinebar .textbtn{font-size:12px;white-space:normal}
+
+html:root .pocket-more-content .textbtn{white-space:normal;text-align:left;line-height:1.5}
+
+html:root .security-dialog,html:root .modal{color:var(--pocket-ink)}
+
+html:root .security-mark{background:var(--pocket-accent);color:var(--pocket-accentink)}
+
+html:root .security-dialog .security-heading{color:var(--pocket-ink)}
+
+html:root .security-dialog input,html:root .security-dialog textarea{background:var(--pocket-field);color:var(--pocket-ink)}
+
+html:root .security-wide{white-space:normal}
+html:root .field label{color:var(--pocket-muted)}
+html:root .badge,html:root .badgelabel{background:var(--pocket-soft);color:var(--pocket-muted)}
+html:root .badgelabel.warn{background:var(--pocket-redbg);color:var(--pocket-red)}
+html:root .hold{background:var(--pocket-holdbg);color:var(--pocket-holdink)}
+
+html:root .modalback{position:fixed;inset:0;padding:20px;align-items:center;overflow:auto}
+
+html:root .modal{max-height:90dvh;overflow:auto;border:1px solid var(--pocket-line)}
+
+html:root .modal .primary,html:root .modal .secondary{white-space:normal;line-height:1.5}
+
+html:root .modalhead{gap:16px}
+
+html:root .frequency label{min-height:40px}
+
+html:root .frequency input:focus-visible+span{outline:3px solid var(--pocket-strong);outline-offset:2px}
+
+html:root .info,html:root .tiny,html:root .subtitle,html:root .entrysub{overflow-wrap:anywhere}
+
+html:root .pair,html:root .total,html:root .row,html:root .sectionhead{min-width:0}
+
+html:root .pair b,html:root .total span{overflow-wrap:anywhere}
+
+html:root .chart text{fill:var(--pocket-muted)}
+
+html:root .toast{max-width:calc(100vw - 36px);width:max-content;line-height:1.5;bottom:24px}
+
+@media(max-width:650px){
+  html:root .budgetsetting .field{grid-template-columns:minmax(0,1fr)}
+
+  html:root .fp-plan-tabs button{flex:1;padding:10px 8px}
+
+}
+
+@media(max-width:430px){
+  html:root .modalback{padding:12px;align-items:flex-end}
+
+  html:root .modal{max-height:92dvh;padding:22px 18px}
+
+}
+
+@media(max-width:380px){
+  html:root .pocket-topbar{flex-wrap:wrap;row-gap:10px}
+
+  html:root .pocket-tools{margin-left:auto}
+
+}
+
+@media(pointer:coarse){button,summary{min-height:44px}
+}
+

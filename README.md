@@ -1,4 +1,4 @@
-# Vermögensaufbau – Version 3.5
+# Finanzplaner – Version 4.0
 
 **Einkommen planen, Budgets verstehen und Vermögen aufbauen.**
 
@@ -6,66 +6,30 @@ Kostenlose Web-App ohne Bankanbindung, Kontobuchungen oder automatische Überwei
 
 **[App öffnen →](https://aaronskii.github.io/vermoegensaufbau/)**
 
-## Neu in Version 3.5
+## Neu in Version 4.0
 
-- Neue Einträge beginnen mit einem leeren Betragsfeld und einem grauen Platzhalter. Eine vorhandene Null wird beim Bearbeiten ausgewählt und durch Tippen ersetzt; andere Beträge bleiben erhalten.
-- Mit verknüpftem Passkey startet beim Öffnen bzw. bei der Rückkehr in die App automatisch ein Face-ID-/Passkey-Versuch. Nach Abbruch oder Fehler erscheint die PIN-Eingabe. „Stattdessen PIN verwenden“ ist sofort verfügbar, ein erneuter Face-ID-Versuch bleibt manuell möglich.
-- Keine Abfrageschleifen: ein automatischer Versuch pro Öffnen. „Jetzt sperren“ lässt die App bewusst gesperrt.
-- Ein kleines **„JUHUU 🐭“** folgt auf der Übersicht dem grünen unverplanten Betrag, wenn dieser mindestens einen positiven Cent anzeigt.
+- Neues **Pocket-Design in Lavendel** mit heller und dunkler Darstellung, gut lesbaren Überschriften und einheitlichen Liniensymbolen. Das ursprüngliche Logo bleibt erhalten.
+- Fünf Bereiche: **Heute**, **Mein Plan**, **Konten**, **Polster** und **Zukunft**. Unter „Mein Plan“ trennen **Alltag**, **ETF & Anlagen** und **Altersvorsorge** die Eingaben.
+- Unter **Zukunft** besitzen ETF-Depot und Altersvorsorgedepot jeweils einen eigenen Laufzeitregler von **1 bis 50 Jahren**. Beide verwenden denselben Hintergrund und werden unabhängig gespeichert.
+- Die gemeinsame Prognose erscheint nur bei gleicher Laufzeit. Bei unterschiedlichen Laufzeiten lassen sich beide bewusst auf die längere der beiden Laufzeiten setzen. Endwerte verschiedener Zeitpunkte werden nicht addiert.
+- Sicherungsexport und -import sind im **•••-Menü** erreichbar. App-Schutz, automatische Fortschreibung, Konten und alle bisherigen Eingaben bleiben verfügbar.
+- Beim Update am bisherigen Website-Ort bleiben lokale Pläne, PIN, Passkey-Verknüpfung und Designwahl erhalten. Beide neuen Laufzeiten übernehmen zunächst die bisherige gemeinsame Laufzeit. Speicher- und Verschlüsselungsformate werden weiterverwendet.
 
-## Neu in Version 3.4
-
-- Der Sperrbildschirm für PIN und Face ID übernimmt das gewählte App-Design.
-- Die Darstellung wird vor dem Aufbau des Sperrbildschirms angewendet, einschließlich der Browser-Hintergrundfarbe.
-- Nur die Auswahl „hell“, „dunkel“ oder „System“ wird zusätzlich außerhalb des verschlüsselten Plans gespeichert. Finanzdaten, PIN und Passkey-Verknüpfung bleiben geschützt.
-- Der Systemmodus folgt auch auf dem gesperrten Bildschirm Änderungen der Geräteeinstellung.
-- **Nach einem Update von 3.3 einmal entsperren**, damit die bisher verschlüsselt gespeicherte Designwahl übernommen wird. Danach passt sie bereits beim nächsten Start. Bis dahin folgt der Sperrbildschirm der Geräteeinstellung.
-
-## Neu in Version 3.3
-
-- Freiwilliger App-Schutz mit **genau sechsstelliger PIN** (auch führende Nullen).
-- Verschlüsselte lokale Speicherung und automatische Sperre beim Verlassen der App.
-- Optionales Entsperren mit Face ID / Passkey bei unterstützter Passkey-Verschlüsselung.
-- Wiederherstellungscode zum Entsperren und Setzen einer neuen PIN.
-- Wahlweise passwortverschlüsselte Sicherungen; alte JSON-Dateien bleiben importierbar.
-- Bestehende Pläne werden beim Aktivieren verschlüsselt übernommen.
-
-## Neu in Version 3.2
-
-- Die Ist-Verteilung zeigt wie die Ziel-Verteilung **Prozentangaben**.
-- Das gesamte reservierte Lifestyle-Budget zählt zu Lifestyle, einschließlich des noch freien Betrags. Überbuchungen bleiben sichtbar.
-- In den Prognosen stehen „Möglicher Depotwert“ und „7 % Rendite p. a.“ in getrennten Zeilen. Zahl und Prozentzeichen bleiben zusammen.
-- Bestehende Einträge und Einstellungen bleiben erhalten; keine erneute Einrichtung nötig.
-
-## Neu in Version 3.1
-
-- ETF-Balancer: aktuelle ETF-Bestände in **Euro**, Zielgewichte weiterhin in Prozent. Die Summe der Bestände muss zum angezeigten Depotwert passen.
-- Vorhandene Prozentangaben aus Version 3.0 werden einmalig anhand des gespeicherten Depotwerts centgenau in Euro umgerechnet. Spätere Änderungen des Depotwerts skalieren diese manuellen Einzelwerte nicht automatisch.
-- Ziel- und Ist-Kreis stehen gemeinsam oben auf der Übersicht. Das Altersvorsorgedepot steht unmittelbar unter dem ETF-Plan.
-- Einheitliche Namen: **Safety** (bisher Stability), **Lifestyle** (bisher Rewards), **Wealth** (bisher Growth). Die Aufteilung und Berechnungen bleiben unverändert.
-- Monats- und Datumsfelder sowie ihre Formularcontainer haben begrenzte Breiten für schmale Bildschirme und Safari.
-- Die zusätzliche Kontobeschriftung und der leere Bereich über dem automatischen Fortschreiben unter Polster sind entfernt.
-
-## Neu in Version 3
-
-- Ist-Kreisdiagramm mit eigenem unverplanten Anteil.
-- Geordnete Ausgabendetails, Zahlungsrhythmen und Monatsumrechnung.
-- Alphabetische Symbole und korrigierter Pfeil im App-Icon.
-- Eigener Bereich für das Altersvorsorgedepot mit Förder- und Auszahlungsmodell.
-- Gemeinsame Prognose für ETF und Vorsorge, darunter beide einzeln.
-- Optionale monatliche Fortschreibung am 2. oder 16.
-- Aufklappbarer ETF-Balancer für die nächste Sparrate.
-- Übernahme älterer Pläne und Sicherungen aus Version 1 und 2 einschließlich 2.1.
+Frühere Versionsänderungen stehen in [CHANGELOG.md](CHANGELOG.md).
 
 ## Schnellstart
 
 1. Beim ersten Besuch erscheinen gekennzeichnete Beispieldaten.
 2. Mit **„Mit eigenen Daten starten“** einen leeren Plan anlegen.
-3. Unter **Planung** Einnahmen, Ausgaben und Sparraten eintragen.
-4. Unter **Verteilen** Budgetkonten und gegebenenfalls einzelne abweichende Konten wählen.
+3. Unter **Mein Plan → Alltag** Einnahmen und Ausgaben eintragen; unter **ETF & Anlagen** sowie **Altersvorsorge** die Sparraten ergänzen.
+4. Unter **Konten** Budgetkonten und gegebenenfalls einzelne abweichende Konten wählen.
 5. Unter **Polster** Notgroschenstand und Sicherheitsstufe einstellen.
 6. ETF- und Vorsorgewerte sowie gegebenenfalls die Förderbedingungen ergänzen.
 7. Automatische Fortschreibung nur bewusst aktivieren; regelmäßig exportieren.
+
+## Darstellung
+
+Das Designsymbol oben rechts wechselt zwischen **Hell** und **Dunkel**. Die Auswahl bleibt gespeichert und gilt auch für den Sperrbildschirm. Neue Pläne folgen zunächst dem Gerätedesign; eine bereits gespeicherte Einstellung „System“ bleibt beim Update erhalten und folgt weiter dem Gerät, bis du per Designsymbol eine feste Darstellung wählst.
 
 ## Einkommen, Budget und Diagramme
 
@@ -82,9 +46,9 @@ Alle monatlichen Netto-Einnahmen werden addiert.
 
 **„Noch unverplant“ ganz oben zählt nur den Rest aus Essentials und Wealth.** Lifestyle und Safety sind dort separat reserviert.
 
-Der Ziel-Kreis zeigt die vorgesehene Aufteilung. Der **Ist-Kreis** zeigt die tatsächliche Budgetaufteilung mit Prozentangaben: Essentials und Wealth nach ihren eingetragenen Monatsanteilen, Safety als vorgesehenen Sparbeitrag und Lifestyle mit dem gesamten reservierten Budget einschließlich des noch freien Betrags. Übersteigen die Lifestyle-Ausgaben das Budget, zählt der höhere tatsächliche Betrag. Der verbleibende Rest des Einkommens erhält den eigenen Anteil „Unverplant“. Ohne Überbuchung entspricht er dem freien Rest aus Essentials und Wealth; Lifestyle-Überbuchungen verringern den Rest im Kreis zusätzlich.
+Unter **Heute → So verteilt sich dein Einkommen** zeigt **Dein Ziel** die vorgesehene Aufteilung. **Deine aktuelle Planung** zeigt die tatsächliche Budgetaufteilung als Farbstreifen mit Prozentangaben: Essentials und Wealth nach ihren eingetragenen Monatsanteilen, Safety als vorgesehenen Sparbeitrag und Lifestyle mit dem gesamten reservierten Budget einschließlich des noch freien Betrags. Übersteigen die Lifestyle-Ausgaben das Budget, zählt der höhere tatsächliche Betrag. Der verbleibende Rest des Einkommens erhält den eigenen Anteil „Unverplant“. Ohne Überbuchung entspricht er dem freien Rest aus Essentials und Wealth; Lifestyle-Überbuchungen verringern diesen Rest zusätzlich.
 
-Bei Überplanung gibt es keine negativen Kreisstücke; die Kreisanteile beziehen sich dann auf den gesamten verplanten Betrag, die Unterdeckung wird angegeben. Die App kennt keine echten Kontostände.
+Bei Überplanung gibt es keine negativen Diagrammanteile; die dargestellten Anteile beziehen sich dann auf den gesamten verplanten Betrag, die Unterdeckung wird angegeben. Die App kennt keine echten Kontostände.
 
 ## Zahlungsrhythmen und gemeinsame Kosten
 
@@ -111,7 +75,7 @@ Restbetrag und offene Raten stehen in den Details. **Der aktuelle Monat gilt als
 
 Das gesamte Einkommen wird zunächst auf dem **Girokonto** angenommen. Der Verteiler zeigt, was dort bleibt und was auf andere Konten gehört.
 
-Standardkonten: Girokonto, Fixkostenkonto, Spaßkonto, Gemeinschaftskonto sowie Lebensmittel & Tanken. Eigene Konten mit Namen, Symbol und Farbe lassen sich unter **Verteilen → Konten verwalten** ergänzen und bearbeiten. Nur das Girokonto bleibt zwingend erhalten.
+Standardkonten: Girokonto, Fixkostenkonto, Spaßkonto, Gemeinschaftskonto sowie Lebensmittel & Tanken. Eigene Konten mit Namen, Symbol und Farbe lassen sich unter **Konten → Konten verwalten** ergänzen und bearbeiten. Nur das Girokonto bleibt zwingend erhalten.
 
 Beim Entfernen eines Kontos wählst du ein Ersatzkonto, das alle Budget-, Ausgaben- und Sparratenzuordnungen übernimmt. Die Beträge werden nicht gelöscht.
 
@@ -135,7 +99,7 @@ Zusätzliches Wealth-Budget erhöht nicht automatisch die ETF- oder Vorsorge-Spa
 
 Aktuellen ETF-Depotwert, monatliche Sparrate, Konto und ETF-Zielgewichte hinterlegen. Zielgewichte müssen zusammen 100 % ergeben.
 
-Unter **Planung → Dein ETF-Sparplan → ETF-Balancer** die aktuellen Euro-Werte der ETFs eintragen. Ihre Summe muss dem Depotwert entsprechen. Bei leerem Depot bleiben die Werte leer oder stehen auf 0 €; die Sparrate wird nach den Zielgewichten verteilt.
+Unter **Mein Plan → ETF & Anlagen → Dein ETF-Sparplan → ETF-Balancer** die aktuellen Euro-Werte der ETFs eintragen. Ihre Summe muss dem Depotwert entsprechen. Bei leerem Depot bleiben die Werte leer oder stehen auf 0 €; die Sparrate wird nach den Zielgewichten verteilt.
 
 Depotwert und Sparrate werden übernommen. Berechnet werden ausschließlich **neue Käufe für die nächste Sparrate**, keine Verkäufe. Ist das Ziel damit noch nicht erreichbar, wird es ohne Verkäufe bestmöglich angenähert und entsprechend gekennzeichnet. Auf Cent gerundete Vorschläge ergeben zusammen die Sparrate.
 
@@ -165,11 +129,13 @@ Anzahl der Kinder und **letztes Förderjahr je Kind** festlegen. Kindergeldanspr
 - [Altersvorsorgereformgesetz, BGBl. I 2026 Nr. 156](https://www.recht.bund.de/bgbl/1/2026/156/VO.html)
 - [Beschlossener Gesetzestext, Bundesratsdrucksache 206/26](https://dserver.bundestag.de/brd/2026/0206-26.pdf), insbesondere neue §§ 84–86 EStG und § 1 AltZertG.
 
-## Gemeinsame Prognose und Auszahlung
+## Prognosen und Auszahlung
 
-Oben werden ETF und Altersvorsorge zusammengerechnet, darunter einzeln gezeigt. VL und andere Anlagen sind ausgeschlossen.
+Unter **Zukunft** zeigt jedes Depot eine eigene Prognose mit einem unabhängig einstellbaren Laufzeitregler von **1 bis 50 Jahren**. Die Regler verändern nur die Modellrechnung, nicht den aktuellen Depotwert oder die Sparrate. Beide Einstellungen sind Teil des gespeicherten Plans und der Sicherungen.
 
-Gemeinsame Laufzeit: 1 bis 50 Jahre. Szenarien: **5 %, 7 % und 10 % effektive Jahresrendite**, monatliche Verzinsung, konstante Eigenbeiträge am Monatsende. Aktuelle Depotwerte sind das Startkapital.
+Die gemeinsame Prognose addiert ETF und Altersvorsorge nur bei **gleicher Laufzeit**. Bei unterschiedlichen Laufzeiten erscheint stattdessen ein Hinweis mit der Möglichkeit, beide auf die längere Laufzeit zu setzen. VL und andere Anlagen sind ausgeschlossen. Ältere Pläne übernehmen beim ersten Laden ihre bisherige gemeinsame Laufzeit für beide Depots.
+
+Szenarien: **5 %, 7 % und 10 % effektive Jahresrendite**, monatliche Verzinsung, konstante Eigenbeiträge am Monatsende. Aktuelle Depotwerte sind das Startkapital.
 
 Vorsorgezulagen entstehen aus zukünftigen Modellbeiträgen eines Kalenderjahres und werden vereinfachend im Dezember gutgeschrieben. Tatsächliche Gutschriften können später erfolgen. Frühere Beiträge und mögliche nachträgliche Ansprüche daraus werden nicht rückwirkend berechnet. Zulagen stehen getrennt vom Wertzuwachs.
 
@@ -202,19 +168,19 @@ Beim Wiederaktivieren wird eine künftige erste Buchung vorgeschlagen. Nach dem 
 
 Änderungen bleiben lokal, sofern der Browser Speicherung erlaubt. Betragsfelder durch Verlassen bestätigen; Formulare über Speichern sichern.
 
-**Export:** Pfeil nach unten oben rechts. **Import:** Pfeil nach oben; ersetzt nach Bestätigung den lokalen Plan. Die JSON-Datei enthält alle Einträge und Einstellungen einschließlich Rhythmus, Konten, Anteile, Vorsorge, Kinder, optionalem Geburtsdatum und Buchungsmarkierungen. Ab Version 3.3 bietet der Export zuerst eine verschlüsselte Sicherung mit eigenem Passwort (mindestens zwölf Zeichen) an. Unverschlüsselter Export ist ausdrücklich separat auswählbar.
+**Export:** **••• → Sicherung exportieren** oben rechts. **Import:** **••• → Sicherung importieren**; ersetzt nach Bestätigung den lokalen Plan. Die JSON-Datei enthält alle Einträge und Einstellungen einschließlich Rhythmus, Konten, Anteile, Vorsorge, Kinder, optionalem Geburtsdatum und Buchungsmarkierungen. Der Export bietet zuerst eine verschlüsselte Sicherung mit eigenem Passwort (mindestens zwölf Zeichen) an. Unverschlüsselter Export ist ausdrücklich separat auswählbar.
 
-Ältere Sicherungen sind importierbar; Version-3-Sicherungen sind nicht für ältere App-Versionen bestimmt. Unverschlüsselte Exportdateien sind im Klartext lesbar und privat aufzubewahren. Das Sicherungspasswort verschlüsselter Exporte ist unabhängig von der sechsstelligen App-PIN; es wird beim Import abgefragt. **Niemals persönliche JSON-Dateien ins öffentliche Repository laden.**
+Ältere Sicherungen sind importierbar. Neue Sicherungen sollten mit der aktuellen App-Version geöffnet werden. Unverschlüsselte Exportdateien sind im Klartext lesbar und privat aufzubewahren. Das Sicherungspasswort verschlüsselter Exporte ist unabhängig von der sechsstelligen App-PIN; es wird beim Import abgefragt. **Niemals persönliche JSON-Dateien ins öffentliche Repository laden.**
 
 Regelmäßig exportieren: Löschen von Website-Daten, Speicherbereinigung oder Gerätewechsel können lokale Daten entfernen. Offline ersetzt kein Backup.
 
 Andere Personen auf anderen Geräten starten mit Beispieldaten. Ohne aktivierten App-Schutz kann jeder in derselben Browserumgebung deinen Plan sehen. Der optionale Schutz sperrt diese lokale Planung. Keine Bankanbindung, automatische Synchronisierung der Finanzdaten oder eingebauten Tracker. Der App-Schutz benötigt kein Benutzerkonto. Der Hostinganbieter verarbeitet die üblichen Website-Anfragen; die App sendet deine Finanzfelder nicht mit.
 
-## Optionaler App-Schutz ab Version 3.3
+## Optionaler App-Schutz
 
-Oben auf das **Schloss** tippen und „Schutz einrichten“ wählen. Eine PIN mit **genau sechs Ziffern** zweimal eingeben. Den angezeigten Wiederherstellungscode sicher außerhalb der App aufbewahren und dies bestätigen. Erst „Schutz aktivieren“ übernimmt deinen gesamten vorhandenen Plan in den verschlüsselten Speicher. Die PIN wird nicht im Klartext gespeichert. Alte lokale Klartextkopien einschließlich interner Migrationssicherungen werden anschließend entfernt; vorhandene heruntergeladene Dateien bleiben unverändert.
+Oben auf das **Schutzsymbol** tippen und „Schutz einrichten“ wählen. Eine PIN mit **genau sechs Ziffern** zweimal eingeben. Den angezeigten Wiederherstellungscode sicher außerhalb der App aufbewahren und dies bestätigen. Erst „Schutz aktivieren“ übernimmt deinen gesamten vorhandenen Plan in den verschlüsselten Speicher. Die PIN wird nicht im Klartext gespeichert. Alte lokale Klartextkopien einschließlich interner Migrationssicherungen werden anschließend entfernt; vorhandene heruntergeladene Dateien bleiben unverändert.
 
-Ab dann erscheint beim Öffnen der Sperrbildschirm. Mit verknüpftem Passkey startet ab Version 3.5 automatisch ein Entsperrversuch. Falls er fehlschlägt oder abgebrochen wird, erscheint die sechsstellige PIN-Eingabe; sie ist auch über „Stattdessen PIN verwenden“ sofort erreichbar. Ohne verknüpften Passkey erscheint direkt die PIN. Beim Verlassen oder Wechseln der App wird die Planung gesperrt. „Jetzt sperren“ ist im Schloss-Menü verfügbar. Nicht gespeicherte Formulare werden beim Sperren geschlossen; Einträge daher vorher speichern. Auf „Verschlüsselt gespeichert“ achten. Während die App gesperrt ist, werden Beiträge nicht im Hintergrund verändert; fällige Monate werden nach dem Entsperren nachgeholt.
+Ab dann erscheint beim Öffnen der Sperrbildschirm. Mit verknüpftem Passkey startet automatisch ein Entsperrversuch. Falls er fehlschlägt oder abgebrochen wird, erscheint die sechsstellige PIN-Eingabe; sie ist auch über „Stattdessen PIN verwenden“ sofort erreichbar. Ohne verknüpften Passkey erscheint direkt die PIN. Beim Verlassen oder Wechseln der App wird die Planung gesperrt. „Jetzt sperren“ ist im App-Schutzmenü verfügbar. Nicht gespeicherte Formulare werden beim Sperren geschlossen; Einträge daher vorher speichern. Auf „Verschlüsselt gespeichert“ achten. Während die App gesperrt ist, werden Beiträge nicht im Hintergrund verändert; fällige Monate werden nach dem Entsperren nachgeholt.
 
 Unter „Face ID / Passkey einrichten“ wird ein Passkey angelegt und mit einem zweiten bewussten Schritt verknüpft. Er muss die PRF-Erweiterung zur Entschlüsselung unterstützen; andernfalls bleibt der PIN-Schutz unverändert. iOS bestimmt, ob Face ID, Touch ID oder der Gerätecode verwendet wird. Die App bekommt keine Gesichtsdaten. Der Passkey kann je nach Passwortmanager synchronisiert werden, deine Finanzdaten werden dadurch nicht synchronisiert.
 
@@ -222,7 +188,7 @@ Unter „Face ID / Passkey einrichten“ wird ein Passkey angelegt und mit einem
 
 **PIN vergessen:** Am Sperrbildschirm „Wiederherstellungscode verwenden“ wählen und eine neue sechsstellige PIN zweimal eingeben. Die Finanzdaten bleiben erhalten. Der Wiederherstellungscode bleibt auch nach einem PIN-Wechsel gültig und ist wie ein Schlüssel zu behandeln. Ohne PIN, zugänglichen Passkey oder Wiederherstellungscode kann der geschützte lokale Plan nicht wiederhergestellt werden. Eine vorhandene externe Sicherung lässt sich nach einer Neueinrichtung importieren.
 
-PIN ändern und Schutz ausschalten sind im Schloss-Menü möglich und erfordern die bisherige PIN. Ausschalten speichert den Plan wieder unverschlüsselt. Das Entfernen der Passkey-Verknüpfung in der App löscht den Passkey nicht automatisch aus Apples Passwörter-App oder einem anderen Passwortmanager.
+PIN ändern und Schutz ausschalten sind im App-Schutzmenü möglich und erfordern die bisherige PIN. Ausschalten speichert den Plan wieder unverschlüsselt. Das Entfernen der Passkey-Verknüpfung in der App löscht den Passkey nicht automatisch aus Apples Passwörter-App oder einem anderen Passwortmanager.
 
 **Sicherungen übertragen keine App-Sperre:** Sie enthalten den vollständigen Finanzplan und seine Planungseinstellungen, aber keine App-PIN, Wiederherstellungscodes oder Passkey-Verknüpfung. Beim Import bleibt der vorhandene Schutz des Zielbrowsers bestehen. Auf einem neuen Gerät den Schutz separat einrichten. Sicherungspasswort und Wiederherstellungscode sind unterschiedliche Dinge.
 
@@ -243,10 +209,12 @@ Das iPhone kann das alte Icon zwischenspeichern. Vor einem eventuellen erneuten 
 
 Vorher den bisherigen Plan exportieren. ZIP entpacken und den **Inhalt des Website-Ordners** vollständig im bisherigen Repository hochladen. Gleichnamige Dateien ersetzen, neue ergänzen; index.html bleibt im Hauptverzeichnis.
 
-**Version 3 benötigt auch die neuen Dateien model-v3.js und ui-v3.js.** Version 3.3 benötigt zusätzlich **vault-crypto.js und security.js**, Version 3.4 außerdem **theme.js**. Das Paket enthält außerdem app.js, style.css, offline.js, sw.js, manifest.webmanifest und die Icons.
+**Version 4.0 benötigt zusätzlich pocket.css und pocket-ui.js.** Alle Dateien gemeinsam veröffentlichen, einschließlich model-v3.js, ui-v3.js, vault-crypto.js, security.js, theme.js, app.js, style.css, offline.js, sw.js, manifest.webmanifest und der unveränderten App-Icons. Die Liniensymbole sind im UI-Skript enthalten; sie benötigen keinen externen Symbolserver. Ihr Lizenztext steht in LICENSE-icons.txt.
 
-GitHub Pages: **Settings → Pages → Deploy from a branch → main → /(root) → Save**. Keine eigene Domain erforderlich. Nach Bereitstellung App online öffnen, offene Eingaben speichern und **„Update laden“** wählen. Unten steht **Version 3.5**. Auf „Offline bereit“ warten.
+GitHub Pages: **Settings → Pages → Deploy from a branch → main → /(root) → Save**. Keine eigene Domain erforderlich. Nach Bereitstellung App online öffnen, offene Eingaben speichern und **„Update laden“** wählen. Unten steht **Version 4.0**. Auf „Offline bereit“ warten.
 
-Die Adresse bleibt gleich; alte Pläne werden umgestellt. Beim ersten Laden eines gültigen älteren Plans wird zusätzlich intern eine Kopie vor Version 3 angelegt, die einen eigenen Export nicht ersetzt. Für eine Rückkehr zur alten App-Version ihre vorherige alte Sicherung verwenden.
+**Die bisherige Domain und der Website-Pfad müssen für die direkte Datenübernahme gleich bleiben.** Browserdaten sind an ihren bisherigen Website-Ort gebunden. Das Umbenennen der App zu Finanzplaner erfordert deshalb keine Umbenennung des GitHub-Repositorys oder der Website-Adresse. Die technischen Speicherschlüssel, die Manifest-ID und der Service-Worker-Bereich bleiben bestehen. PIN und vorhandene Passkey-Verknüpfung werden weiterverwendet. Bei einem bewussten Umzug auf eine andere Adresse vorher exportieren, dort importieren und den Schutz neu einrichten.
+
+Alte Pläne werden umgestellt. Beim ersten Laden eines gültigen älteren Plans wird zusätzlich intern eine Kopie vor Version 3 angelegt, die einen eigenen Export nicht ersetzt. Für eine Rückkehr zur alten App-Version ihre vorherige alte Sicherung verwenden.
 
 Bei Codeänderungen VERSION in sw.js erhöhen und alle zusammengehörigen Dateien veröffentlichen. Die neue Offline-Version wird erst nach vollständigem Download aller nötigen Dateien installiert. HTTPS oder ein lokaler Entwicklungsserver unter localhost ist nötig; das Öffnen als lokale HTML-Datei installiert keine Offline-App.

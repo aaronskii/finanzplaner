@@ -1,40 +1,43 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-page="overview" data-palette="lavendel">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f7f8fa">
+<meta name="theme-color" content="#faf9f6">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Vermögensaufbau">
-<meta name="description" content="Dein privater Budgetplan und ETF-Rechner. Berechnungen und Daten bleiben auf deinem Gerät.">
+<meta name="apple-mobile-web-app-title" content="Finanzplaner">
+<meta name="description" content="Dein privater Finanzplaner für Budgets, Konten und Depots. Deine Planung bleibt auf deinem Gerät.">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="apple-touch-icon" href="./icon-180.png?v=3">
 <link rel="icon" type="image/png" href="./icon-192.png?v=3">
 <script src="./theme.js"></script>
 <link rel="stylesheet" href="./style.css">
-<title>Vermögensaufbau</title>
+<link rel="stylesheet" href="./pocket.css">
+<title>Finanzplaner</title>
 <script src="./vault-crypto.js" defer></script>
 <script src="./security.js" defer></script>
 <script src="./offline.js" defer></script>
 </head>
 <body>
-<div class="app" id="app-shell" hidden>
-<header class="topbar">
-<div class="brand"><span class="brandmark" id="brandicon"></span>Vermögensaufbau</div>
-<div class="topactions"><button class="iconbtn" id="security-button" type="button" aria-label="App-Schutz verwalten" title="App-Schutz verwalten"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></button><button class="iconbtn" id="theme-button" data-action="theme" aria-label="Design wechseln" title="Design wechseln"></button>
-<button class="iconbtn" data-action="export" title="Sicherung exportieren" aria-label="Sicherung exportieren" id="exporticon"></button>
-<button class="iconbtn" data-action="import" title="Sicherung importieren" aria-label="Sicherung importieren" id="importicon"></button>
-</div>
+<div class="app pocket-app" id="app-shell" hidden>
+<header class="pocket-topbar">
+ <div class="pocket-brand"><img src="./icon-192.png" alt="" width="44" height="44"><span id="brandicon" hidden></span><span>Finanzplaner<span class="pocket-brand-note">Platz für dein Leben.</span></span></div>
+ <div class="pocket-tools">
+  <button class="iconbtn" id="security-button" type="button" aria-label="App-Schutz verwalten" title="App-Schutz verwalten"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></button>
+  <button class="iconbtn" id="theme-button" type="button" data-action="theme" aria-label="Design wechseln" title="Design wechseln"></button>
+  <details class="pocket-more"><summary aria-label="Sicherungen und weitere Optionen" title="Sicherungen und weitere Optionen">•••</summary><div class="pocket-more-content"><button class="textbtn" type="button" data-action="export"><span id="exporticon"></span>Sicherung exportieren</button><button class="textbtn" type="button" data-action="import"><span id="importicon"></span>Sicherung importieren</button><button class="textbtn" type="button" data-action="clear">Mit eigenen Daten starten</button></div></details>
+ </div>
 </header>
-<div class="intro"><div><p class="eyebrow" id="eyebrow"></p><h1 id="pagetitle"></h1><p class="subtitle" id="pagesub"></p></div><span class="pill"><span class="dot"></span><span id="saved"></span></span></div>
-<div class="offlinebar" role="status"><span id="offline-status">Offline-Nutzung wird vorbereitet …</span><button id="offline-retry" class="textbtn hidden" type="button">Erneut versuchen</button><button id="update-button" class="textbtn hidden" type="button">Update laden</button></div>
-<nav aria-label="Hauptnavigation" id="nav"></nav>
-<div id="sample"></div><main id="content"></main>
-<p class="footnote">Dein Plan. Dein Tempo. · Version 3.5<br><span id="storagefoot"></span><br>Keine Bankverbindung · keine automatische Synchronisierung</p>
+<div class="intro pocket-intro"><div><p class="eyebrow" id="eyebrow"></p><h1 id="pagetitle"></h1><p class="subtitle" id="pagesub"></p></div></div>
+<div id="sample"></div>
+<main id="content"></main>
+<nav aria-label="Hauptnavigation" id="nav" class="pocket-dock"></nav>
+<footer class="pocket-footer"><p>Dein Plan. Dein Tempo. · Version 4.0<br><span id="saved" role="status"></span><br><span id="storagefoot"></span></p><div class="offlinebar" role="status"><span id="offline-status">Offline-Nutzung wird vorbereitet …</span><button id="offline-retry" class="textbtn hidden" type="button">Erneut versuchen</button><button id="update-button" class="textbtn hidden" type="button">Update laden</button></div><p>Keine Bankverbindung · keine automatische Synchronisierung</p></footer>
 </div>
 <div id="security-root" hidden></div>
 <div id="modalroot"></div><div id="toast" class="toast hidden" role="status"></div>
 <input type="file" id="importfile" accept=".json,application/json" hidden>
 <noscript>Bitte aktiviere JavaScript, um deine Budgets zu planen.</noscript>
-</body></html>
+</body>
+</html>

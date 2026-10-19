@@ -14,7 +14,7 @@
  function panel(title,body,closable=false,focus=true){
   screen='other';
   returnFocus=document.activeElement;root.hidden=false;shell.inert=true;document.getElementById('modalroot').inert=true;
-  root.innerHTML='<div class="security-back"><section class="security-dialog" role="dialog" aria-modal="true" aria-labelledby="security-title"><div class="security-heading"><span class="security-mark" aria-hidden="true">'+(record?'●':'◇')+'</span>'+(closable?'<button type="button" class="editbtn" data-security="close" aria-label="Schließen">✕</button>':'')+'</div><p class="eyebrow">Vermögensaufbau · Version 3.5</p><h2 id="security-title">'+title+'</h2>'+body+'<p id="security-error" class="formerror" role="alert"></p></section></div>';
+  root.innerHTML='<div class="security-back"><section class="security-dialog" role="dialog" aria-modal="true" aria-labelledby="security-title"><div class="security-heading"><span class="security-mark" aria-hidden="true">'+(record?'●':'◇')+'</span>'+(closable?'<button type="button" class="editbtn" data-security="close" aria-label="Schließen">✕</button>':'')+'</div><p class="eyebrow">Finanzplaner · Version 4.0</p><h2 id="security-title">'+title+'</h2>'+body+'<p id="security-error" class="formerror" role="alert"></p></section></div>';
   if(focus)root.querySelector('input,button')?.focus();
  }
  function close(){if(Vault.locked)return;prepared?.bytes.fill(0);prepared=null;pendingCredential=null;root.innerHTML='';root.hidden=true;shell.inert=false;document.getElementById('modalroot').inert=false;returnFocus?.focus()}
@@ -76,7 +76,7 @@
  }
  async function loadApp(){
   if(loaded)return;if(loadPromise)return loadPromise;
-  loadPromise=(async()=>{for(const file of ['model-v3.js','app.js','ui-v3.js'])await new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='./'+file;script.onload=resolve;script.onerror=()=>reject(Error('App-Dateien konnten nicht geladen werden. Bitte Verbindung und vollständiges Update prüfen.'));document.head.appendChild(script)});loaded=true;if(Vault.bootError)throw Vault.bootError})();
+  loadPromise=(async()=>{for(const file of ['model-v3.js','app.js','ui-v3.js','pocket-ui.js'])await new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='./'+file;script.onload=resolve;script.onerror=()=>reject(Error('App-Dateien konnten nicht geladen werden. Bitte Verbindung und vollständiges Update prüfen.'));document.head.appendChild(script)});loaded=true;if(Vault.bootError)throw Vault.bootError})();
   return loadPromise;
  }
  async function accept(result){
@@ -114,7 +114,7 @@
  async function createPasskey(){
   if(!window.PublicKeyCredential||!navigator.credentials||!await PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable())throw Error('Auf diesem Gerät ist kein geeigneter Passkey-Authentifikator verfügbar. Die PIN funktioniert weiterhin.');
   const challenge=C.random(32),salt=C.b64(C.random(32));prompting=true;
-  try{const credential=await navigator.credentials.create({publicKey:{challenge,rp:{id:location.hostname,name:'Vermögensaufbau'},user:{id:C.random(32),name:'Privater Budgetplan',displayName:'Vermögensaufbau – lokaler Plan'},pubKeyCredParams:[{type:'public-key',alg:-7},{type:'public-key',alg:-257}],authenticatorSelection:{authenticatorAttachment:'platform',residentKey:'required',userVerification:'required'},attestation:'none',extensions:{prf:{}},timeout:60000}});assertion(credential,challenge,'webauthn.create');if(!credential.getClientExtensionResults()?.prf?.enabled)throw Error('Der erstellte Passkey unterstützt keine Verschlüsselung. Der App-Schutz bleibt unverändert; verwende die PIN. Ein eventuell angelegter Passkey kann in der Passwörter-App entfernt werden.');pendingCredential={id:C.b64(credential.rawId),salt};panel('Passkey bestätigen','<p class="subtitle">Bestätige deinen neuen Passkey ein zweites Mal. Erst danach wird er mit dem verschlüsselten Plan verknüpft.</p><button class="primary security-wide" type="button" data-security="face-confirm">Verknüpfung bestätigen</button><button class="textbtn security-wide" type="button" data-security="settings">Abbrechen</button>',true)}finally{prompting=false}
+  try{const credential=await navigator.credentials.create({publicKey:{challenge,rp:{id:location.hostname,name:'Finanzplaner'},user:{id:C.random(32),name:'Privater Budgetplan',displayName:'Finanzplaner – lokaler Plan'},pubKeyCredParams:[{type:'public-key',alg:-7},{type:'public-key',alg:-257}],authenticatorSelection:{authenticatorAttachment:'platform',residentKey:'required',userVerification:'required'},attestation:'none',extensions:{prf:{}},timeout:60000}});assertion(credential,challenge,'webauthn.create');if(!credential.getClientExtensionResults()?.prf?.enabled)throw Error('Der erstellte Passkey unterstützt keine Verschlüsselung. Der App-Schutz bleibt unverändert; verwende die PIN. Ein eventuell angelegter Passkey kann in der Passwörter-App entfernt werden.');pendingCredential={id:C.b64(credential.rawId),salt};panel('Passkey bestätigen','<p class="subtitle">Bestätige deinen neuen Passkey ein zweites Mal. Erst danach wird er mit dem verschlüsselten Plan verknüpft.</p><button class="primary security-wide" type="button" data-security="face-confirm">Verknüpfung bestätigen</button><button class="textbtn security-wide" type="button" data-security="settings">Abbrechen</button>',true)}finally{prompting=false}
  }
  // Eingaben in Sicherheitsdialogen erreichen keine alten App-Ereignisse.
  for(const kind of ['click','submit','change','input','keydown'])document.addEventListener(kind,e=>{
@@ -161,7 +161,7 @@
    record=null;bytes?.fill(0);bytes=null;close();window.appVaultRefresh();return;
   }
   if(form.id==='security-export'){
-   const password=data.get('password');if(password!==data.get('repeat'))throw Error('Die Sicherungspasswörter stimmen nicht überein.');const plan=window.appVaultSnapshot();const backup=await C.exportBackup(plan,password);if(token!==epoch)return;download(backup,'Vermoegensaufbau-geschuetzt-'+new Date().toISOString().slice(0,10)+'.json');close();return;
+   const password=data.get('password');if(password!==data.get('repeat'))throw Error('Die Sicherungspasswörter stimmen nicht überein.');const plan=window.appVaultSnapshot();const backup=await C.exportBackup(plan,password);if(token!==epoch)return;download(backup,'Finanzplaner-geschuetzt-'+new Date().toISOString().slice(0,10)+'.json');close();return;
   }
   if(form.id==='security-import'){
    const pending=importResolve;if(!pending)return;const plan=await C.importBackup(pending.data,data.get('password'));if(token!==epoch)return;importResolve=null;close();pending.resolve(plan);
@@ -188,7 +188,7 @@
   }
   if(name==='face-unlock'){await unlockWithFace();return}
   if(name==='face-remove'){await queue;const next={...record};delete next.passkey;await metadata(next);openSettings();return}
-  if(name==='export-plain'){download(window.appVaultSnapshot(),'Vermoegensaufbau-'+new Date().toISOString().slice(0,10)+'.json');close();return}
+  if(name==='export-plain'){download(window.appVaultSnapshot(),'Finanzplaner-'+new Date().toISOString().slice(0,10)+'.json');close();return}
   if(name==='cancel-import'){const pending=importResolve;importResolve=null;close();pending?.reject(Error('Import abgebrochen.'));return}
  }
  document.addEventListener('visibilitychange',()=>{

@@ -10,7 +10,7 @@
  function apply(){
   const theme=preference==='system'?(media?.matches?'dark':'light'):preference;
   document.documentElement.dataset.theme=theme;
-  document.querySelector('meta[name="theme-color"]')?.setAttribute('content',theme==='dark'?'#111513':'#f7f8fa');
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content',theme==='dark'?'#25222c':'#faf9f6');
   return theme;
  }
  window.AppTheme={
