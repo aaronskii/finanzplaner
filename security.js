@@ -14,7 +14,7 @@
  function panel(title,body,closable=false,focus=true){
   screen='other';
   returnFocus=document.activeElement;root.hidden=false;shell.inert=true;document.getElementById('modalroot').inert=true;
-  root.innerHTML='<div class="security-back"><section class="security-dialog" role="dialog" aria-modal="true" aria-labelledby="security-title"><div class="security-heading"><span class="security-mark" aria-hidden="true">'+(record?'●':'◇')+'</span>'+(closable?'<button type="button" class="editbtn" data-security="close" aria-label="Schließen">✕</button>':'')+'</div><p class="eyebrow">Finanzplaner · Version 4.1</p><h2 id="security-title">'+title+'</h2>'+body+'<p id="security-error" class="formerror" role="alert"></p></section></div>';
+  root.innerHTML='<div class="security-back"><section class="security-dialog" role="dialog" aria-modal="true" aria-labelledby="security-title"><div class="security-heading"><span class="security-mark" aria-hidden="true">'+(record?'●':'◇')+'</span>'+(closable?'<button type="button" class="editbtn" data-security="close" aria-label="Schließen">✕</button>':'')+'</div><p class="eyebrow">Finanzplaner · Version 4.2</p><h2 id="security-title">'+title+'</h2>'+body+'<p id="security-error" class="formerror" role="alert"></p></section></div>';
   if(focus)root.querySelector('input,button')?.focus();
  }
  function close(){if(Vault.locked)return;prepared?.bytes.fill(0);prepared=null;pendingCredential=null;root.innerHTML='';root.hidden=true;shell.inert=false;document.getElementById('modalroot').inert=false;returnFocus?.focus()}

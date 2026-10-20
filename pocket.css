@@ -1,4 +1,4 @@
-/* Pocket Lavendel · Finanzplaner 4.1
+/* Pocket Lavendel · Finanzplaner 4.2
  * Production theme; load after style.css.
  * Theme and page attributes live on html.
  */
@@ -1147,4 +1147,52 @@ html:root[data-theme="dark"] .pocket-wallet .pocket-small-button{
 @media(max-width:670px){html:root{--pocket-dock-side:20px}}
 @media(max-width:430px){html:root{--pocket-dock-side:16px}}
 @media(max-width:350px){html:root{--pocket-dock-side:13px}}
+
+/* 4.2: show both the direction and the coverage of a budget adjustment. */
+html:root{
+  --pocket-transfer-warning:#fff0db;
+  --pocket-transfer-warning-ink:#784315;
+  --pocket-transfer-success:#eaf4e9;
+  --pocket-transfer-success-ink:#315d3d;
+}
+html:root[data-theme="dark"]{
+  --pocket-transfer-warning:#45352c;
+  --pocket-transfer-warning-ink:#f3cc9d;
+  --pocket-transfer-success:#2e4438;
+  --pocket-transfer-success-ink:#c3e0cd;
+}
+html:root .pocket-transfer-warning{
+  background:var(--pocket-transfer-warning);
+  color:var(--pocket-transfer-warning-ink);
+}
+html:root .pocket-transfer-success{
+  background:var(--pocket-transfer-success);
+  color:var(--pocket-transfer-success-ink);
+}
+html:root .pocket-transfer-danger{
+  background:var(--pocket-redbg);
+  color:var(--pocket-red);
+}
+html:root .pocket-budget-adjustment{
+  display:flex;align-items:flex-start;gap:5px;padding:8px 9px;
+  margin-top:8px;border-radius:10px;font-size:11px;line-height:1.5;font-weight:650;
+}
+html:root .pocket-budget-adjustment>.fp-original-icon{margin-top:1px}
+html:root .pocket-budget-adjustment>span:last-child{min-width:0;overflow-wrap:anywhere}
+html:root .pocket-budget-notice{
+  display:flex;align-items:flex-start;gap:13px;padding:17px 18px;
+  margin-top:18px;border-radius:18px;
+}
+html:root .pocket-budget-notice-icon{flex:0 0 auto;padding-top:2px}
+html:root .pocket-budget-notice>div{min-width:0}
+html:root .pocket-budget-notice strong{
+  display:block;font-size:14px;line-height:1.5;font-weight:750;overflow-wrap:anywhere;
+}
+html:root .pocket-budget-notice p{
+  margin-top:5px;font-size:12px;line-height:1.7;color:inherit;overflow-wrap:anywhere;
+}
+@media(max-width:430px){
+  html:root .pocket-budget-notice{padding:15px;gap:10px}
+  html:root .pocket-budget-notice strong{font-size:13px}
+}
 

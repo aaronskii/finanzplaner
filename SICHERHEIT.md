@@ -1,6 +1,6 @@
-# App-Schutz in Version 4.1
+# App-Schutz in Version 4.2
 
-Version 4.1 passt die Position des Menübandes und den Monatsbudget-Bearbeiten-Knopf im Dunkelmodus an. Der App-Schutz und seine Speicher- und Verschlüsselungswege entsprechen Version 4.0.
+Version 4.2 ergänzt die Budgetmeldungen und reduziert die normale Fußzeile auf „Credits an 🐭“. Der App-Schutz und seine Speicher- und Verschlüsselungswege entsprechen Version 4.0. Die fixierte Navigation und die dunklere Monatsbudget-Schaltfläche aus Version 4.1 bleiben erhalten.
 
 Der Schutz ist freiwillig und gilt für den lokalen Plan dieses Browsers. Er benötigt keinen eigenen Server und kein Benutzerkonto. Die PIN besteht immer aus **genau sechs Ziffern**, einschließlich möglicher führender Nullen. Die Schutzfunktion startet ausgeschaltet, damit ein Update niemanden aus einem bestehenden Plan aussperrt.
 
@@ -20,7 +20,7 @@ Der verschlüsselte Tresor wird zuerst gespeichert. Erst danach entfernt die App
 
 Wenn ein Tresor vorhanden ist, werden Budgetskripte und Finanzdaten erst nach der Entschlüsselung geladen. Bei beschädigtem Tresor gibt es keinen automatischen Rückfall auf Klartext oder Beispieldaten. Beim Sperren werden die sichtbare Planung, offene Formulare, die aktuelle Zustandsreferenz und die gehaltenen Schlüsselbytes entfernt. JavaScript und Browser garantieren keine vollständige Löschung aller zuvor im Arbeitsspeicher gehaltenen Kopien.
 
-Alle Speicherwege, einschließlich automatischer Monatsbeiträge und bestätigter Importe, verwenden denselben Tresor. Ausstehende Speicherung wird vor einem App-Update abgewartet. „Verschlüsselt gespeichert“ erscheint erst nach abgeschlossener Speicherung des aktuellen Stands. Quotenfehler werden sichtbar. Eine Revisionsprüfung verhindert das stille Überschreiben eines inzwischen in einem anderen Fenster geänderten Tresors; in diesem Fall neu laden. Es ist keine Mehrbenutzer-Synchronisierung.
+Alle Speicherwege, einschließlich automatischer Monatsbeiträge und bestätigter Importe, verwenden denselben Tresor. Ausstehende Speicherung wird vor einem App-Update abgewartet. Die normale Fußzeile „Credits an 🐭“ erscheint erst nach abgeschlossener Speicherung des aktuellen Stands; während einer noch nicht bestätigten Speicherung bleibt dort die entsprechende Meldung sichtbar. Quotenfehler werden sichtbar. Eine Revisionsprüfung verhindert das stille Überschreiben eines inzwischen in einem anderen Fenster geänderten Tresors; in diesem Fall neu laden. Es ist keine Mehrbenutzer-Synchronisierung.
 
 ## Design vor dem Entsperren
 
@@ -45,7 +45,7 @@ Ein vorhandener Passkey kann nicht automatisch auf eine andere Website-Domain ü
 
 Der gesperrte Start verbirgt die Planung bereits im HTML. Beim Wechsel in den Hintergrund und bei `pagehide` sperrt die App. Unterbrochene Passkey-Systemdialoge werden gesondert behandelt. Die Wiederherstellung aus dem Browser-Seitencache öffnet die Planung nicht automatisch wieder. Es gibt keine Zusage für alle vom Betriebssystem erzeugten Vorschau- oder Bildschirmaufnahmen.
 
-Noch nicht bestätigte Formulare werden beim Sperren geschlossen. Änderungen vor dem App-Wechsel speichern und auf die Speicherbestätigung achten. Browser können Hintergrundarbeit unterbrechen; die letzten ungespeicherten Eingaben sind dadurch nicht garantiert erhalten. Bei einem Schreibfehler bleibt der zuletzt erfolgreich gespeicherte Tresor erhalten. Manuelles Sperren wird in diesem Fall bis zur Sicherung bzw. erfolgreichen Speicherung abgewiesen.
+Noch nicht bestätigte Formulare werden beim Sperren geschlossen. Änderungen vor dem App-Wechsel speichern und warten, bis keine Speicherwarnung mehr angezeigt wird. Browser können Hintergrundarbeit unterbrechen; die letzten ungespeicherten Eingaben sind dadurch nicht garantiert erhalten. Bei einem Schreibfehler bleibt der zuletzt erfolgreich gespeicherte Tresor erhalten. Manuelles Sperren wird in diesem Fall bis zur Sicherung bzw. erfolgreichen Speicherung abgewiesen.
 
 Nach fünf fehlgeschlagenen PIN-Versuchen gibt es im aktuellen App-Prozess eine Wartezeit von 30 Sekunden. Das ist eine Bedienungshürde, kein Schutz gegen Offline-Angriffe oder manipulierten JavaScript-Code. Der Wiederherstellungscode erlaubt direkt das Setzen einer neuen sechsstelligen PIN. Ohne PIN, funktionierenden Passkey oder Wiederherstellungscode gibt es keine Hintertür. Regelmäßige externe Sicherungen bleiben notwendig.
 

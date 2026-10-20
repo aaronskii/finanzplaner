@@ -1,10 +1,12 @@
-# Prüfprotokoll – Finanzplaner 4.1
+# Prüfprotokoll – Finanzplaner 4.2
 
-Stand: 19.10.2026. Version 4.1 basiert auf Version 4.0 und ergänzt die fixierte untere Navigation sowie einen dunkleren Monatsbudget-Bearbeiten-Knopf im Dunkelmodus. Berechnungen, Speicherung und App-Schutz sind unverändert.
+Stand: 20.10.2026. Version 4.2 basiert auf Version 4.1 und ergänzt die Budgetausgleichsmeldungen sowie die gewünschte Fußzeile. Berechnungen, Speicherung und App-Schutz sind unverändert. Die fixierte untere Navigation sowie der dunklere Monatsbudget-Bearbeiten-Knopf bleiben erhalten.
 
-## Automatisierte Integrationsprüfung für Version 4.1
+## Automatisierte Prüfung für Version 4.2
 
-Alle 15 automatisierten Integrationsprüfungen wurden mit den ausgelieferten Dateien der Version 4.1 erneut ausgeführt und bestanden. Sie verwenden Node.js WebCrypto sowie simulierte DOM-, Speicher- und Service-Worker-Schnittstellen. Die ergänzenden Migrations- und Plattformprüfungen der Basisversion 4.0 sind im bisherigen Prüfumfang dokumentiert.
+Alle 15 bisherigen Integrationsprüfungen und 15 zusätzliche Prüfungen für Budgetmeldungen und Fußzeile wurden mit den ausgelieferten Dateien der Version 4.2 ausgeführt und bestanden. Die Prüfungen verwenden die tatsächlichen App-Skripte, Node.js WebCrypto sowie simulierte DOM-, Speicher- und Service-Worker-Schnittstellen.
+
+Die zusätzlichen Prüfungen decken beide Ausgleichsrichtungen, exakte Deckung, fehlende Mittel bei beiden möglichen Geberbudgets, die Safety-Umverteilung, Cent-Beträge und einen um genau einen Cent zu geringen freien Betrag ab. Ohne tatsächlichen Ausgleich erscheint keine positive Meldung. Alle fünf Seiten zeigen die gewünschten Credits bei bestätigter Speicherung; echte lokale und verschlüsselte Schreibfehler bleiben sichtbar.
 
 Die neuen CSS-Regeln wurden zusätzlich auf ihre Reihenfolge, Bildschirmbreiten, Abstände für Inhalt und Meldungen sowie den iPhone-Sicherheitsabstand geprüft. Form, Farben und Innenabstände der Navigation bleiben erhalten. Der dunklere Bearbeiten-Knopf erreicht mit seiner Schrift einen Kontrast von ungefähr 10:1; die Änderung ist auf den Dunkelmodus begrenzt.
 

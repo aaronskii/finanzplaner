@@ -1,5 +1,13 @@
 # Änderungen
 
+## 4.2.0
+
+- Budgetausgleich mit Betrag und Richtung an den betroffenen Übersichtskarten sichtbar gemacht.
+- Warnung, wenn Essentials aus Wealth ausgeglichen wird; positive Meldung für Wealth nur bei vollständiger Deckung durch unverplante Essentials-Mittel.
+- Fehlende Deckung wird mit dem tatsächlichen Fehlbetrag angezeigt.
+- Normale Fußzeile auf „Credits an 🐭“ reduziert; dauerhafte Speicher- und Bankverbindungs-Hinweistexte entfernt. Speicherwarnungen bei ausstehender oder nicht bestätigter Speicherung bleiben erhalten.
+- Versionsanzeige und Offline-Cache aktualisiert. Finanzberechnung, Speicherkennungen und App-Schutz unverändert.
+
 ## 4.1.0
 
 - Bestehendes Pocket-Menüband am unteren Bildschirmrand fixiert; die fünf Bereiche bleiben beim Scrollen erreichbar.
