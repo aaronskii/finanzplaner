@@ -1,4 +1,6 @@
-# App-Schutz in Version 4.2
+# App-Schutz in Version 4.2.1
+
+Version 4.2.1 entfernt die kleinen Budgetausgleichshinweise innerhalb der Karten. Der gemeinsame Meldungsblock unter den vier Budgets bleibt erhalten. Diese Darstellungsänderung verändert keine Speicher- oder Schutzfunktion.
 
 Version 4.2 ergänzt die Budgetmeldungen und reduziert die normale Fußzeile auf „Credits an 🐭“. Der App-Schutz und seine Speicher- und Verschlüsselungswege entsprechen Version 4.0. Die fixierte Navigation und die dunklere Monatsbudget-Schaltfläche aus Version 4.1 bleiben erhalten.
 

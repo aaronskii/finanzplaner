@@ -1,5 +1,11 @@
 # Änderungen
 
+## 4.2.1
+
+- Kleine Ausgleichshinweise innerhalb der Essentials- und Wealth-Budgetkarten entfernt; die Karten bleiben kompakt.
+- Gemeinsamen Meldungsblock unter den vier Budgets mit unveränderter Deckungsprüfung beibehalten.
+- Versionsanzeige und Offline-Cache aktualisiert. Berechnungen, Credits, Speicherung und App-Schutz bleiben unverändert.
+
 ## 4.2.0
 
 - Budgetausgleich mit Betrag und Richtung an den betroffenen Übersichtskarten sichtbar gemacht.

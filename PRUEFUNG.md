@@ -1,8 +1,14 @@
-# Prüfprotokoll – Finanzplaner 4.2
+# Prüfprotokoll – Finanzplaner 4.2.1
 
-Stand: 20.10.2026. Version 4.2 basiert auf Version 4.1 und ergänzt die Budgetausgleichsmeldungen sowie die gewünschte Fußzeile. Berechnungen, Speicherung und App-Schutz sind unverändert. Die fixierte untere Navigation sowie der dunklere Monatsbudget-Bearbeiten-Knopf bleiben erhalten.
+Stand: 20.10.2026. Version 4.2.1 basiert auf Version 4.2. Die kleinen Ausgleichshinweise innerhalb der Essentials- und Wealth-Karten entfallen; der gemeinsame Meldungsblock unter den vier Budgetblöcken bleibt erhalten. Berechnungen, Speicherung und App-Schutz sind unverändert. Die fixierte untere Navigation sowie der dunklere Monatsbudget-Bearbeiten-Knopf bleiben erhalten.
 
-## Automatisierte Prüfung für Version 4.2
+## Aktuelle Prüfung für Version 4.2.1
+
+Die 15 Integrationsprüfungen und die 15 Prüfungen für Budgetmeldungen, Deckungsgrenzen, Credits und Speicherfehler wurden mit den tatsächlichen Dateien der Version 4.2.1 erneut ausgeführt und bestanden.
+
+Zusätzlich wurde geprüft, dass keine zusätzlichen Warnhinweise innerhalb der vier Budgetkarten erzeugt werden und bei einem Ausgleich genau ein gemeinsamer Meldungsblock unter ihnen erscheint. Die Budgetkarten verwenden wieder exakt dieselbe Renderfunktion wie in Version 4.1. Die Renderfunktion des gemeinsamen Meldungsblocks ist gegenüber 4.2 unverändert.
+
+## Dokumentierter Prüfumfang der Basisversion 4.2
 
 Alle 15 bisherigen Integrationsprüfungen und 15 zusätzliche Prüfungen für Budgetmeldungen und Fußzeile wurden mit den ausgelieferten Dateien der Version 4.2 ausgeführt und bestanden. Die Prüfungen verwenden die tatsächlichen App-Skripte, Node.js WebCrypto sowie simulierte DOM-, Speicher- und Service-Worker-Schnittstellen.
 

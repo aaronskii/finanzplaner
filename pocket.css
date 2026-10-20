@@ -1,4 +1,4 @@
-/* Pocket Lavendel · Finanzplaner 4.2
+/* Pocket Lavendel · Finanzplaner 4.2.1
  * Production theme; load after style.css.
  * Theme and page attributes live on html.
  */
@@ -1173,12 +1173,6 @@ html:root .pocket-transfer-danger{
   background:var(--pocket-redbg);
   color:var(--pocket-red);
 }
-html:root .pocket-budget-adjustment{
-  display:flex;align-items:flex-start;gap:5px;padding:8px 9px;
-  margin-top:8px;border-radius:10px;font-size:11px;line-height:1.5;font-weight:650;
-}
-html:root .pocket-budget-adjustment>.fp-original-icon{margin-top:1px}
-html:root .pocket-budget-adjustment>span:last-child{min-width:0;overflow-wrap:anywhere}
 html:root .pocket-budget-notice{
   display:flex;align-items:flex-start;gap:13px;padding:17px 18px;
   margin-top:18px;border-radius:18px;

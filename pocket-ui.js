@@ -30,23 +30,15 @@ function pocketBudgetTransfer(x){
  const missing=Math.max(0,Math.abs(transfer)-Math.round(available*100))/100;
  const severity=missing>0?'danger':fromEssentials?'success':'warning';
  const growth=B.g;
- let title,copy,badges;
+ let title,copy;
  if(fromEssentials){
   title=missing>0?'Der Ausgleich reicht nicht.':euro(amount)+' mehr für '+growth+'.';
   copy=missing>0?growth+' benötigt zusätzlich '+euro(amount)+'. In Essentials sind nur '+euro(available)+' unverplant – '+euro(missing)+' fehlen. Deine geplanten Essentials wären damit nicht mehr vollständig gedeckt.':'Der Betrag kommt vollständig aus noch unverplanten Essentials-Mitteln. Deine geplanten Essentials bleiben gedeckt; '+euro(Math.max(0,x.remain.e))+' sind dort weiterhin frei.';
-  badges={e:missing>0?euro(missing)+' fehlen':euro(amount)+' an '+growth,g:missing>0?euro(amount)+' zusätzlich nötig':euro(amount)+' aus Essentials'};
  }else{
   title=missing>0?'Der Ausgleich reicht nicht.':euro(amount)+' aus '+growth+' für Essentials.';
   copy=missing>0?'Essentials benötigt zusätzlich '+euro(amount)+'. In '+growth+' sind nur '+euro(available)+' unverplant – '+euro(missing)+' fehlen. Der Ausgleich ist damit nicht vollständig gedeckt.':'Deine Essentials überschreiten das ursprüngliche Budget um '+euro(amount)+'. Dieser Betrag wird in deiner Planung von '+growth+' zu Essentials verschoben. Für '+growth+' bleiben '+euro(x.b.g)+' Budget.';
-  badges={e:euro(amount)+' aus '+growth,g:missing>0?euro(missing)+' fehlen':euro(amount)+' an Essentials'};
  }
- return {severity,amount,available,missing,fromEssentials,title,copy,badges};
-}
-function pocketBudgetAdjustment(key,x){
- if(!['e','g'].includes(key))return '';
- const info=pocketBudgetTransfer(x);if(!info)return '';
- const symbol=info.severity==='success'?'success':info.severity==='danger'?'danger':'warning';
- return '<span class="pocket-budget-adjustment pocket-transfer-'+info.severity+'">'+icon(symbol,14)+'<span>'+esc(info.badges[key])+'</span></span>';
+ return {severity,amount,available,missing,fromEssentials,title,copy};
 }
 function pocketBudgetNotice(x){
  const info=pocketBudgetTransfer(x);if(!info)return '';
@@ -56,7 +48,7 @@ function pocketBudgetNotice(x){
 function pocketBudget(key,title,sub,ic,x){
  const safety=key==='s',remaining=x.remain[key],bad=remaining<-.005,pct=pocketPercent(x.spent[key],x.b[key]);
  let note=safety?(x.distributing?'Auf Lifestyle & Wealth verteilt':'für den Notgroschen reserviert'):(bad?euro(-remaining)+' überplant':euro(remaining)+' noch frei');
- return '<button class="pocket-budget pocket-'+key+(bad?' pocket-over':'')+'" data-tab="'+(safety?'reserve':'plan')+'" '+(!safety?'data-plan-section="'+(key==='g'?'etf':'alltag')+'"':'')+'><span class="pocket-budget-heading"><span class="pocket-token">'+icon(ic,20)+'</span><span class="pocket-arrow" aria-hidden="true">↗</span></span><span class="pocket-budget-name">'+title+'</span><span class="pocket-budget-sub">'+sub+'</span><strong>'+euro(x.b[key])+'</strong><span class="pocket-meter"><i style="width:'+pct+'%"></i></span><span class="pocket-budget-note">'+note+'</span>'+pocketBudgetAdjustment(key,x)+'</button>';
+ return '<button class="pocket-budget pocket-'+key+(bad?' pocket-over':'')+'" data-tab="'+(safety?'reserve':'plan')+'" '+(!safety?'data-plan-section="'+(key==='g'?'etf':'alltag')+'"':'')+'><span class="pocket-budget-heading"><span class="pocket-token">'+icon(ic,20)+'</span><span class="pocket-arrow" aria-hidden="true">↗</span></span><span class="pocket-budget-name">'+title+'</span><span class="pocket-budget-sub">'+sub+'</span><strong>'+euro(x.b[key])+'</strong><span class="pocket-meter"><i style="width:'+pct+'%"></i></span><span class="pocket-budget-note">'+note+'</span></button>';
 }
 overview=function(x){
  const allocation=actualAllocation(x),reserveProgress=pocketPercent(state.reserve,x.target),targetParts=pocketDefinitions.map(([k,n])=>({name:n,amount:x.original[k],color:C[k]}));

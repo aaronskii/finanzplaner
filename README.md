@@ -1,4 +1,4 @@
-# Finanzplaner – Version 4.2
+# Finanzplaner – Version 4.2.1
 
 **Einkommen planen, Budgets verstehen und Vermögen aufbauen.**
 
@@ -6,9 +6,14 @@ Kostenlose Web-App ohne Bankanbindung, Kontobuchungen oder automatische Überwei
 
 **[App öffnen →](https://aaronskii.github.io/vermoegensaufbau/)**
 
-## Neu in Version 4.2
+## Neu in Version 4.2.1
 
-- Die Übersicht zeigt den Betrag und die Richtung des automatischen Ausgleichs direkt bei den betroffenen Budgets. Wenn Essentials Mittel aus Wealth benötigt, erscheint eine Warnung.
+- Die kleinen Ausgleichshinweise innerhalb der Essentials- und Wealth-Karten entfallen. Die vier Budgetkarten behalten ihre kompakte Höhe.
+- Der gemeinsame Meldungsblock unter den vier Budgets bleibt mit Betrag, Richtung und Deckungsprüfung erhalten.
+
+## Seit Version 4.2
+
+- Die Übersicht zeigt den Betrag und die Richtung des automatischen Ausgleichs im gemeinsamen Meldungsblock unter den vier Budgets. Wenn Essentials Mittel aus Wealth benötigt, erscheint eine Warnung.
 - Ein höheres Wealth-Budget erhält nur dann eine positive Meldung, wenn der gesamte Betrag durch noch unverplante Essentials-Mittel gedeckt ist. Sonst zeigt die Übersicht den fehlenden Betrag.
 - Die normale Fußzeile zeigt **Credits an 🐭**. Die bisherigen Speicher- und Bankverbindungs-Hinweistexte entfallen. Ausstehende bzw. fehlgeschlagene Speicherung bleibt weiterhin sichtbar.
 
@@ -220,9 +225,9 @@ Das iPhone kann das alte Icon zwischenspeichern. Vor einem eventuellen erneuten 
 
 Vorher den bisherigen Plan exportieren. ZIP entpacken und den **Inhalt des Website-Ordners** vollständig im bisherigen Repository hochladen. Gleichnamige Dateien ersetzen, neue ergänzen; index.html bleibt im Hauptverzeichnis.
 
-**Version 4.2 benötigt wie Version 4.0 auch pocket.css und pocket-ui.js.** Alle Dateien gemeinsam veröffentlichen, einschließlich model-v3.js, ui-v3.js, vault-crypto.js, security.js, theme.js, app.js, style.css, offline.js, sw.js, manifest.webmanifest und der unveränderten App-Icons. Die Liniensymbole sind im UI-Skript enthalten; sie benötigen keinen externen Symbolserver. Ihr Lizenztext steht in LICENSE-icons.txt.
+**Version 4.2.1 benötigt wie Version 4.0 auch pocket.css und pocket-ui.js.** Alle Dateien gemeinsam veröffentlichen, einschließlich model-v3.js, ui-v3.js, vault-crypto.js, security.js, theme.js, app.js, style.css, offline.js, sw.js, manifest.webmanifest und der unveränderten App-Icons. Die Liniensymbole sind im UI-Skript enthalten; sie benötigen keinen externen Symbolserver. Ihr Lizenztext steht in LICENSE-icons.txt.
 
-GitHub Pages: **Settings → Pages → Deploy from a branch → main → /(root) → Save**. Keine eigene Domain erforderlich. Nach Bereitstellung App online öffnen, offene Eingaben speichern und **„Update laden“** wählen. Unten steht **Version 4.2**. Auf „Offline bereit“ warten.
+GitHub Pages: **Settings → Pages → Deploy from a branch → main → /(root) → Save**. Keine eigene Domain erforderlich. Nach Bereitstellung App online öffnen, offene Eingaben speichern und **„Update laden“** wählen. Unten steht **Version 4.2.1**. Auf „Offline bereit“ warten.
 
 **Die bisherige Domain und der Website-Pfad müssen für die direkte Datenübernahme gleich bleiben.** Browserdaten sind an ihren bisherigen Website-Ort gebunden. Das Umbenennen der App zu Finanzplaner erfordert deshalb keine Umbenennung des GitHub-Repositorys oder der Website-Adresse. Die technischen Speicherschlüssel, die Manifest-ID und der Service-Worker-Bereich bleiben bestehen. PIN und vorhandene Passkey-Verknüpfung werden weiterverwendet. Bei einem bewussten Umzug auf eine andere Adresse vorher exportieren, dort importieren und den Schutz neu einrichten.
 
